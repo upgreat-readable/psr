@@ -1,7 +1,7 @@
-import {EnterObject, MetricEnum, ReturnObject} from "../types/EnterObject";
+import {ParticipateInPsrObj, MetricEnum, ReturnObject, IterationPsrResult} from "../types/MainPsrTypes";
 
 export interface IMetricCalculator {
-    X: EnterObject
+    _X: ParticipateInPsrObj
     mX1: number
     mX2: number
     mX3: number
@@ -10,15 +10,16 @@ export interface IMetricCalculator {
     mX6: number
     mX7: number
 
-    Y: EnterObject
+    _Y: ParticipateInPsrObj
 
     weight: number
 
-    setWeight(): void
+    // setWeight(): void
 
-    // calculate(): ReturnObject
+    dash(): IterationPsrResult
+
     //
-    setM1(): void
+    // setM1(): void
     //
     // setM2(): MetricEnum
     //
