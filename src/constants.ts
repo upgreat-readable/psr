@@ -1,4 +1,4 @@
-export const K_MAX = {
+export const K_MAX: any = {
     rus: 24,
     lit: 14,
     soc: 6,

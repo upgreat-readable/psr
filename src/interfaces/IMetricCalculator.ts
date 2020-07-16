@@ -19,17 +19,17 @@ export interface IMetricCalculator {
     dash(): IterationPsrResult
 
     //
-    // setM1(): void
+    setM1(): void
     //
-    // setM2(): MetricEnum
+    setM2(): void
     //
-    // setM3(): MetricEnum
+    setM3(): void
     //
-    // setM4(): MetricEnum
+    setM4(): void
     //
-    // setM5(): MetricEnum
+    setM5(): void
     //
-    // setM6(): MetricEnum
+    setM6(): void
     //
-    // setM7(): MetricEnum
+    setM7(): void
 }

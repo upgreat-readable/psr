@@ -2,17 +2,19 @@ export type EnterGlobalObject = {
     essay: {
         id: string
         meta: {
+            theme: string,
+            subject: string,
             [key: string]: string | number
         },
         originalText: string,
-        markups: [
+        markups:
             {
                 id: string
                 isExpert: boolean
                 criterions: {
                     [key: string]: number
                 }
-                selections: [
+                selections:
                     {
                         id: number,
                         startSelection: number,
@@ -22,14 +24,13 @@ export type EnterGlobalObject = {
                         explanation: string,
                         correction: string,
                         tag: string,
-                        type: 'meaning' | 'error',
-                    }
-                ],
+                        type: string,
+                        subtype: string
+                    }[],
                 metrics: {
                     [key: string]: number
                 }
-            }
-        ]
+            }[]
     }
 }
 
@@ -39,7 +40,7 @@ export type ParticipateInPsrObj = {
     criterions: {
         [key: string]: number
     }
-    selections: [
+    selections:
         {
             id: number,
             startSelection: number,
@@ -49,9 +50,9 @@ export type ParticipateInPsrObj = {
             explanation: string,
             correction: string,
             tag: string,
-            type: 'meaning' | 'error',
-        }
-    ],
+            type: string,
+            subtype: string
+        }[],
     metrics: {
         [key: string]: number
     }
@@ -94,6 +95,12 @@ export type IterationPsrResult = {
     },
     STAR: number,
     CTER: number
+}
+
+export type MetaInPsr = {
+    theme: string,
+    subject: string,
+    [key: string]: string | number
 }
 
 

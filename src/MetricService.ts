@@ -3,20 +3,18 @@ import {MetricCalculator} from "./MetricCalculator";
 
 export class MetricService {
 
-    // @ts-ignore
-    _compileAnswer: ReturnObject
+    private _compileAnswer: ReturnObject = {} as ReturnObject
 
     constructor() {
-        // this._compileAnswer = {}
-    }
 
+    }
 
     calculate(entryMarkupObject: EnterGlobalObject) {
         for (let i in entryMarkupObject.essay.markups) {
             console.log('key - ' + i);
             for (let j in entryMarkupObject.essay.markups) {
                 if (i !== j) {
-                    let metric = new MetricCalculator(entryMarkupObject.essay.markups[i], entryMarkupObject.essay.markups[j]).dash()
+                    let metric = new MetricCalculator(entryMarkupObject.essay.markups[i], entryMarkupObject.essay.markups[j], entryMarkupObject.essay.meta).dash()
                     this.fillAnswer(i, metric)
                     console.log('another keys -- ' + j);
                 }
