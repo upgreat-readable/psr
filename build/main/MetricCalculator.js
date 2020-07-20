@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MetricCalculator = void 0;
-var constants_1 = require("./constants");
+var constants_1 = require("../constants");
+var CompareActions_1 = require("./CompareActions");
 var MetricCalculator = /** @class */ (function () {
-    function MetricCalculator(calcTerm, ethalonTerm, commonMeta) {
+    function MetricCalculator(calcTerm, ethalonTerm, commonMeta, originalText) {
         //значения метрик (измеряются в %)
         this.mX1 = 0;
         this.mX2 = 0;
@@ -17,6 +18,7 @@ var MetricCalculator = /** @class */ (function () {
         this._X = calcTerm;
         this._Y = ethalonTerm;
         this.meta = commonMeta;
+        this.originalText = originalText;
     }
     /*@todo округление должно происходить только в случае, когда результаты вычисления долей не являются целыми*/
     //основной метод расчёта метрик
@@ -42,7 +44,8 @@ var MetricCalculator = /** @class */ (function () {
         console.log('---m1 ' + this.mX1);
     };
     MetricCalculator.prototype.setM2 = function () {
-        var compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections);
+        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections)
+        var compareResult = CompareActions_1.CompareActions.run(this._X.selections, this._Y.selections);
         //точность поиска
         var searchAccuracy = compareResult.saI / this._X.selections.length;
         //полнота поиска
@@ -51,70 +54,33 @@ var MetricCalculator = /** @class */ (function () {
         console.log('---m2 ' + this.mX2);
     };
     MetricCalculator.prototype.setM3 = function () {
-        var compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'code');
+        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'code')
+        var compareResult = CompareActions_1.CompareActions.run(this._X.selections, this._Y.selections, 'code');
         this.mX3 = (compareResult.saI / this._X.selections.length) * 100;
         console.log('---m3 ' + this.mX3);
     };
     /*@todo парафразы должны быть занесены в константы (либо получены по запросу от catalog_errors) и быть поняты, как эталон для комментирования. https://w6p.ru/YWE1Y2R.png*/
     MetricCalculator.prototype.setM4 = function () {
-        var compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'subtype-comm');
+        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'subtype-comm')
+        var compareResult = CompareActions_1.CompareActions.run(this._X.selections, this._Y.selections, 'subtype-comm');
         this.mX4 = (compareResult.saI / this._X.selections.length) * 100;
         console.log('---m4 ' + this.mX4);
     };
     /**@todo мера жаккара. описано в техрегламенте**/
     MetricCalculator.prototype.setM5 = function () {
-        var compareResult = this.mX5 = 0;
+        // let compareResult = CompareActions.run()
+        var compareResult = CompareActions_1.CompareActions.run(this._X.selections, this._Y.selections, 'jaccardIndex');
+        this.mX5 = 0;
         console.log('---m5 ' + this.mX5);
     };
     MetricCalculator.prototype.setM6 = function () {
-        var compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'correction');
+        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'correction')
+        var compareResult = CompareActions_1.CompareActions.run(this._X.selections, this._Y.selections, 'correction');
         this.mX6 = (compareResult.saI / this._X.selections.length) * 100;
         console.log('---m6 ' + this.mX6);
     };
     /*@todo уточнить по поводу этого параметра*/
     MetricCalculator.prototype.setM7 = function () {
-    };
-    MetricCalculator.prototype.compareSimilarFragments = function (x, y, mode) {
-        if (mode === void 0) { mode = ''; }
-        var result = { saI: 0, cosI: 0 };
-        for (var i in x) {
-            for (var j in y) {
-                if (x[i].startSelection === y[j].startSelection &&
-                    x[i].endSelection === y[j].endSelection) {
-                    switch (mode) {
-                        case 'correction':
-                            if (x[i].correction === x[i].correction) {
-                                result.saI++;
-                            }
-                            break;
-                        case 'subtype-comm':
-                            if (x[i].subtype === y[i].subtype || x[i].comment === y[j].comment) {
-                                result.saI++;
-                            }
-                            break;
-                        case 'code':
-                            if (x[i].code === y[j].code) {
-                                result.saI++;
-                            }
-                            break;
-                        case '':
-                            result.saI++;
-                            break;
-                    }
-                }
-            }
-        }
-        if (mode === '') {
-            for (var i in y) {
-                for (var j in x) {
-                    if (y[i].startSelection === x[j].startSelection &&
-                        y[i].endSelection === x[j].endSelection) {
-                        result.cosI++;
-                    }
-                }
-            }
-        }
-        return result;
     };
     return MetricCalculator;
 }());

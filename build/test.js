@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var MetricService_1 = require("./MetricService");
 console.log(123);
 var a = [1, 2, 3, 4, 5];
 var x = {
@@ -99,7 +98,42 @@ var x = {
         ],
     }
 };
-new MetricService_1.MetricService().calculate(x);
+var y = require('./mistakes/mistakes.json');
+console.log(y);
+// new MetricService().calculate(x)
+var z = [
+    {
+        subtypes: [
+            {
+                name: 'qwe',
+                komm: 'zzz'
+            },
+            {
+                name: 'qwe1',
+                komm: 'zzz1'
+            }
+        ]
+    },
+    {
+        subtypes: [
+            {
+                name: 'qwe2',
+                komm: 'zzz3'
+            },
+            {
+                name: 'qwe3',
+                komm: 'zzz3'
+            }
+        ]
+    }
+];
+for (var i in z) {
+    for (var j in z[i].subtypes) {
+        if (z[i].subtypes[j].komm === 'zzz3') {
+            console.log(123);
+        }
+    }
+}
 // for (let i in x.essay.markUp) {
 //     console.log('сейчас ключ  =-' + i);
 //     for (let j in x.essay.markUp) {

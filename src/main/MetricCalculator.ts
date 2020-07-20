@@ -1,6 +1,7 @@
-import {IMetricCalculator} from "./interfaces/IMetricCalculator";
-import {ParticipateInPsrObj, IterationPsrResult, MetaInPsr} from "./types/MainPsrTypes";
-import {K_MAX} from "./constants";
+import {IMetricCalculator} from "../interfaces/IMetricCalculator";
+import {ParticipateInPsrObj, IterationPsrResult, MetaInPsr} from "../types/MainPsrTypes";
+import {K_MAX} from "../constants";
+import {CompareActions} from "./CompareActions";
 
 export class MetricCalculator implements IMetricCalculator {
     private meta: MetaInPsr
@@ -18,12 +19,15 @@ export class MetricCalculator implements IMetricCalculator {
     _Y: ParticipateInPsrObj
 
     weight = 0
+    originalText: string
+
     private iterationPsrResult: IterationPsrResult = {} as IterationPsrResult
 
-    constructor(calcTerm: ParticipateInPsrObj, ethalonTerm: ParticipateInPsrObj, commonMeta: MetaInPsr) {
+    constructor(calcTerm: ParticipateInPsrObj, ethalonTerm: ParticipateInPsrObj, commonMeta: MetaInPsr, originalText: string) {
         this._X = calcTerm
         this._Y = ethalonTerm
         this.meta = commonMeta
+        this.originalText = originalText
     }
 
     /*@todo округление должно происходить только в случае, когда результаты вычисления долей не являются целыми*/
@@ -56,7 +60,8 @@ export class MetricCalculator implements IMetricCalculator {
     }
 
     setM2(): void {
-        let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections)
+        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections)
+        let compareResult = CompareActions.run(this._X.selections, this._Y.selections)
 
         //точность поиска
         let searchAccuracy = compareResult.saI / this._X.selections.length
@@ -69,16 +74,18 @@ export class MetricCalculator implements IMetricCalculator {
     }
 
     setM3(): void {
-        let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'code')
+        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'code')
+        let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'code')
 
         this.mX3 = (compareResult.saI / this._X.selections.length) * 100
 
         console.log('---m3 ' + this.mX3);
     }
 
-    /*@todo парафразы должны быть занесены в константы и быть поняты, как эталон для комментирования. https://w6p.ru/YWE1Y2R.png*/
+    /*@todo парафразы должны быть занесены в константы (либо получены по запросу от catalog_errors) и быть поняты, как эталон для комментирования. https://w6p.ru/YWE1Y2R.png*/
     setM4(): void {
-        let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'subtype-comm')
+        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'subtype-comm')
+        let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'subtype-comm')
 
         this.mX4 = (compareResult.saI / this._X.selections.length) * 100
 
@@ -87,15 +94,16 @@ export class MetricCalculator implements IMetricCalculator {
 
     /**@todo мера жаккара. описано в техрегламенте**/
     setM5(): void {
-        let compareResult =
-
+        // let compareResult = CompareActions.run()
+        let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'jaccardIndex')
         this.mX5 = 0
 
         console.log('---m5 ' + this.mX5);
     }
 
     setM6(): void {
-        let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'correction')
+        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'correction')
+        let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'correction')
 
         this.mX6 = (compareResult.saI / this._X.selections.length) * 100
 
@@ -106,54 +114,4 @@ export class MetricCalculator implements IMetricCalculator {
     setM7() {
 
     }
-
-
-    compareSimilarFragments(x: any, y: any, mode: string = '') {
-        let result = {saI: 0, cosI: 0}
-
-        for (let i in x) {
-            for (let j in y) {
-                if (x[i].startSelection === y[j].startSelection &&
-                    x[i].endSelection === y[j].endSelection
-                ) {
-                    switch (mode) {
-                        case 'correction':
-                            if (x[i].correction === x[i].correction) {
-                                result.saI++
-                            }
-                            break
-                        case 'subtype-comm':
-                            if (x[i].subtype === y[i].subtype || x[i].comment === y[j].comment) {
-                                result.saI++
-                            }
-                            break
-                        case 'code':
-                            if (x[i].code === y[j].code) {
-                                result.saI++
-                            }
-                            break
-                        case '':
-                            result.saI++
-                            break
-                    }
-                }
-            }
-        }
-
-        if (mode === '') {
-            for (let i in y) {
-                for (let j in x) {
-                    if (y[i].startSelection === x[j].startSelection &&
-                        y[i].endSelection === x[j].endSelection
-                    ) {
-                        result.cosI++
-                    }
-                }
-            }
-        }
-
-        return result
-    }
-
-
 }

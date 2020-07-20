@@ -1,5 +1,5 @@
 import {EnterGlobalObject, IterationPsrResult, ReturnObject} from "./types/MainPsrTypes";
-import {MetricCalculator} from "./MetricCalculator";
+import {MetricCalculator} from "./main/MetricCalculator";
 
 export class MetricService {
 
@@ -14,7 +14,9 @@ export class MetricService {
             console.log('key - ' + i);
             for (let j in entryMarkupObject.essay.markups) {
                 if (i !== j) {
-                    let metric = new MetricCalculator(entryMarkupObject.essay.markups[i], entryMarkupObject.essay.markups[j], entryMarkupObject.essay.meta).dash()
+                    let metric = new MetricCalculator(
+                        entryMarkupObject.essay.markups[i], entryMarkupObject.essay.markups[j], entryMarkupObject.essay.meta, entryMarkupObject.essay.originalText
+                    ).dash()
                     this.fillAnswer(i, metric)
                     console.log('another keys -- ' + j);
                 }

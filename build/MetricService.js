@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MetricService = void 0;
-var MetricCalculator_1 = require("./MetricCalculator");
+var MetricCalculator_1 = require("./main/MetricCalculator");
 var MetricService = /** @class */ (function () {
     function MetricService() {
         this._compileAnswer = {};
@@ -11,7 +11,7 @@ var MetricService = /** @class */ (function () {
             console.log('key - ' + i);
             for (var j in entryMarkupObject.essay.markups) {
                 if (i !== j) {
-                    var metric = new MetricCalculator_1.MetricCalculator(entryMarkupObject.essay.markups[i], entryMarkupObject.essay.markups[j], entryMarkupObject.essay.meta).dash();
+                    var metric = new MetricCalculator_1.MetricCalculator(entryMarkupObject.essay.markups[i], entryMarkupObject.essay.markups[j], entryMarkupObject.essay.meta, entryMarkupObject.essay.originalText).dash();
                     this.fillAnswer(i, metric);
                     console.log('another keys -- ' + j);
                 }

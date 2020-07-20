@@ -15,7 +15,7 @@ var options = {
 };
 requestPromise(options)
     .then(function (response) {
-    // console.log(response,'response')
+    console.log(response, 'response');
     // @ts-ignore
     fs.writeFile(filePath, response, function (err) {
         if (err) {

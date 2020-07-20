@@ -34,6 +34,19 @@ export type EnterGlobalObject = {
     }
 }
 
+export type Selections = {
+    id: number,
+    startSelection: number,
+    endSelection: number,
+    code: string,
+    comment: string,
+    explanation: string,
+    correction: string,
+    tag: string,
+    type: string,
+    subtype: string
+}[]
+
 export type ParticipateInPsrObj = {
     id: string
     isExpert: boolean
