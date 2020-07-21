@@ -8,6 +8,7 @@ var CompareActions = /** @class */ (function () {
         if (mode === void 0) { mode = ''; }
         this.x = x;
         this.y = y;
+        this.result = { saI: 0, cosI: 0 };
         for (var i in this.x) {
             for (var j in y) {
                 if (this.x[i].startSelection === y[j].startSelection &&

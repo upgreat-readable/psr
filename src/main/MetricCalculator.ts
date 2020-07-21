@@ -21,7 +21,20 @@ export class MetricCalculator implements IMetricCalculator {
     weight = 0
     originalText: string
 
-    private iterationPsrResult: IterationPsrResult = {} as IterationPsrResult
+    private iterationPsrResult: IterationPsrResult = {
+        markupId: '',
+        metrics: {
+            M1: 0,
+            M2: 0,
+            M3: 0,
+            M4: 0,
+            M5: 0,
+            M6: 0,
+            M7: 0
+        },
+        STAR: 0,
+        CTER: 0
+    } as IterationPsrResult
 
     constructor(calcTerm: ParticipateInPsrObj, ethalonTerm: ParticipateInPsrObj, commonMeta: MetaInPsr, originalText: string) {
         this._X = calcTerm
@@ -33,12 +46,14 @@ export class MetricCalculator implements IMetricCalculator {
     /*@todo округление должно происходить только в случае, когда результаты вычисления долей не являются целыми*/
     //основной метод расчёта метрик
     dash(): IterationPsrResult {
+        this.iterationPsrResult.markupId = this._Y.id
         this.setM1()
         this.setM2()
         this.setM3()
         this.setM4()
         this.setM5()
         this.setM6()
+        this.setM7()
         return this.iterationPsrResult
     }
 
@@ -55,6 +70,7 @@ export class MetricCalculator implements IMetricCalculator {
         }
 
         this.mX1 = Math.round((1 - Math.abs(K1Sum - K2Sum) / K_MAX[this.meta.subject]) * 100)
+        this.iterationPsrResult.metrics.M1 = this.mX1
 
         console.log('---m1 ' + this.mX1);
     }
@@ -69,6 +85,7 @@ export class MetricCalculator implements IMetricCalculator {
         let completenessOfSearch = compareResult.cosI / this._Y.selections.length
 
         this.mX2 = Math.round((2 / (1 / searchAccuracy + 1 / completenessOfSearch)) * 100)
+        this.iterationPsrResult.metrics.M2 = this.mX2
 
         console.log('---m2 ' + this.mX2);
     }
@@ -78,6 +95,7 @@ export class MetricCalculator implements IMetricCalculator {
         let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'code')
 
         this.mX3 = (compareResult.saI / this._X.selections.length) * 100
+        this.iterationPsrResult.metrics.M3 = this.mX3
 
         console.log('---m3 ' + this.mX3);
     }
@@ -88,15 +106,17 @@ export class MetricCalculator implements IMetricCalculator {
         let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'subtype-comm')
 
         this.mX4 = (compareResult.saI / this._X.selections.length) * 100
+        this.iterationPsrResult.metrics.M4 = this.mX4
 
         console.log('---m4 ' + this.mX4);
     }
 
-    /**@todo мера жаккара. описано в техрегламенте**/
+    /**@todo мера жаккара. описано в техрегламенте. фактически, критерий не расчитываем до тех пор, пока не будет разъяснен механизм сопоставления фрагментов**/
     setM5(): void {
         // let compareResult = CompareActions.run()
-        let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'jaccardIndex')
+        // let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'jaccardIndex')
         this.mX5 = 0
+        this.iterationPsrResult.metrics.M5 = this.mX5
 
         console.log('---m5 ' + this.mX5);
     }
@@ -106,12 +126,17 @@ export class MetricCalculator implements IMetricCalculator {
         let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'correction')
 
         this.mX6 = (compareResult.saI / this._X.selections.length) * 100
+        this.iterationPsrResult.metrics.M6 = this.mX6
 
         console.log('---m6 ' + this.mX6);
     }
 
-    /*@todo уточнить по поводу этого параметра*/
+    /*@todo уточнить по поводу этого параметра
+    *   занулён, т.к пояснения не были получены*/
     setM7() {
+        this.mX7 = 0
+        this.iterationPsrResult.metrics.M7 = this.mX7
 
+        console.log('---m7 ' + this.mX7);
     }
 }

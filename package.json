@@ -15,11 +15,12 @@
     "dev": "nodemon build/getErrors.js",
     "build": "node build/getErrors.js"
   },
-
   "dependencies": {
+    "@types/lodash": "^4.14.157",
     "@types/node": "^14.0.13",
     "fs": "0.0.1-security",
     "http": "0.0.1-security",
+    "lodash": "^4.17.19",
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
     "request": "^2.88.2",

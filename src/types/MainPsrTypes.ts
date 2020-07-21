@@ -75,7 +75,7 @@ export type ReturnObject = {
     markups: [
         {
             id: string,
-            matching: [
+            matching:
                 {
                     markupId: string,
                     metrics: {
@@ -89,8 +89,8 @@ export type ReturnObject = {
                     },
                     STAR: number,
                     CTER: number
-                }
-            ]
+                }[]
+
         }
     ]
 }

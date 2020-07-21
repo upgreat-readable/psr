@@ -12,7 +12,7 @@ export class CompareActions {
     static run(x: Selections, y: Selections, mode: string = '') {
         this.x = x
         this.y = y
-
+        this.result = {saI: 0, cosI: 0}
 
         for (let i in this.x) {
             for (let j in y) {

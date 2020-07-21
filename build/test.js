@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var MetricService_1 = require("./MetricService");
 console.log(123);
 var a = [1, 2, 3, 4, 5];
 var x = {
@@ -20,7 +21,7 @@ var x = {
         originalText: 'qwe',
         markups: [
             {
-                id: 'qwe',
+                id: 'qwe3',
                 isExpert: true,
                 criterions: {
                     K1: 2,
@@ -58,7 +59,45 @@ var x = {
                 ],
             },
             {
-                id: 'qwe',
+                id: 'qwe5',
+                isExpert: true,
+                criterions: {
+                    K1: 2,
+                    K2: 1,
+                    K3: 0
+                },
+                metrics: {
+                    M1: 50
+                },
+                selections: [
+                    {
+                        id: 1,
+                        startSelection: 50,
+                        endSelection: 52,
+                        code: 'О.теорсвязь',
+                        comment: 'Комментарий1',
+                        explanation: 'Пояснение1',
+                        correction: 'Исправление1',
+                        tag: 'tag1',
+                        type: 'error',
+                        subtype: 'error',
+                    },
+                    {
+                        id: 2,
+                        startSelection: 7,
+                        endSelection: 20,
+                        code: 'ПОНЯТИЕ',
+                        comment: 'Комментарий2',
+                        explanation: 'Пояснение2',
+                        correction: 'Исправление2',
+                        tag: 'tag2',
+                        type: 'meaning',
+                        subtype: 'error',
+                    },
+                ],
+            },
+            {
+                id: 'qwe4',
                 isExpert: true,
                 criterions: {
                     K1: 2,
@@ -98,42 +137,53 @@ var x = {
         ],
     }
 };
-var y = require('./mistakes/mistakes.json');
-console.log(y);
-// new MetricService().calculate(x)
-var z = [
-    {
-        subtypes: [
-            {
-                name: 'qwe',
-                komm: 'zzz'
-            },
-            {
-                name: 'qwe1',
-                komm: 'zzz1'
-            }
-        ]
-    },
-    {
-        subtypes: [
-            {
-                name: 'qwe2',
-                komm: 'zzz3'
-            },
-            {
-                name: 'qwe3',
-                komm: 'zzz3'
-            }
-        ]
-    }
-];
-for (var i in z) {
-    for (var j in z[i].subtypes) {
-        if (z[i].subtypes[j].komm === 'zzz3') {
-            console.log(123);
-        }
-    }
-}
+// const y = require('./mistakes/mistakes.json')
+// console.log(y);
+// x.essay.markups
+// var _ = require('lodash');
+// let n = _.groupBy(x.essay.markups[0].selections, 'tag')
+// console.log(n);
+var p = new MetricService_1.MetricService().calculate(x);
+//@ts-ignore
+console.log(p.markups[0].matching);
+//@ts-ignore
+console.log(p.markups[1].matching);
+//@ts-ignore
+console.log(p.markups[2].matching);
+// let z = [
+//     {
+//         subtypes: [
+//             {
+//                 name: 'qwe',
+//                 komm: 'zzz'
+//             },
+//             {
+//                 name: 'qwe1',
+//                 komm: 'zzz1'
+//             }
+//         ]
+//     },
+//     {
+//         subtypes: [
+//             {
+//                 name: 'qwe2',
+//                 komm: 'zzz3'
+//             },
+//             {
+//                 name: 'qwe3',
+//                 komm: 'zzz3'
+//             }
+//         ]
+//     }
+// ]
+//
+// for (let i in z) {
+//     for (let j in z[i].subtypes) {
+//         if (z[i].subtypes[j].komm === 'zzz3') {
+//             console.log(123);
+//         }
+//     }
+// }
 // for (let i in x.essay.markUp) {
 //     console.log('сейчас ключ  =-' + i);
 //     for (let j in x.essay.markUp) {
