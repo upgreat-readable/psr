@@ -1,5 +1,5 @@
 import {IMetricCalculator} from "../interfaces/IMetricCalculator";
-import {ParticipateInPsrObj, IterationPsrResult, MetaInPsr} from "../types/MainPsrTypes";
+import {ParticipateInPsrObj, IterationPsrResult, MetaInPsr, MetricObj} from "../types/MainPsrTypes";
 import {K_MAX} from "../constants";
 import {CompareActions} from "./CompareActions";
 
@@ -20,7 +20,16 @@ export class MetricCalculator implements IMetricCalculator {
     //эталонная разметка
     _Y: ParticipateInPsrObj
 
-    weight: number = 0
+    weight : MetricObj = {
+        M1: 1,
+        M2: 1,
+        M3: 1,
+        M4: 1,
+        M5: 1,
+        M6: 1,
+        M7: 1
+    }
+
     originalText: string
 
     private iterationPsrResult: IterationPsrResult = {
@@ -162,6 +171,7 @@ export class MetricCalculator implements IMetricCalculator {
     /*@todo уточнить по поводу этого параметра
     *   занулён, т.к пояснения не были получены*/
     setM7() {
+        this.weight.M7 = 0
         this.mX7 = 0
 
         if (!Number.isInteger(this.mX7)) {
@@ -177,7 +187,7 @@ export class MetricCalculator implements IMetricCalculator {
         let denominationFinal = 0
         for (let i in this.iterationPsrResult.metrics) {
             //@ts-ignore
-            if (this.iterationPsrResult.metrics[i] !== 0) {
+            if (this.weight[i] !== 0) {
                 denominationFinal++
             }
         }

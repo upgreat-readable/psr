@@ -14,7 +14,15 @@ var MetricCalculator = /** @class */ (function () {
         this.mX6 = 0;
         this.mX7 = 0;
         this.mTotal = 0;
-        this.weight = 0;
+        this.weight = {
+            M1: 1,
+            M2: 1,
+            M3: 1,
+            M4: 1,
+            M5: 1,
+            M6: 1,
+            M7: 1
+        };
         this.iterationPsrResult = {
             markupId: '',
             metrics: {
@@ -130,6 +138,7 @@ var MetricCalculator = /** @class */ (function () {
     /*@todo уточнить по поводу этого параметра
     *   занулён, т.к пояснения не были получены*/
     MetricCalculator.prototype.setM7 = function () {
+        this.weight.M7 = 0;
         this.mX7 = 0;
         if (!Number.isInteger(this.mX7)) {
             this.iterationPsrResult.metrics.M7 = Math.round(this.mX7);
@@ -143,7 +152,7 @@ var MetricCalculator = /** @class */ (function () {
         var denominationFinal = 0;
         for (var i in this.iterationPsrResult.metrics) {
             //@ts-ignore
-            if (this.iterationPsrResult.metrics[i] !== 0) {
+            if (this.weight[i] !== 0) {
                 denominationFinal++;
             }
         }

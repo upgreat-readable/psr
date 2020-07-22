@@ -122,5 +122,15 @@ export type MetaInPsr = {
     [key: string]: string | number
 }
 
+export type MetricObj = {
+    M1: number
+    M2: number
+    M3: number
+    M4: number
+    M5: number
+    M6: number
+    M7: number
+}
+
 
 export type MetricEnum = number

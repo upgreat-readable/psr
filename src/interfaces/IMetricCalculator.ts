@@ -1,4 +1,4 @@
-import {ParticipateInPsrObj, MetricEnum, ReturnObject, IterationPsrResult} from "../types/MainPsrTypes";
+import {ParticipateInPsrObj, MetricEnum, ReturnObject, IterationPsrResult, MetricObj} from "../types/MainPsrTypes";
 
 export interface IMetricCalculator {
     _X: ParticipateInPsrObj
@@ -12,7 +12,7 @@ export interface IMetricCalculator {
 
     _Y: ParticipateInPsrObj
 
-    weight: number
+    weight: MetricObj
 
     // setWeight(): void
 

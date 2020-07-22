@@ -90,15 +90,19 @@ var MetricService = /** @class */ (function () {
         var averageSterDenominator = 0;
         for (var i in this._compileAnswer.markups) {
             if (this._compileAnswer.markups[i].id === mainMarkupId) {
+                console.log('стэр - ' + this._compileAnswer.markups[i].CTER);
                 if (this._compileAnswer.markups[i].CTER !== 0) {
-                    averageSter = averageSter + this._compileAnswer.markups[i].CTER;
+                    console.log('стэр 3 - ' + this._compileAnswer.markups[i].CTER);
+                    averageSter += this._compileAnswer.markups[i].CTER;
                     averageSterDenominator++;
                 }
                 if (!expertMarker && this._compileAnswer.markups[i].STAR !== 0) {
                     star = this._compileAnswer.markups[i].STAR;
+                    console.log('стар - ' + star);
                 }
             }
         }
+        console.log('стэр 2 - ' + averageSterDenominator);
         var ster = averageSter / averageSterDenominator;
         for (var i in this._compileAnswer.markups) {
             if (this._compileAnswer.markups[i].id === mainMarkupId) {

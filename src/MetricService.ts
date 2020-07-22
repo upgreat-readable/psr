@@ -100,19 +100,24 @@ export class MetricService {
 
         for (let i in this._compileAnswer.markups) {
             if (this._compileAnswer.markups[i].id === mainMarkupId) {
-
+                console.log('стэр - ' + this._compileAnswer.markups[i].CTER);
                 if (this._compileAnswer.markups[i].CTER !== 0) {
-                    averageSter = averageSter + this._compileAnswer.markups[i].CTER
+                    console.log('стэр 3 - ' + this._compileAnswer.markups[i].CTER);
+                    averageSter += this._compileAnswer.markups[i].CTER
                     averageSterDenominator++
                 }
 
                 if (!expertMarker && this._compileAnswer.markups[i].STAR !== 0) {
                     star = this._compileAnswer.markups[i].STAR
+
+                    console.log('стар - ' + star);
                 }
             }
         }
-
+        console.log('стэр 2 - ' + averageSterDenominator);
         let ster = averageSter / averageSterDenominator
+
+
 
         for (let i in this._compileAnswer.markups) {
             if (this._compileAnswer.markups[i].id === mainMarkupId) {
