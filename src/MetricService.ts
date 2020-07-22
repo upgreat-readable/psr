@@ -13,7 +13,9 @@ export class MetricService {
             /* на каждую из главных итераций пушим в итоговый массив id разметки и пустой результат сравнения */
             this._compileAnswer.markups.push({
                 id: entryMarkupObject.essay.markups[i].id,
-                matching: []
+                matching: [],
+                STAR: 0,
+                CTER: 0
             })
 
             for (let j in entryMarkupObject.essay.markups) {
@@ -25,12 +27,11 @@ export class MetricService {
                     ).dash()
                     /* запушим результат в итоговых массив */
                     this.fillAnswer(entryMarkupObject.essay.markups[i].id, metric)
-                    console.log('another keys -- ' + j);
                 }
             }
 
             /* после вычисления метрик расчитаем стар/стэр, в зависимости от типа разметки */
-            this.calcAccuracy(i)
+            this.calcAccuracy(entryMarkupObject.essay.markups[i].id, entryMarkupObject.essay.markups[i].isExpert)
         }
 
         return this._compileAnswer
@@ -38,17 +39,36 @@ export class MetricService {
 
     fillAnswer(mainMarkupId: string, psrConcreteResult: IterationPsrResult) {
         for (let i in this._compileAnswer.markups) {
-            console.log('rmid  ' + mainMarkupId);
             if (this._compileAnswer.markups[i].id === mainMarkupId) {
                 this._compileAnswer.markups[i].matching.push(psrConcreteResult)
             }
         }
     }
 
-    calcAccuracy(mainMarkupId: string) {
+    calcAccuracy(mainMarkupId: string, expertMarker: boolean) {
+        let numenator = 0
+        let denominator = 0
         for (let i in this._compileAnswer.markups) {
-            if (this._compileAnswer.markups[i].id === mainMarkupId) {
 
+            if (this._compileAnswer.markups[i].id === mainMarkupId) {
+                /* для каждого элемента сравнения суммируем mTotal */
+                for (let j in this._compileAnswer.markups[i].matching) {
+                    /*@todo после получения ответа от Константина, нужно будет либо удалить коммент, либо исправить реализацию*/
+                    /* если результат сравнения был расчитан относительно разметки 3м экспертом - его вес будет равен 2 */
+                    if (this._compileAnswer.markups[i].matching[j].thirdExpert) {
+                        numenator = numenator + this._compileAnswer.markups[i].matching[j].metrics.MTotal * 2
+                        denominator = denominator + 2
+                    } else {
+                        numenator = numenator + this._compileAnswer.markups[i].matching[j].metrics.MTotal
+                        denominator = denominator + 1
+                    }
+                }
+
+                if (expertMarker) {
+                    this._compileAnswer.markups[i].STAR = numenator / denominator
+                } else {
+                    this._compileAnswer.markups[i].CTER = numenator / denominator
+                }
             }
         }
     }

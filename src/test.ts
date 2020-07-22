@@ -24,6 +24,7 @@ let x = {
                 {
                     id: 'qwe3',
                     isExpert: true,
+                    thirdExpert: false,
                     criterions: {
                         K1: 2,
                         K2: 1,
@@ -63,6 +64,7 @@ let x = {
                 {
                     id: 'qwe5',
                     isExpert: true,
+                    thirdExpert: false,
                     criterions: {
                         K1: 2,
                         K2: 1,
@@ -102,6 +104,7 @@ let x = {
                 {
                     id: 'qwe4',
                     isExpert: true,
+                    thirdExpert: false,
                     criterions: {
                         K1: 2,
                         K2: 2,
@@ -162,6 +165,9 @@ let x = {
 let p = new MetricService().calculate(x)
 //@ts-ignore
 console.log(p.markups[0].matching);
+console.log('---------------------------');
+//@ts-ignore
+console.log(p.markups[0]);
 //@ts-ignore
 console.log(p.markups[1].matching);
 //@ts-ignore

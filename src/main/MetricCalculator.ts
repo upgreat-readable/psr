@@ -8,17 +8,19 @@ export class MetricCalculator implements IMetricCalculator {
     //вычисляемая разметка
     _X: ParticipateInPsrObj
     //значения метрик (измеряются в %)
-    mX1 = 0
-    mX2 = 0
-    mX3 = 0
-    mX4 = 0
-    mX5 = 0
-    mX6 = 0
-    mX7 = 0
+    mX1: number = 0
+    mX2: number = 0
+    mX3: number = 0
+    mX4: number = 0
+    mX5: number = 0
+    mX6: number = 0
+    mX7: number = 0
+
+    mTotal: number = 0
     //эталонная разметка
     _Y: ParticipateInPsrObj
 
-    weight = 0
+    weight: number = 0
     originalText: string
 
     private iterationPsrResult: IterationPsrResult = {
@@ -43,10 +45,10 @@ export class MetricCalculator implements IMetricCalculator {
         this.originalText = originalText
     }
 
-    /*@todo округление должно происходить только в случае, когда результаты вычисления долей не являются целыми*/
     //основной метод расчёта метрик
     dash(): IterationPsrResult {
         this.iterationPsrResult.markupId = this._Y.id
+        this.iterationPsrResult.thirdExpert = this._Y.thirdExpert
         this.setM1()
         this.setM2()
         this.setM3()
@@ -54,6 +56,7 @@ export class MetricCalculator implements IMetricCalculator {
         this.setM5()
         this.setM6()
         this.setM7()
+        this.setMTotal()
         return this.iterationPsrResult
     }
 
@@ -69,14 +72,18 @@ export class MetricCalculator implements IMetricCalculator {
             throw new Error('Получен несуществующий код предмета.')
         }
 
-        this.mX1 = Math.round((1 - Math.abs(K1Sum - K2Sum) / K_MAX[this.meta.subject]) * 100)
-        this.iterationPsrResult.metrics.M1 = this.mX1
+        this.mX1 = (1 - Math.abs(K1Sum - K2Sum) / K_MAX[this.meta.subject]) * 100
+
+        if (!Number.isInteger(this.mX1)) {
+            this.iterationPsrResult.metrics.M1 = Math.round(this.mX1)
+        } else {
+            this.iterationPsrResult.metrics.M1 = this.mX1
+        }
 
         console.log('---m1 ' + this.mX1);
     }
 
     setM2(): void {
-        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections)
         let compareResult = CompareActions.run(this._X.selections, this._Y.selections)
 
         //точность поиска
@@ -85,7 +92,12 @@ export class MetricCalculator implements IMetricCalculator {
         let completenessOfSearch = compareResult.cosI / this._Y.selections.length
 
         this.mX2 = Math.round((2 / (1 / searchAccuracy + 1 / completenessOfSearch)) * 100)
-        this.iterationPsrResult.metrics.M2 = this.mX2
+
+        if (!Number.isInteger(this.mX2)) {
+            this.iterationPsrResult.metrics.M2 = Math.round(this.mX2)
+        } else {
+            this.iterationPsrResult.metrics.M2 = this.mX2
+        }
 
         console.log('---m2 ' + this.mX2);
     }
@@ -95,7 +107,12 @@ export class MetricCalculator implements IMetricCalculator {
         let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'code')
 
         this.mX3 = (compareResult.saI / this._X.selections.length) * 100
-        this.iterationPsrResult.metrics.M3 = this.mX3
+
+        if (!Number.isInteger(this.mX3)) {
+            this.iterationPsrResult.metrics.M3 = Math.round(this.mX3)
+        } else {
+            this.iterationPsrResult.metrics.M3 = this.mX3
+        }
 
         console.log('---m3 ' + this.mX3);
     }
@@ -106,7 +123,12 @@ export class MetricCalculator implements IMetricCalculator {
         let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'subtype-comm')
 
         this.mX4 = (compareResult.saI / this._X.selections.length) * 100
-        this.iterationPsrResult.metrics.M4 = this.mX4
+
+        if (!Number.isInteger(this.mX4)) {
+            this.iterationPsrResult.metrics.M4 = Math.round(this.mX4)
+        } else {
+            this.iterationPsrResult.metrics.M4 = this.mX4
+        }
 
         console.log('---m4 ' + this.mX4);
     }
@@ -116,7 +138,12 @@ export class MetricCalculator implements IMetricCalculator {
         // let compareResult = CompareActions.run()
         // let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'jaccardIndex')
         this.mX5 = 0
-        this.iterationPsrResult.metrics.M5 = this.mX5
+
+        if (!Number.isInteger(this.mX5)) {
+            this.iterationPsrResult.metrics.M5 = Math.round(this.mX5)
+        } else {
+            this.iterationPsrResult.metrics.M5 = this.mX5
+        }
 
         console.log('---m5 ' + this.mX5);
     }
@@ -126,7 +153,12 @@ export class MetricCalculator implements IMetricCalculator {
         let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'correction')
 
         this.mX6 = (compareResult.saI / this._X.selections.length) * 100
-        this.iterationPsrResult.metrics.M6 = this.mX6
+
+        if (!Number.isInteger(this.mX6)) {
+            this.iterationPsrResult.metrics.M6 = Math.round(this.mX6)
+        } else {
+            this.iterationPsrResult.metrics.M6 = this.mX6
+        }
 
         console.log('---m6 ' + this.mX6);
     }
@@ -135,8 +167,31 @@ export class MetricCalculator implements IMetricCalculator {
     *   занулён, т.к пояснения не были получены*/
     setM7() {
         this.mX7 = 0
-        this.iterationPsrResult.metrics.M7 = this.mX7
+
+        if (!Number.isInteger(this.mX7)) {
+            this.iterationPsrResult.metrics.M7 = Math.round(this.mX7)
+        } else {
+            this.iterationPsrResult.metrics.M7 = this.mX7
+        }
 
         console.log('---m7 ' + this.mX7);
+    }
+
+    setMTotal() {
+        let denominationFinal = 0
+        for (let i in this.iterationPsrResult.metrics) {
+            //@ts-ignore
+            if (this.iterationPsrResult.metrics[i] !== 0) {
+                denominationFinal++
+            }
+        }
+
+        this.mTotal = Object.values(this.iterationPsrResult.metrics).reduce((a, b) => a + b, 0) / denominationFinal
+
+        if (!Number.isInteger(this.mTotal)) {
+            this.iterationPsrResult.metrics.MTotal = Math.round(this.mTotal)
+        } else {
+            this.iterationPsrResult.metrics.MTotal = this.mTotal
+        }
     }
 }
