@@ -11,7 +11,7 @@ export type EnterGlobalObject = {
             {
                 id: string
                 isExpert: boolean
-                thirdExpert: boolean
+                third: boolean
                 criterions: {
                     [key: string]: number
                 }
@@ -51,7 +51,7 @@ export type Selections = {
 export type ParticipateInPsrObj = {
     id: string
     isExpert: boolean
-    thirdExpert: boolean
+    third: boolean
     criterions: {
         [key: string]: number
     }
@@ -79,7 +79,7 @@ export type ReturnObject = {
             id: string,
             matching:
                 {
-                    thirdExpert: boolean
+                    third: boolean
                     markupId: string,
                     metrics: {
                         M1: number,
@@ -93,14 +93,15 @@ export type ReturnObject = {
                     },
                 }[],
             STAR: number,
-            CTER: number
+            CTER: number,
+            OTAR: number
         }
     ]
 }
 
 export type IterationPsrResult = {
     markupId: string,
-    thirdExpert: boolean
+    third: boolean
     metrics: {
         M1: number,
         M2: number,

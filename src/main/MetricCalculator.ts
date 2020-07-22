@@ -48,7 +48,7 @@ export class MetricCalculator implements IMetricCalculator {
     //основной метод расчёта метрик
     dash(): IterationPsrResult {
         this.iterationPsrResult.markupId = this._Y.id
-        this.iterationPsrResult.thirdExpert = this._Y.thirdExpert
+        this.iterationPsrResult.third = this._Y.third
         this.setM1()
         this.setM2()
         this.setM3()
@@ -103,7 +103,6 @@ export class MetricCalculator implements IMetricCalculator {
     }
 
     setM3(): void {
-        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'code')
         let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'code')
 
         this.mX3 = (compareResult.saI / this._X.selections.length) * 100
@@ -119,7 +118,6 @@ export class MetricCalculator implements IMetricCalculator {
 
     /*@todo парафразы должны быть занесены в константы (либо получены по запросу от catalog_errors) и быть поняты, как эталон для комментирования. https://w6p.ru/YWE1Y2R.png*/
     setM4(): void {
-        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'subtype-comm')
         let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'subtype-comm')
 
         this.mX4 = (compareResult.saI / this._X.selections.length) * 100
@@ -135,7 +133,6 @@ export class MetricCalculator implements IMetricCalculator {
 
     /**@todo мера жаккара. описано в техрегламенте. фактически, критерий не расчитываем до тех пор, пока не будет разъяснен механизм сопоставления фрагментов**/
     setM5(): void {
-        // let compareResult = CompareActions.run()
         // let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'jaccardIndex')
         this.mX5 = 0
 
@@ -149,7 +146,6 @@ export class MetricCalculator implements IMetricCalculator {
     }
 
     setM6(): void {
-        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'correction')
         let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'correction')
 
         this.mX6 = (compareResult.saI / this._X.selections.length) * 100

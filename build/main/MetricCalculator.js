@@ -37,7 +37,7 @@ var MetricCalculator = /** @class */ (function () {
     //основной метод расчёта метрик
     MetricCalculator.prototype.dash = function () {
         this.iterationPsrResult.markupId = this._Y.id;
-        this.iterationPsrResult.thirdExpert = this._Y.thirdExpert;
+        this.iterationPsrResult.third = this._Y.third;
         this.setM1();
         this.setM2();
         this.setM3();
@@ -82,7 +82,6 @@ var MetricCalculator = /** @class */ (function () {
         console.log('---m2 ' + this.mX2);
     };
     MetricCalculator.prototype.setM3 = function () {
-        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'code')
         var compareResult = CompareActions_1.CompareActions.run(this._X.selections, this._Y.selections, 'code');
         this.mX3 = (compareResult.saI / this._X.selections.length) * 100;
         if (!Number.isInteger(this.mX3)) {
@@ -95,7 +94,6 @@ var MetricCalculator = /** @class */ (function () {
     };
     /*@todo парафразы должны быть занесены в константы (либо получены по запросу от catalog_errors) и быть поняты, как эталон для комментирования. https://w6p.ru/YWE1Y2R.png*/
     MetricCalculator.prototype.setM4 = function () {
-        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'subtype-comm')
         var compareResult = CompareActions_1.CompareActions.run(this._X.selections, this._Y.selections, 'subtype-comm');
         this.mX4 = (compareResult.saI / this._X.selections.length) * 100;
         if (!Number.isInteger(this.mX4)) {
@@ -108,7 +106,6 @@ var MetricCalculator = /** @class */ (function () {
     };
     /**@todo мера жаккара. описано в техрегламенте. фактически, критерий не расчитываем до тех пор, пока не будет разъяснен механизм сопоставления фрагментов**/
     MetricCalculator.prototype.setM5 = function () {
-        // let compareResult = CompareActions.run()
         // let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'jaccardIndex')
         this.mX5 = 0;
         if (!Number.isInteger(this.mX5)) {
@@ -120,7 +117,6 @@ var MetricCalculator = /** @class */ (function () {
         console.log('---m5 ' + this.mX5);
     };
     MetricCalculator.prototype.setM6 = function () {
-        // let compareResult = this.compareSimilarFragments(this._X.selections, this._Y.selections, 'correction')
         var compareResult = CompareActions_1.CompareActions.run(this._X.selections, this._Y.selections, 'correction');
         this.mX6 = (compareResult.saI / this._X.selections.length) * 100;
         if (!Number.isInteger(this.mX6)) {

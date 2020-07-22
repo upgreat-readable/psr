@@ -15,7 +15,8 @@ var MetricService = /** @class */ (function () {
                 id: entryMarkupObject.essay.markups[i].id,
                 matching: [],
                 STAR: 0,
-                CTER: 0
+                CTER: 0,
+                OTAR: 0
             });
             for (var j in entryMarkupObject.essay.markups) {
                 /* исключаем сравнение разметки с самой собой и исключаем из Y разметки алгоритмов */
@@ -26,7 +27,25 @@ var MetricService = /** @class */ (function () {
                 }
             }
             /* после вычисления метрик расчитаем стар/стэр, в зависимости от типа разметки */
-            this.calcAccuracy(entryMarkupObject.essay.markups[i].id, entryMarkupObject.essay.markups[i].isExpert);
+            try {
+                this.calcAccuracy(entryMarkupObject.essay.markups[i].id, entryMarkupObject.essay.markups[i].isExpert);
+            }
+            catch (e) {
+                throw new Error('Во время расчёта СТАР/СТЭР произошла ошибка \n'
+                    + 'разметка - ' + entryMarkupObject.essay.markups[i].id + '\n'
+                    + 'эссе - ' + entryMarkupObject.essay.id
+                    + e.stack);
+            }
+            /* далее, расчитаем отар и закончим итерацию для конкретной разметки */
+            try {
+                this.calcFinalOtar(entryMarkupObject.essay.markups[i].id, entryMarkupObject.essay.markups[i].isExpert);
+            }
+            catch (e) {
+                throw new Error('Во время расчёта ОТАР произошла ошибка \n'
+                    + 'разметка - ' + entryMarkupObject.essay.markups[i].id + '\n'
+                    + 'эссе - ' + entryMarkupObject.essay.id
+                    + e.stack);
+            }
         }
         return this._compileAnswer;
     };
@@ -46,7 +65,7 @@ var MetricService = /** @class */ (function () {
                 for (var j in this._compileAnswer.markups[i].matching) {
                     /*@todo после получения ответа от Константина, нужно будет либо удалить коммент, либо исправить реализацию*/
                     /* если результат сравнения был расчитан относительно разметки 3м экспертом - его вес будет равен 2 */
-                    if (this._compileAnswer.markups[i].matching[j].thirdExpert) {
+                    if (this._compileAnswer.markups[i].matching[j].third) {
                         numenator = numenator + this._compileAnswer.markups[i].matching[j].metrics.MTotal * 2;
                         denominator = denominator + 2;
                     }
@@ -56,11 +75,34 @@ var MetricService = /** @class */ (function () {
                     }
                 }
                 if (expertMarker) {
-                    this._compileAnswer.markups[i].STAR = numenator / denominator;
-                }
-                else {
                     this._compileAnswer.markups[i].CTER = numenator / denominator;
                 }
+                else {
+                    this._compileAnswer.markups[i].STAR = numenator / denominator;
+                }
+            }
+        }
+    };
+    /*@todo на данный момент СТЭР, участвующий в подсчете ОТАР вычисляется как среднее значение СТЭР*/
+    MetricService.prototype.calcFinalOtar = function (mainMarkupId, expertMarker) {
+        var averageSter = 0;
+        var star = 0;
+        var averageSterDenominator = 0;
+        for (var i in this._compileAnswer.markups) {
+            if (this._compileAnswer.markups[i].id === mainMarkupId) {
+                if (this._compileAnswer.markups[i].CTER !== 0) {
+                    averageSter = averageSter + this._compileAnswer.markups[i].CTER;
+                    averageSterDenominator++;
+                }
+                if (!expertMarker && this._compileAnswer.markups[i].STAR !== 0) {
+                    star = this._compileAnswer.markups[i].STAR;
+                }
+            }
+        }
+        var ster = averageSter / averageSterDenominator;
+        for (var i in this._compileAnswer.markups) {
+            if (this._compileAnswer.markups[i].id === mainMarkupId) {
+                this._compileAnswer.markups[i].OTAR = star / ster;
             }
         }
     };

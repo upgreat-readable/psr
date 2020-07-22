@@ -24,7 +24,7 @@ let x = {
                 {
                     id: 'qwe3',
                     isExpert: true,
-                    thirdExpert: false,
+                    third: false,
                     criterions: {
                         K1: 2,
                         K2: 1,
@@ -64,7 +64,7 @@ let x = {
                 {
                     id: 'qwe5',
                     isExpert: true,
-                    thirdExpert: false,
+                    third: false,
                     criterions: {
                         K1: 2,
                         K2: 1,
@@ -104,7 +104,7 @@ let x = {
                 {
                     id: 'qwe4',
                     isExpert: true,
-                    thirdExpert: false,
+                    third: false,
                     criterions: {
                         K1: 2,
                         K2: 2,
