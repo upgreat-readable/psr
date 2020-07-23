@@ -65,6 +65,9 @@ var MetricCalculator = /** @class */ (function () {
         if (!constants_1.K_MAX.hasOwnProperty(this.meta.subject)) {
             throw new Error('Получен несуществующий код предмета.');
         }
+        if (constants_1.K_MAX[this.meta.subject] < K1Sum || constants_1.K_MAX[this.meta.subject] < K2Sum) {
+            throw new Error('Вычисленная сумма критериев больше максимального значения');
+        }
         this.mX1 = (1 - Math.abs(K1Sum - K2Sum) / constants_1.K_MAX[this.meta.subject]) * 100;
         if (!Number.isInteger(this.mX1)) {
             this.iterationPsrResult.metrics.M1 = Math.round(this.mX1);

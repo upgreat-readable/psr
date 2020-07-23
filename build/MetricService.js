@@ -76,16 +76,9 @@ var MetricService = /** @class */ (function () {
                     }
                 }
                 if (expertMarker) {
-                    console.log('-----');
-                    console.log(this._compileAnswer.markups[i].id);
-                    console.log(expertMarker);
-                    console.log(this._compileAnswer.markups[i].STAR);
-                    console.log('-----');
                     this._compileAnswer.markups[i].CTER = numenator / denominator;
                 }
                 else {
-                    console.log(this._compileAnswer.markups[i].id);
-                    console.log(expertMarker);
                     this._compileAnswer.markups[i].STAR = numenator / denominator;
                 }
             }
@@ -118,7 +111,6 @@ var MetricService = /** @class */ (function () {
                 this._compileAnswer.markups[i].OTAR = tempOtar;
             }
         }
-        // console.log(JSON.stringify(this._compileAnswer.markups, null ,2));
     };
     return MetricService;
 }());
