@@ -259,8 +259,116 @@ var failExampleWithThird = {
             },
             {
                 id: 'fail-id-2',
+                isExpert: false,
+                third: false,
+                criterions: {
+                    K1: 2,
+                    K2: 1,
+                    K3: 3,
+                    K4: 1,
+                    K5: 2,
+                    K6: 3,
+                    K7: 4,
+                    K8: 3.5,
+                    K9: 2,
+                    K10: 1,
+                    K11: 1,
+                    K12: 1,
+                },
+                metrics: {
+                    M1: 50
+                },
+                selections: [
+                    {
+                        id: 1,
+                        startSelection: 50,
+                        endSelection: 52,
+                        code: 'О.теорсвязь',
+                        comment: 'Комментарий1',
+                        explanation: 'Пояснение1',
+                        correction: 'Исправление1',
+                        tag: 'tag1',
+                        type: 'error',
+                        subtype: 'error',
+                    },
+                    {
+                        id: 2,
+                        startSelection: 7,
+                        endSelection: 20,
+                        code: 'ПОНЯТИЕ',
+                        comment: 'Комментарий2',
+                        explanation: 'Пояснение2',
+                        correction: 'Исправление2',
+                        tag: 'tag2',
+                        type: 'meaning',
+                        subtype: 'error',
+                    },
+                ],
+            },
+            {
+                id: 'fail-id-3',
                 isExpert: true,
                 third: false,
+                criterions: {
+                    K1: 2,
+                    K2: 1,
+                    K3: 3,
+                    K4: 1,
+                    K5: 2,
+                    K6: 3,
+                    K7: 4,
+                    K8: 3.5,
+                    K9: 2,
+                    K10: 1,
+                    K11: 1,
+                    K12: 1,
+                },
+                metrics: {
+                    M1: 50
+                },
+                selections: [
+                    {
+                        id: 1,
+                        startSelection: 30,
+                        endSelection: 38,
+                        code: 'О.теорсвязь',
+                        comment: 'Комментарий1',
+                        explanation: 'Пояснение1',
+                        correction: 'Исправление1',
+                        tag: 'tag1',
+                        type: 'error',
+                        subtype: 'error',
+                    },
+                    {
+                        id: 2,
+                        startSelection: 17,
+                        endSelection: 65,
+                        code: 'ПОНЯТИЕ',
+                        comment: 'Комментарий2',
+                        explanation: 'Пояснение2',
+                        correction: 'Исправление2',
+                        tag: 'tag2',
+                        type: 'meaning',
+                        subtype: 'error',
+                    },
+                    {
+                        id: 3,
+                        startSelection: 65,
+                        endSelection: 70,
+                        code: 'ОТНОШЕНИЕ',
+                        comment: 'Комментарий3',
+                        explanation: 'Пояснение3',
+                        correction: 'Исправление3',
+                        tag: 'tag3',
+                        type: 'meaning',
+                        subtype: 'error',
+                    },
+                ],
+            },
+            {
+                id: 'fail-id-4',
+                isExpert: true,
+                third: true,
                 criterions: {
                     K1: 2,
                     K2: 1,
@@ -460,5 +568,5 @@ var x = {
 // var _ = require('lodash');
 // let n = _.groupBy(x.essay.markups[0].selections, 'tag')
 // console.log(n);
-var p = new MetricService_1.MetricService().calculate(failExampleWithOutThird);
-// console.log(JSON.stringify(p, null ,2));
+var p = new MetricService_1.MetricService().calculate(failExampleWithThird);
+console.log(JSON.stringify(p, null, 2));

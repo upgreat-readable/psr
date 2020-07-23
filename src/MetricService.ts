@@ -43,6 +43,7 @@ export class MetricService {
 
             /* далее, расчитаем отар и закончим итерацию для конкретной разметки */
             try {
+                console.log(entryMarkupObject.essay.markups[i].id);
                 this.calcFinalOtar(entryMarkupObject.essay.markups[i].id, entryMarkupObject.essay.markups[i].isExpert)
             } catch (e) {
                 throw new Error('Во время расчёта ОТАР произошла ошибка \n'
@@ -97,31 +98,34 @@ export class MetricService {
         let averageSter = 0
         let star = 0
         let averageSterDenominator = 0
-
+        // console.log(JSON.stringify(this._compileAnswer.markups, null ,2));
         for (let i in this._compileAnswer.markups) {
-            if (this._compileAnswer.markups[i].id === mainMarkupId) {
-                console.log('стэр - ' + this._compileAnswer.markups[i].CTER);
-                if (this._compileAnswer.markups[i].CTER !== 0) {
-                    console.log('стэр 3 - ' + this._compileAnswer.markups[i].CTER);
-                    averageSter += this._compileAnswer.markups[i].CTER
-                    averageSterDenominator++
-                }
+            // if (this._compileAnswer.markups[i].id === mainMarkupId) {
 
-                if (!expertMarker && this._compileAnswer.markups[i].STAR !== 0) {
-                    star = this._compileAnswer.markups[i].STAR
+            if (this._compileAnswer.markups[i].CTER !== 0) {
 
-                    console.log('стар - ' + star);
-                }
+                averageSter += this._compileAnswer.markups[i].CTER
+                averageSterDenominator++
             }
+
+            if (this._compileAnswer.markups[i].STAR !== 0) {
+                star = this._compileAnswer.markups[i].STAR
+            }
+            // }
         }
-        console.log('стэр 2 - ' + averageSterDenominator);
+
         let ster = averageSter / averageSterDenominator
 
 
-
         for (let i in this._compileAnswer.markups) {
-            if (this._compileAnswer.markups[i].id === mainMarkupId) {
-                this._compileAnswer.markups[i].OTAR = star / ster
+            if (this._compileAnswer.markups[i].STAR !== 0) {
+                let tempOtar = (star / ster) * 100
+
+                if (!Number.isInteger(tempOtar)) {
+                    tempOtar = Math.round(tempOtar)
+                }
+
+                this._compileAnswer.markups[i].OTAR = tempOtar
             }
         }
     }

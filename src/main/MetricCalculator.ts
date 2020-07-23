@@ -20,7 +20,7 @@ export class MetricCalculator implements IMetricCalculator {
     //эталонная разметка
     _Y: ParticipateInPsrObj
 
-    weight : MetricObj = {
+    weight: MetricObj = {
         M1: 1,
         M2: 1,
         M3: 1,
@@ -79,6 +79,10 @@ export class MetricCalculator implements IMetricCalculator {
 
         if (!K_MAX.hasOwnProperty(this.meta.subject)) {
             throw new Error('Получен несуществующий код предмета.')
+        }
+
+        if (K_MAX[this.meta.subject] < K1Sum || K_MAX[this.meta.subject] < K2Sum) {
+            throw new Error('Вычисленная сумма критериев больше максимального значения')
         }
 
         this.mX1 = (1 - Math.abs(K1Sum - K2Sum) / K_MAX[this.meta.subject]) * 100

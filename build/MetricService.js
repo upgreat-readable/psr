@@ -38,6 +38,7 @@ var MetricService = /** @class */ (function () {
             }
             /* далее, расчитаем отар и закончим итерацию для конкретной разметки */
             try {
+                console.log(entryMarkupObject.essay.markups[i].id);
                 this.calcFinalOtar(entryMarkupObject.essay.markups[i].id, entryMarkupObject.essay.markups[i].isExpert);
             }
             catch (e) {
@@ -75,9 +76,16 @@ var MetricService = /** @class */ (function () {
                     }
                 }
                 if (expertMarker) {
+                    console.log('-----');
+                    console.log(this._compileAnswer.markups[i].id);
+                    console.log(expertMarker);
+                    console.log(this._compileAnswer.markups[i].STAR);
+                    console.log('-----');
                     this._compileAnswer.markups[i].CTER = numenator / denominator;
                 }
                 else {
+                    console.log(this._compileAnswer.markups[i].id);
+                    console.log(expertMarker);
                     this._compileAnswer.markups[i].STAR = numenator / denominator;
                 }
             }
@@ -88,27 +96,29 @@ var MetricService = /** @class */ (function () {
         var averageSter = 0;
         var star = 0;
         var averageSterDenominator = 0;
+        // console.log(JSON.stringify(this._compileAnswer.markups, null ,2));
         for (var i in this._compileAnswer.markups) {
-            if (this._compileAnswer.markups[i].id === mainMarkupId) {
-                console.log('стэр - ' + this._compileAnswer.markups[i].CTER);
-                if (this._compileAnswer.markups[i].CTER !== 0) {
-                    console.log('стэр 3 - ' + this._compileAnswer.markups[i].CTER);
-                    averageSter += this._compileAnswer.markups[i].CTER;
-                    averageSterDenominator++;
-                }
-                if (!expertMarker && this._compileAnswer.markups[i].STAR !== 0) {
-                    star = this._compileAnswer.markups[i].STAR;
-                    console.log('стар - ' + star);
-                }
+            // if (this._compileAnswer.markups[i].id === mainMarkupId) {
+            if (this._compileAnswer.markups[i].CTER !== 0) {
+                averageSter += this._compileAnswer.markups[i].CTER;
+                averageSterDenominator++;
             }
+            if (this._compileAnswer.markups[i].STAR !== 0) {
+                star = this._compileAnswer.markups[i].STAR;
+            }
+            // }
         }
-        console.log('стэр 2 - ' + averageSterDenominator);
         var ster = averageSter / averageSterDenominator;
         for (var i in this._compileAnswer.markups) {
-            if (this._compileAnswer.markups[i].id === mainMarkupId) {
-                this._compileAnswer.markups[i].OTAR = star / ster;
+            if (this._compileAnswer.markups[i].STAR !== 0) {
+                var tempOtar = (star / ster) * 100;
+                if (!Number.isInteger(tempOtar)) {
+                    tempOtar = Math.round(tempOtar);
+                }
+                this._compileAnswer.markups[i].OTAR = tempOtar;
             }
         }
+        // console.log(JSON.stringify(this._compileAnswer.markups, null ,2));
     };
     return MetricService;
 }());
