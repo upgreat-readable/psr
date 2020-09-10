@@ -134,3 +134,9 @@ export type MetricObj = {
 
 
 export type MetricEnum = number
+
+export type LotsOf = {
+    start: number,
+    end: number,
+    determFactor: string
+}[]
