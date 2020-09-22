@@ -669,3 +669,32 @@ m.calcJaccardMatrix()
 m.calcLossMatrix()
 console.log(m.jaccardMatrix);
 console.log(m.lossMatrix);
+
+
+let M = [[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+let Mmin = [[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+
+//Взять вместо М - матрицу жаккара для более точного расчёта
+let Qm = M.length + M[0].length
+let connComponents = [[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+let connLine = []
+
+//пре-заполняем M элементами из Loss, которые равны 0
+for (let z in m.lossMatrix) {
+    for (let x in m.lossMatrix[z]) {
+        if (m.lossMatrix[z][x] === 0) {
+            M[z][x] = m.lossMatrix[z][x]
+        }
+    }
+}
+
+//Определяем компоненты связности
+for (let z in m.jaccardMatrix) {
+    for (let x in m.jaccardMatrix[z]) {
+        if (m.jaccardMatrix[z][x] !== 1) {
+            connComponents[z][x] = m.jaccardMatrix[z][x]
+        }
+    }
+}
+
+console.log(connComponents);

@@ -21,7 +21,7 @@ export class MathMachine {
                     this.lotsOfX[i].start, this.lotsOfX[i].end,
                     item.start, item.end
                 )
-                this.jaccardMatrix[i][key] = +(1 - (temp.cross.length)/(temp.divergence.length)).toFixed(1)
+                this.jaccardMatrix[i][key] = +(1 - (temp.cross.length) / (temp.divergence.length)).toFixed(1)
             })
         }
     }
@@ -30,8 +30,8 @@ export class MathMachine {
         for (let i in this.jaccardMatrix) {
 
             for (let j in this.jaccardMatrix[i]) {
-                this.lossMatrix[i][j] = this.jaccardMatrix[i][j]  +
-                (this.jaccardMatrix[i][j] === 1 ? 1 : 0) +
+                this.lossMatrix[i][j] = this.jaccardMatrix[i][j] +
+                    (this.jaccardMatrix[i][j] === 1 ? 1 : 0) +
                     (this.lotsOfX[i].start !== this.lotsOfY[j].start ? 1 : 0) +
                     (this.lotsOfX[i].determFactor !== this.lotsOfY[j].determFactor ? 1 : 0)
             }
@@ -56,6 +56,11 @@ export class MathMachine {
 
         return arrCoords
     }
+
+
+
+
+
 
 
 }

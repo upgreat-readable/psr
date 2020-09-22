@@ -655,3 +655,26 @@ m.calcJaccardMatrix();
 m.calcLossMatrix();
 console.log(m.jaccardMatrix);
 console.log(m.lossMatrix);
+var M = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
+var Mmin = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
+//Взять вместо М - матрицу жаккара для более точного расчёта
+var Qm = M.length + M[0].length;
+var connComponents = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
+var connLine = [];
+//пре-заполняем M элементами из Loss, которые равны 0
+for (var z in m.lossMatrix) {
+    for (var x in m.lossMatrix[z]) {
+        if (m.lossMatrix[z][x] === 0) {
+            M[z][x] = m.lossMatrix[z][x];
+        }
+    }
+}
+//Определяем компоненты связности
+for (var z in m.jaccardMatrix) {
+    for (var x in m.jaccardMatrix[z]) {
+        if (m.jaccardMatrix[z][x] !== 1) {
+            connComponents[z][x] = m.jaccardMatrix[z][x];
+        }
+    }
+}
+console.log(connComponents);
