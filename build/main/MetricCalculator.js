@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MetricCalculator = void 0;
 var constants_1 = require("../constants");
-var CompareActions_1 = require("./CompareActions");
+var MathMachine_1 = require("./MathMachine");
 var MetricCalculator = /** @class */ (function () {
     function MetricCalculator(calcTerm, ethalonTerm, commonMeta, originalText) {
         //значения метрик (измеряются в %)
@@ -78,12 +78,26 @@ var MetricCalculator = /** @class */ (function () {
         console.log('---m1 ' + this.mX1);
     };
     MetricCalculator.prototype.setM2 = function () {
-        var compareResult = CompareActions_1.CompareActions.run(this._X.selections, this._Y.selections);
-        //точность поиска
-        var searchAccuracy = compareResult.saI / this._X.selections.length;
-        //полнота поиска
-        var completenessOfSearch = compareResult.cosI / this._Y.selections.length;
-        this.mX2 = Math.round((2 / (1 / searchAccuracy + 1 / completenessOfSearch)) * 100);
+        var xPrepArray = [];
+        var yPrepArray = [];
+        for (var i in this._X.selections) {
+            //@ts-ignore
+            xPrepArray.push({ start: this._X.selections[i].startSelection, end: this._X.selections[i].endSelection, determFactor: this._X.selections[i].type });
+        }
+        for (var j in this._Y.selections) {
+            //@ts-ignore
+            yPrepArray.push({ start: this._Y.selections[j].startSelection, end: this._Y.selections[j].endSelection, determFactor: this._Y.selections[j].type });
+        }
+        // console.log(this._X);
+        var m = new MathMachine_1.MathMachine(xPrepArray, yPrepArray);
+        m.calcJaccardMatrix();
+        m.calcLossMatrix();
+        var res1 = m.goPsrGo();
+        var m2 = new MathMachine_1.MathMachine(yPrepArray, xPrepArray);
+        m2.calcJaccardMatrix();
+        m2.calcLossMatrix();
+        var res2 = m2.goPsrGo();
+        this.mX2 = Math.round((2 / (1 / res1 + 1 / res2)) * 100);
         if (!Number.isInteger(this.mX2)) {
             this.iterationPsrResult.metrics.M2 = Math.round(this.mX2);
         }
@@ -93,8 +107,20 @@ var MetricCalculator = /** @class */ (function () {
         console.log('---m2 ' + this.mX2);
     };
     MetricCalculator.prototype.setM3 = function () {
-        var compareResult = CompareActions_1.CompareActions.run(this._X.selections, this._Y.selections, 'code');
-        this.mX3 = (compareResult.saI / this._X.selections.length) * 100;
+        var xPrepArray = [];
+        var yPrepArray = [];
+        for (var i in this._X.selections) {
+            //@ts-ignore
+            xPrepArray.push({ start: this._X.selections[i].startSelection, end: this._X.selections[i].endSelection, determFactor: this._X.selections[i].type });
+        }
+        for (var j in this._Y.selections) {
+            //@ts-ignore
+            yPrepArray.push({ start: this._Y.selections[j].startSelection, end: this._Y.selections[j].endSelection, determFactor: this._Y.selections[j].type });
+        }
+        var m = new MathMachine_1.MathMachine(xPrepArray, yPrepArray);
+        m.calcJaccardMatrix();
+        m.calcLossMatrix();
+        this.mX3 = m.goPsrGo() * 100;
         if (!Number.isInteger(this.mX3)) {
             this.iterationPsrResult.metrics.M3 = Math.round(this.mX3);
         }
@@ -105,8 +131,20 @@ var MetricCalculator = /** @class */ (function () {
     };
     /*@todo парафразы должны быть занесены в константы (либо получены по запросу от catalog_errors) и быть поняты, как эталон для комментирования. https://w6p.ru/YWE1Y2R.png*/
     MetricCalculator.prototype.setM4 = function () {
-        var compareResult = CompareActions_1.CompareActions.run(this._X.selections, this._Y.selections, 'subtype-comm');
-        this.mX4 = (compareResult.saI / this._X.selections.length) * 100;
+        var xPrepArray = [];
+        var yPrepArray = [];
+        for (var i in this._X.selections) {
+            //@ts-ignore
+            xPrepArray.push({ start: this._X.selections[i].startSelection, end: this._X.selections[i].endSelection, determFactor: this._X.selections[i].correction });
+        }
+        for (var j in this._Y.selections) {
+            //@ts-ignore
+            yPrepArray.push({ start: this._Y.selections[j].startSelection, end: this._Y.selections[j].endSelection, determFactor: this._Y.selections[j].correction });
+        }
+        var m = new MathMachine_1.MathMachine(xPrepArray, yPrepArray);
+        m.calcJaccardMatrix();
+        m.calcLossMatrix();
+        this.mX4 = m.goPsrGo() * 100;
         if (!Number.isInteger(this.mX4)) {
             this.iterationPsrResult.metrics.M4 = Math.round(this.mX4);
         }
@@ -117,8 +155,28 @@ var MetricCalculator = /** @class */ (function () {
     };
     /**@todo мера жаккара. описано в техрегламенте. фактически, критерий не расчитываем до тех пор, пока не будет разъяснен механизм сопоставления фрагментов**/
     MetricCalculator.prototype.setM5 = function () {
-        // let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'jaccardIndex')
-        this.mX5 = 0;
+        var xPrepArray = [];
+        var yPrepArray = [];
+        for (var i in this._X.selections) {
+            //@ts-ignore
+            xPrepArray.push({ start: this._X.selections[i].startSelection, end: this._X.selections[i].endSelection, determFactor: this._X.selections[i].correction });
+        }
+        for (var j in this._Y.selections) {
+            //@ts-ignore
+            yPrepArray.push({ start: this._Y.selections[j].startSelection, end: this._Y.selections[j].endSelection, determFactor: this._Y.selections[j].correction });
+        }
+        var m = new MathMachine_1.MathMachine(xPrepArray, yPrepArray);
+        m.calcJaccardMatrix();
+        var jackSum = 0;
+        for (var k in m.jaccardMatrix) {
+            for (var u in m.jaccardMatrix[k]) {
+                if (m.jaccardMatrix[k][u] !== 1) {
+                    jackSum += m.jaccardMatrix[k][u];
+                }
+            }
+        }
+        var proizJack = m.jaccardMatrix.length * m.jaccardMatrix[0].length;
+        this.mX5 = (jackSum / proizJack) * 100;
         if (!Number.isInteger(this.mX5)) {
             this.iterationPsrResult.metrics.M5 = Math.round(this.mX5);
         }
@@ -128,8 +186,20 @@ var MetricCalculator = /** @class */ (function () {
         console.log('---m5 ' + this.mX5);
     };
     MetricCalculator.prototype.setM6 = function () {
-        var compareResult = CompareActions_1.CompareActions.run(this._X.selections, this._Y.selections, 'correction');
-        this.mX6 = (compareResult.saI / this._X.selections.length) * 100;
+        var xPrepArray = [];
+        var yPrepArray = [];
+        for (var i in this._X.selections) {
+            //@ts-ignore
+            xPrepArray.push({ start: this._X.selections[i].startSelection, end: this._X.selections[i].endSelection, determFactor: this._X.selections[i].explanation });
+        }
+        for (var j in this._Y.selections) {
+            //@ts-ignore
+            yPrepArray.push({ start: this._Y.selections[j].startSelection, end: this._Y.selections[j].endSelection, determFactor: this._Y.selections[j].explanation });
+        }
+        var m = new MathMachine_1.MathMachine(xPrepArray, yPrepArray);
+        m.calcJaccardMatrix();
+        m.calcLossMatrix();
+        this.mX6 = m.goPsrGo() * 100;
         if (!Number.isInteger(this.mX6)) {
             this.iterationPsrResult.metrics.M6 = Math.round(this.mX6);
         }

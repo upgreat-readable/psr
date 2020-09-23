@@ -2,6 +2,7 @@ import {IMetricCalculator} from "../interfaces/IMetricCalculator";
 import {ParticipateInPsrObj, IterationPsrResult, MetaInPsr, MetricObj} from "../types/MainPsrTypes";
 import {K_MAX} from "../constants";
 import {CompareActions} from "./CompareActions";
+import {MathMachine} from "./MathMachine";
 
 export class MetricCalculator implements IMetricCalculator {
     private meta: MetaInPsr
@@ -97,14 +98,35 @@ export class MetricCalculator implements IMetricCalculator {
     }
 
     setM2(): void {
-        let compareResult = CompareActions.run(this._X.selections, this._Y.selections)
+        let xPrepArray = []
+        let yPrepArray = []
+        for (let i in this._X.selections) {
+            //@ts-ignore
+            xPrepArray.push({start: this._X.selections[i].startSelection, end: this._X.selections[i].endSelection, determFactor: this._X.selections[i].type})
+        }
 
-        //точность поиска
-        let searchAccuracy = compareResult.saI / this._X.selections.length
-        //полнота поиска
-        let completenessOfSearch = compareResult.cosI / this._Y.selections.length
+        for (let j in this._Y.selections) {
+            //@ts-ignore
+            yPrepArray.push({start: this._Y.selections[j].startSelection, end: this._Y.selections[j].endSelection, determFactor: this._Y.selections[j].type})
+        }
+        // console.log(this._X);
 
-        this.mX2 = Math.round((2 / (1 / searchAccuracy + 1 / completenessOfSearch)) * 100)
+        let m = new MathMachine(
+            xPrepArray,
+            yPrepArray);
+        m.calcJaccardMatrix()
+        m.calcLossMatrix()
+        let res1 = m.goPsrGo()
+
+        let m2 = new MathMachine(
+            yPrepArray,
+            xPrepArray);
+        m2.calcJaccardMatrix()
+        m2.calcLossMatrix()
+        let res2 = m2.goPsrGo()
+
+
+        this.mX2 = Math.round((2 / (1 / res1 + 1 / res2)) * 100)
 
         if (!Number.isInteger(this.mX2)) {
             this.iterationPsrResult.metrics.M2 = Math.round(this.mX2)
@@ -116,9 +138,25 @@ export class MetricCalculator implements IMetricCalculator {
     }
 
     setM3(): void {
-        let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'code')
+        let xPrepArray = []
+        let yPrepArray = []
+        for (let i in this._X.selections) {
+            //@ts-ignore
+            xPrepArray.push({start: this._X.selections[i].startSelection, end: this._X.selections[i].endSelection, determFactor: this._X.selections[i].type})
+        }
 
-        this.mX3 = (compareResult.saI / this._X.selections.length) * 100
+        for (let j in this._Y.selections) {
+            //@ts-ignore
+            yPrepArray.push({start: this._Y.selections[j].startSelection, end: this._Y.selections[j].endSelection, determFactor: this._Y.selections[j].type})
+        }
+
+
+        let m = new MathMachine(
+            xPrepArray,
+            yPrepArray);
+        m.calcJaccardMatrix()
+        m.calcLossMatrix()
+        this.mX3 = m.goPsrGo() * 100
 
         if (!Number.isInteger(this.mX3)) {
             this.iterationPsrResult.metrics.M3 = Math.round(this.mX3)
@@ -131,9 +169,27 @@ export class MetricCalculator implements IMetricCalculator {
 
     /*@todo парафразы должны быть занесены в константы (либо получены по запросу от catalog_errors) и быть поняты, как эталон для комментирования. https://w6p.ru/YWE1Y2R.png*/
     setM4(): void {
-        let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'subtype-comm')
 
-        this.mX4 = (compareResult.saI / this._X.selections.length) * 100
+        let xPrepArray = []
+        let yPrepArray = []
+        for (let i in this._X.selections) {
+            //@ts-ignore
+            xPrepArray.push({start: this._X.selections[i].startSelection, end: this._X.selections[i].endSelection, determFactor: this._X.selections[i].correction})
+        }
+
+        for (let j in this._Y.selections) {
+            //@ts-ignore
+            yPrepArray.push({start: this._Y.selections[j].startSelection, end: this._Y.selections[j].endSelection, determFactor: this._Y.selections[j].correction})
+        }
+
+
+        let m = new MathMachine(
+            xPrepArray,
+            yPrepArray);
+        m.calcJaccardMatrix()
+        m.calcLossMatrix()
+
+        this.mX4 = m.goPsrGo() * 100
 
         if (!Number.isInteger(this.mX4)) {
             this.iterationPsrResult.metrics.M4 = Math.round(this.mX4)
@@ -146,8 +202,38 @@ export class MetricCalculator implements IMetricCalculator {
 
     /**@todo мера жаккара. описано в техрегламенте. фактически, критерий не расчитываем до тех пор, пока не будет разъяснен механизм сопоставления фрагментов**/
     setM5(): void {
-        // let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'jaccardIndex')
-        this.mX5 = 0
+
+        let xPrepArray = []
+        let yPrepArray = []
+        for (let i in this._X.selections) {
+            //@ts-ignore
+            xPrepArray.push({start: this._X.selections[i].startSelection, end: this._X.selections[i].endSelection, determFactor: this._X.selections[i].correction})
+        }
+
+        for (let j in this._Y.selections) {
+            //@ts-ignore
+            yPrepArray.push({start: this._Y.selections[j].startSelection, end: this._Y.selections[j].endSelection, determFactor: this._Y.selections[j].correction})
+        }
+
+
+        let m = new MathMachine(
+            xPrepArray,
+            yPrepArray);
+        m.calcJaccardMatrix()
+
+        let jackSum = 0
+
+        for (let k in m.jaccardMatrix) {
+            for (let u in m.jaccardMatrix[k]) {
+                if (m.jaccardMatrix[k][u] !== 1) {
+                    jackSum += m.jaccardMatrix[k][u]
+                }
+            }
+        }
+
+        let proizJack = m.jaccardMatrix.length * m.jaccardMatrix[0].length
+
+        this.mX5 = (jackSum / proizJack) * 100
 
         if (!Number.isInteger(this.mX5)) {
             this.iterationPsrResult.metrics.M5 = Math.round(this.mX5)
@@ -159,10 +245,25 @@ export class MetricCalculator implements IMetricCalculator {
     }
 
     setM6(): void {
-        let compareResult = CompareActions.run(this._X.selections, this._Y.selections, 'correction')
+        let xPrepArray = []
+        let yPrepArray = []
+        for (let i in this._X.selections) {
+            //@ts-ignore
+            xPrepArray.push({start: this._X.selections[i].startSelection, end: this._X.selections[i].endSelection, determFactor: this._X.selections[i].explanation})
+        }
 
-        this.mX6 = (compareResult.saI / this._X.selections.length) * 100
+        for (let j in this._Y.selections) {
+            //@ts-ignore
+            yPrepArray.push({start: this._Y.selections[j].startSelection, end: this._Y.selections[j].endSelection, determFactor: this._Y.selections[j].explanation})
+        }
 
+
+        let m = new MathMachine(
+            xPrepArray,
+            yPrepArray);
+        m.calcJaccardMatrix()
+        m.calcLossMatrix()
+        this.mX6 = m.goPsrGo() * 100
         if (!Number.isInteger(this.mX6)) {
             this.iterationPsrResult.metrics.M6 = Math.round(this.mX6)
         } else {

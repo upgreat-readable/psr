@@ -24,7 +24,7 @@ export class MetricService {
                 if (i !== j && entryMarkupObject.essay.markups[j].isExpert) {
                     let metric = new MetricCalculator(
                         entryMarkupObject.essay.markups[i], entryMarkupObject.essay.markups[j],
-                        entryMarkupObject.essay.meta, entryMarkupObject.essay.originalText
+                        entryMarkupObject.essay.meta, entryMarkupObject.essay.text
                     ).dash()
                     /* запушим результат в итоговых массив */
                     this.fillAnswer(entryMarkupObject.essay.markups[i].id, metric)

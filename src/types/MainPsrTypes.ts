@@ -6,7 +6,7 @@ export type EnterGlobalObject = {
             subject: string,
             [key: string]: string | number
         },
-        originalText: string,
+        text: string,
         markups:
             {
                 id: string
@@ -18,15 +18,15 @@ export type EnterGlobalObject = {
                 selections:
                     {
                         id: number,
-                        startSelection: number,
-                        endSelection: number,
-                        code: string,
-                        comment: string,
-                        explanation: string,
-                        correction: string,
                         tag: string,
                         type: string,
-                        subtype: string
+                        group: any,
+                        comment: string,
+                        subtype: string,
+                        correction: string,
+                        explanation: string,
+                        startSelection: number,
+                        endSelection: number,
                     }[],
                 metrics: {
                     [key: string]: number
@@ -37,15 +37,15 @@ export type EnterGlobalObject = {
 
 export type Selections = {
     id: number,
-    startSelection: number,
-    endSelection: number,
-    code: string,
-    comment: string,
-    explanation: string,
-    correction: string,
     tag: string,
     type: string,
-    subtype: string
+    group: any,
+    comment: string,
+    subtype: string,
+    correction: string,
+    explanation: string,
+    startSelection: number,
+    endSelection: number,
 }[]
 
 export type ParticipateInPsrObj = {
@@ -58,15 +58,15 @@ export type ParticipateInPsrObj = {
     selections:
         {
             id: number,
-            startSelection: number,
-            endSelection: number,
-            code: string,
-            comment: string,
-            explanation: string,
-            correction: string,
             tag: string,
             type: string,
-            subtype: string
+            group: any,
+            comment: string,
+            subtype: string,
+            correction: string,
+            explanation: string,
+            startSelection: number,
+            endSelection: number,
         }[],
     metrics: {
         [key: string]: number

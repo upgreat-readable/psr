@@ -21,7 +21,7 @@ var MetricService = /** @class */ (function () {
             for (var j in entryMarkupObject.essay.markups) {
                 /* исключаем сравнение разметки с самой собой и исключаем из Y разметки алгоритмов */
                 if (i !== j && entryMarkupObject.essay.markups[j].isExpert) {
-                    var metric = new MetricCalculator_1.MetricCalculator(entryMarkupObject.essay.markups[i], entryMarkupObject.essay.markups[j], entryMarkupObject.essay.meta, entryMarkupObject.essay.originalText).dash();
+                    var metric = new MetricCalculator_1.MetricCalculator(entryMarkupObject.essay.markups[i], entryMarkupObject.essay.markups[j], entryMarkupObject.essay.meta, entryMarkupObject.essay.text).dash();
                     /* запушим результат в итоговых массив */
                     this.fillAnswer(entryMarkupObject.essay.markups[i].id, metric);
                 }
