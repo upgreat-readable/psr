@@ -168,15 +168,25 @@ var MetricCalculator = /** @class */ (function () {
         var m = new MathMachine_1.MathMachine(xPrepArray, yPrepArray);
         m.calcJaccardMatrix();
         var jackSum = 0;
+        var slagaemoe = 0;
         for (var k in m.jaccardMatrix) {
             for (var u in m.jaccardMatrix[k]) {
                 if (m.jaccardMatrix[k][u] !== 1) {
-                    jackSum += m.jaccardMatrix[k][u];
+                    if (m.jaccardMatrix[k][u] === 0) {
+                        slagaemoe = 1;
+                    }
+                    else {
+                        slagaemoe = m.jaccardMatrix[k][u];
+                    }
+                    jackSum += slagaemoe;
                 }
             }
         }
-        var proizJack = m.jaccardMatrix.length * m.jaccardMatrix[0].length;
-        this.mX5 = (jackSum / proizJack) * 100;
+        console.log('matrica     ' + m.jaccardMatrix);
+        console.log('summa po matrice     ' + jackSum);
+        // let proizJack = m.jaccardMatrix.length * m.jaccardMatrix[0].length
+        var proizJack = this._Y.selections.length;
+        this.mX5 = (jackSum * 100 / proizJack);
         if (!Number.isInteger(this.mX5)) {
             this.iterationPsrResult.metrics.M5 = Math.round(this.mX5);
         }
@@ -211,7 +221,6 @@ var MetricCalculator = /** @class */ (function () {
     /*@todo уточнить по поводу этого параметра
     *   занулён, т.к пояснения не были получены*/
     MetricCalculator.prototype.setM7 = function () {
-        this.weight.M7 = 0;
         this.mX7 = 0;
         if (!Number.isInteger(this.mX7)) {
             this.iterationPsrResult.metrics.M7 = Math.round(this.mX7);
@@ -226,9 +235,11 @@ var MetricCalculator = /** @class */ (function () {
         for (var i in this.iterationPsrResult.metrics) {
             //@ts-ignore
             if (this.weight[i] !== 0) {
+                console.log('key -    ' + i);
                 denominationFinal++;
             }
         }
+        console.log('vsego metrici - ' + denominationFinal);
         this.mTotal = Object.values(this.iterationPsrResult.metrics).reduce(function (a, b) { return a + b; }, 0) / denominationFinal;
         if (!Number.isInteger(this.mTotal)) {
             this.iterationPsrResult.metrics.MTotal = Math.round(this.mTotal);

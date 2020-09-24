@@ -1,6 +1,6 @@
 {
   "name": "@webpractik/readable_io.psr",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "readable psr package",
   "repository": {
     "type": "git",

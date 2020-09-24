@@ -222,18 +222,29 @@ export class MetricCalculator implements IMetricCalculator {
         m.calcJaccardMatrix()
 
         let jackSum = 0
+        let slagaemoe = 0
 
         for (let k in m.jaccardMatrix) {
             for (let u in m.jaccardMatrix[k]) {
                 if (m.jaccardMatrix[k][u] !== 1) {
-                    jackSum += m.jaccardMatrix[k][u]
+                    if (m.jaccardMatrix[k][u] === 0) {
+                        slagaemoe = 1
+                    } else {
+                        slagaemoe = m.jaccardMatrix[k][u]
+                    }
+                    jackSum += slagaemoe
                 }
             }
         }
 
-        let proizJack = m.jaccardMatrix.length * m.jaccardMatrix[0].length
+        console.log('matrica     ' +  m.jaccardMatrix );
+        console.log('summa po matrice     ' + jackSum );
 
-        this.mX5 = (jackSum / proizJack) * 100
+
+        // let proizJack = m.jaccardMatrix.length * m.jaccardMatrix[0].length
+        let proizJack = this._Y.selections.length
+
+        this.mX5 = (jackSum * 100 / proizJack)
 
         if (!Number.isInteger(this.mX5)) {
             this.iterationPsrResult.metrics.M5 = Math.round(this.mX5)
@@ -276,7 +287,6 @@ export class MetricCalculator implements IMetricCalculator {
     /*@todo уточнить по поводу этого параметра
     *   занулён, т.к пояснения не были получены*/
     setM7() {
-        this.weight.M7 = 0
         this.mX7 = 0
 
         if (!Number.isInteger(this.mX7)) {
@@ -293,9 +303,12 @@ export class MetricCalculator implements IMetricCalculator {
         for (let i in this.iterationPsrResult.metrics) {
             //@ts-ignore
             if (this.weight[i] !== 0) {
+                console.log('key -    ' + i);
                 denominationFinal++
             }
         }
+
+        console.log('vsego metrici - ' + denominationFinal);
 
         this.mTotal = Object.values(this.iterationPsrResult.metrics).reduce((a, b) => a + b, 0) / denominationFinal
 
