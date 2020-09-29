@@ -75,7 +75,7 @@ var MetricCalculator = /** @class */ (function () {
         else {
             this.iterationPsrResult.metrics.M1 = this.mX1;
         }
-        console.log('---m1 ' + this.mX1);
+        // console.log('---m1 ' + this.mX1);
     };
     MetricCalculator.prototype.setM2 = function () {
         var xPrepArray = [];
@@ -104,7 +104,7 @@ var MetricCalculator = /** @class */ (function () {
         else {
             this.iterationPsrResult.metrics.M2 = this.mX2;
         }
-        console.log('---m2 ' + this.mX2);
+        // console.log('---m2 ' + this.mX2);
     };
     MetricCalculator.prototype.setM3 = function () {
         var xPrepArray = [];
@@ -127,7 +127,7 @@ var MetricCalculator = /** @class */ (function () {
         else {
             this.iterationPsrResult.metrics.M3 = this.mX3;
         }
-        console.log('---m3 ' + this.mX3);
+        // console.log('---m3 ' + this.mX3);
     };
     /*@todo парафразы должны быть занесены в константы (либо получены по запросу от catalog_errors) и быть поняты, как эталон для комментирования. https://w6p.ru/YWE1Y2R.png*/
     MetricCalculator.prototype.setM4 = function () {
@@ -151,7 +151,7 @@ var MetricCalculator = /** @class */ (function () {
         else {
             this.iterationPsrResult.metrics.M4 = this.mX4;
         }
-        console.log('---m4 ' + this.mX4);
+        // console.log('---m4 ' + this.mX4);
     };
     /**@todo мера жаккара. описано в техрегламенте. фактически, критерий не расчитываем до тех пор, пока не будет разъяснен механизм сопоставления фрагментов**/
     MetricCalculator.prototype.setM5 = function () {
@@ -182,18 +182,21 @@ var MetricCalculator = /** @class */ (function () {
                 }
             }
         }
-        console.log('matrica     ' + m.jaccardMatrix);
-        console.log('summa po matrice     ' + jackSum);
+        // console.log('matrica     ' +  m.jaccardMatrix );
+        // console.log('summa po matrice     ' + jackSum );
         // let proizJack = m.jaccardMatrix.length * m.jaccardMatrix[0].length
         var proizJack = this._Y.selections.length;
         this.mX5 = (jackSum * 100 / proizJack);
+        if (this.mX5 > 100) {
+            this.mX5 = 100;
+        }
         if (!Number.isInteger(this.mX5)) {
             this.iterationPsrResult.metrics.M5 = Math.round(this.mX5);
         }
         else {
             this.iterationPsrResult.metrics.M5 = this.mX5;
         }
-        console.log('---m5 ' + this.mX5);
+        // console.log('---m5 ' + this.mX5);
     };
     MetricCalculator.prototype.setM6 = function () {
         var xPrepArray = [];
@@ -216,7 +219,7 @@ var MetricCalculator = /** @class */ (function () {
         else {
             this.iterationPsrResult.metrics.M6 = this.mX6;
         }
-        console.log('---m6 ' + this.mX6);
+        // console.log('---m6 ' + this.mX6);
     };
     /*@todo уточнить по поводу этого параметра
     *   занулён, т.к пояснения не были получены*/
@@ -228,18 +231,18 @@ var MetricCalculator = /** @class */ (function () {
         else {
             this.iterationPsrResult.metrics.M7 = this.mX7;
         }
-        console.log('---m7 ' + this.mX7);
+        // console.log('---m7 ' + this.mX7);
     };
     MetricCalculator.prototype.setMTotal = function () {
         var denominationFinal = 0;
         for (var i in this.iterationPsrResult.metrics) {
             //@ts-ignore
             if (this.weight[i] !== 0) {
-                console.log('key -    ' + i);
+                // console.log('key -    ' + i);
                 denominationFinal++;
             }
         }
-        console.log('vsego metrici - ' + denominationFinal);
+        // console.log('vsego metrici - ' + denominationFinal);
         this.mTotal = Object.values(this.iterationPsrResult.metrics).reduce(function (a, b) { return a + b; }, 0) / denominationFinal;
         if (!Number.isInteger(this.mTotal)) {
             this.iterationPsrResult.metrics.MTotal = Math.round(this.mTotal);

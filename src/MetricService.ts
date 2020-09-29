@@ -43,7 +43,7 @@ export class MetricService {
 
             /* далее, расчитаем отар и закончим итерацию для конкретной разметки */
             try {
-                console.log(entryMarkupObject.essay.markups[i].id);
+                // console.log(entryMarkupObject.essay.markups[i].id);
                 this.calcFinalOtar(entryMarkupObject.essay.markups[i].id, entryMarkupObject.essay.markups[i].isExpert)
             } catch (e) {
                 throw new Error('Во время расчёта ОТАР произошла ошибка \n'
@@ -93,7 +93,7 @@ export class MetricService {
         }
     }
 
-    /*@todo на данный момент СТЭР, участвующий в подсчете ОТАР вычисляется как среднее значение СТЭР*/
+
     calcFinalOtar(mainMarkupId: string, expertMarker: boolean) {
         let averageSter = 0
         let star = 0

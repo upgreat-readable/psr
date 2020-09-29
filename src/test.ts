@@ -2,7 +2,7 @@ import {MetricService} from "./MetricService";
 import {MathMachine} from "./main/MathMachine";
 import {log} from "util";
 
-console.log(123);
+// console.log(123);
 let a = [1, 2, 3, 4, 5]
 
 /* разметка пример */

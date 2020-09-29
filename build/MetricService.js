@@ -38,7 +38,7 @@ var MetricService = /** @class */ (function () {
             }
             /* далее, расчитаем отар и закончим итерацию для конкретной разметки */
             try {
-                console.log(entryMarkupObject.essay.markups[i].id);
+                // console.log(entryMarkupObject.essay.markups[i].id);
                 this.calcFinalOtar(entryMarkupObject.essay.markups[i].id, entryMarkupObject.essay.markups[i].isExpert);
             }
             catch (e) {
@@ -84,7 +84,6 @@ var MetricService = /** @class */ (function () {
             }
         }
     };
-    /*@todo на данный момент СТЭР, участвующий в подсчете ОТАР вычисляется как среднее значение СТЭР*/
     MetricService.prototype.calcFinalOtar = function (mainMarkupId, expertMarker) {
         var averageSter = 0;
         var star = 0;

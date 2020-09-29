@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var MetricService_1 = require("./MetricService");
-console.log(123);
+// console.log(123);
 var a = [1, 2, 3, 4, 5];
 /* разметка пример */
 var failExampleWithOutThird = {
