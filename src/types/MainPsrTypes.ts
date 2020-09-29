@@ -93,7 +93,7 @@ export type ReturnObject = {
                     },
                 }[],
             STAR: number,
-            CTER: number,
+            STER: number,
             OTAR: number
         }
     ]
@@ -113,7 +113,7 @@ export type IterationPsrResult = {
         MTotal: number
     },
     STAR: number,
-    CTER: number
+    STER: number
 }
 
 export type MetaInPsr = {

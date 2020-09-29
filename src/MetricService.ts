@@ -15,7 +15,7 @@ export class MetricService {
                 id: entryMarkupObject.essay.markups[i].id,
                 matching: [],
                 STAR: 0,
-                CTER: 0,
+                STER: 0,
                 OTAR: 0
             })
 
@@ -85,7 +85,7 @@ export class MetricService {
                 }
 
                 if (expertMarker) {
-                    this._compileAnswer.markups[i].CTER = numenator / denominator
+                    this._compileAnswer.markups[i].STER = numenator / denominator
                 } else {
                     this._compileAnswer.markups[i].STAR = numenator / denominator
                 }
@@ -102,9 +102,9 @@ export class MetricService {
         for (let i in this._compileAnswer.markups) {
             // if (this._compileAnswer.markups[i].id === mainMarkupId) {
 
-            if (this._compileAnswer.markups[i].CTER !== 0) {
+            if (this._compileAnswer.markups[i].STER !== 0) {
 
-                averageSter += this._compileAnswer.markups[i].CTER
+                averageSter += this._compileAnswer.markups[i].STER
                 averageSterDenominator++
             }
 

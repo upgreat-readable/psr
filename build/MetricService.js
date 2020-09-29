@@ -15,7 +15,7 @@ var MetricService = /** @class */ (function () {
                 id: entryMarkupObject.essay.markups[i].id,
                 matching: [],
                 STAR: 0,
-                CTER: 0,
+                STER: 0,
                 OTAR: 0
             });
             for (var j in entryMarkupObject.essay.markups) {
@@ -76,7 +76,7 @@ var MetricService = /** @class */ (function () {
                     }
                 }
                 if (expertMarker) {
-                    this._compileAnswer.markups[i].CTER = numenator / denominator;
+                    this._compileAnswer.markups[i].STER = numenator / denominator;
                 }
                 else {
                     this._compileAnswer.markups[i].STAR = numenator / denominator;
@@ -91,8 +91,8 @@ var MetricService = /** @class */ (function () {
         // console.log(JSON.stringify(this._compileAnswer.markups, null ,2));
         for (var i in this._compileAnswer.markups) {
             // if (this._compileAnswer.markups[i].id === mainMarkupId) {
-            if (this._compileAnswer.markups[i].CTER !== 0) {
-                averageSter += this._compileAnswer.markups[i].CTER;
+            if (this._compileAnswer.markups[i].STER !== 0) {
+                averageSter += this._compileAnswer.markups[i].STER;
                 averageSterDenominator++;
             }
             if (this._compileAnswer.markups[i].STAR !== 0) {

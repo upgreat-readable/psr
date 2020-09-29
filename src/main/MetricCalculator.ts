@@ -45,7 +45,7 @@ export class MetricCalculator implements IMetricCalculator {
             M7: 0
         },
         STAR: 0,
-        CTER: 0
+        STER: 0
     } as IterationPsrResult
 
     constructor(calcTerm: ParticipateInPsrObj, ethalonTerm: ParticipateInPsrObj, commonMeta: MetaInPsr, originalText: string) {

@@ -35,7 +35,7 @@ var MetricCalculator = /** @class */ (function () {
                 M7: 0
             },
             STAR: 0,
-            CTER: 0
+            STER: 0
         };
         this._X = calcTerm;
         this._Y = ethalonTerm;
