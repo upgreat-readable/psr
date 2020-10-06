@@ -71,12 +71,12 @@ export class MetricCalculator implements IMetricCalculator {
     }
 
     setM1(): void {
-        if (!this._X.criterions || !this._Y.criterions) {
+        if (!this._X.criteria || !this._Y.criteria) {
             throw new Error('В разметках не заполнены критерии.')
         }
 
-        let K1Sum = Object.values(this._X.criterions).reduce((a, b) => a + b, 0)
-        let K2Sum = Object.values(this._Y.criterions).reduce((a, b) => a + b, 0)
+        let K1Sum = Object.values(this._X.criteria).reduce((a, b) => a + b, 0)
+        let K2Sum = Object.values(this._Y.criteria).reduce((a, b) => a + b, 0)
 
         if (!K_MAX.hasOwnProperty(this.meta.subject)) {
             throw new Error('Получен несуществующий код предмета.')

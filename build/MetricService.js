@@ -2,13 +2,27 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MetricService = void 0;
 var MetricCalculator_1 = require("./main/MetricCalculator");
+/**
+ * Основной сервис-класс, обслуживающий MetricCalculator и реализующий итоговые подсчёты СТАР/СТЭР и ОТАР для присланных разметок эссе.
+ */
 var MetricService = /** @class */ (function () {
     function MetricService() {
+        /**
+         * Объект, который отдаст класс после расчётов.
+         * @private
+         */
         this._compileAnswer = {};
     }
+    /**
+     * EntryPoint, производящий вычисления
+     * @param entryMarkupObject
+     */
     MetricService.prototype.calculate = function (entryMarkupObject) {
         //@ts-ignore
         this._compileAnswer = { markups: [] };
+        /**
+         * Запускаем цикл для присланных разметок - 1я итерация
+         */
         for (var i in entryMarkupObject.essay.markups) {
             /* на каждую из главных итераций пушим в итоговый массив id разметки и пустой результат сравнения */
             this._compileAnswer.markups.push({
@@ -18,6 +32,9 @@ var MetricService = /** @class */ (function () {
                 STER: 0,
                 OTAR: 0
             });
+            /**
+             * Запускаем цикл для присланных разметок - 2я итерация - перебираем все разметки для 1й выбранной
+             */
             for (var j in entryMarkupObject.essay.markups) {
                 /* исключаем сравнение разметки с самой собой и исключаем из Y разметки алгоритмов */
                 if (i !== j && entryMarkupObject.essay.markups[j].isExpert) {
@@ -38,7 +55,6 @@ var MetricService = /** @class */ (function () {
             }
             /* далее, расчитаем отар и закончим итерацию для конкретной разметки */
             try {
-                // console.log(entryMarkupObject.essay.markups[i].id);
                 this.calcFinalOtar(entryMarkupObject.essay.markups[i].id, entryMarkupObject.essay.markups[i].isExpert);
             }
             catch (e) {
@@ -50,6 +66,11 @@ var MetricService = /** @class */ (function () {
         }
         return this._compileAnswer;
     };
+    /**
+     * Пушит результат в итоговый массив
+     * @param mainMarkupId
+     * @param psrConcreteResult
+     */
     MetricService.prototype.fillAnswer = function (mainMarkupId, psrConcreteResult) {
         for (var i in this._compileAnswer.markups) {
             if (this._compileAnswer.markups[i].id === mainMarkupId) {

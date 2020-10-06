@@ -57,11 +57,11 @@ var MetricCalculator = /** @class */ (function () {
         return this.iterationPsrResult;
     };
     MetricCalculator.prototype.setM1 = function () {
-        if (!this._X.criterions || !this._Y.criterions) {
+        if (!this._X.criteria || !this._Y.criteria) {
             throw new Error('В разметках не заполнены критерии.');
         }
-        var K1Sum = Object.values(this._X.criterions).reduce(function (a, b) { return a + b; }, 0);
-        var K2Sum = Object.values(this._Y.criterions).reduce(function (a, b) { return a + b; }, 0);
+        var K1Sum = Object.values(this._X.criteria).reduce(function (a, b) { return a + b; }, 0);
+        var K2Sum = Object.values(this._Y.criteria).reduce(function (a, b) { return a + b; }, 0);
         if (!constants_1.K_MAX.hasOwnProperty(this.meta.subject)) {
             throw new Error('Получен несуществующий код предмета.');
         }

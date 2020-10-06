@@ -1,14 +1,28 @@
 import {EnterGlobalObject, IterationPsrResult, ReturnObject} from "./types/MainPsrTypes";
 import {MetricCalculator} from "./main/MetricCalculator";
 
+/**
+ * Основной сервис-класс, обслуживающий MetricCalculator и реализующий итоговые подсчёты СТАР/СТЭР и ОТАР для присланных разметок эссе.
+ */
 export class MetricService {
 
+    /**
+     * Объект, который отдаст класс после расчётов.
+     * @private
+     */
     private _compileAnswer: ReturnObject = {} as ReturnObject
 
+    /**
+     * EntryPoint, производящий вычисления
+     * @param entryMarkupObject
+     */
     calculate(entryMarkupObject: EnterGlobalObject) {
         //@ts-ignore
         this._compileAnswer = {markups: []}
 
+        /**
+         * Запускаем цикл для присланных разметок - 1я итерация
+         */
         for (let i in entryMarkupObject.essay.markups) {
             /* на каждую из главных итераций пушим в итоговый массив id разметки и пустой результат сравнения */
             this._compileAnswer.markups.push({
@@ -19,6 +33,9 @@ export class MetricService {
                 OTAR: 0
             })
 
+            /**
+             * Запускаем цикл для присланных разметок - 2я итерация - перебираем все разметки для 1й выбранной
+             */
             for (let j in entryMarkupObject.essay.markups) {
                 /* исключаем сравнение разметки с самой собой и исключаем из Y разметки алгоритмов */
                 if (i !== j && entryMarkupObject.essay.markups[j].isExpert) {
@@ -43,7 +60,6 @@ export class MetricService {
 
             /* далее, расчитаем отар и закончим итерацию для конкретной разметки */
             try {
-                // console.log(entryMarkupObject.essay.markups[i].id);
                 this.calcFinalOtar(entryMarkupObject.essay.markups[i].id, entryMarkupObject.essay.markups[i].isExpert)
             } catch (e) {
                 throw new Error('Во время расчёта ОТАР произошла ошибка \n'
@@ -57,6 +73,11 @@ export class MetricService {
         return this._compileAnswer
     }
 
+    /**
+     * Пушит результат в итоговый массив
+     * @param mainMarkupId
+     * @param psrConcreteResult
+     */
     fillAnswer(mainMarkupId: string, psrConcreteResult: IterationPsrResult) {
         for (let i in this._compileAnswer.markups) {
             if (this._compileAnswer.markups[i].id === mainMarkupId) {

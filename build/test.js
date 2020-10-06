@@ -25,7 +25,7 @@ var failExampleWithOutThird = {
                 id: 'fail-id-1',
                 isExpert: true,
                 third: false,
-                criterions: {
+                criteria: {
                     K1: 0,
                     K2: 0,
                     K3: 0,
@@ -289,7 +289,7 @@ var failExampleWithOutThird = {
                 id: 'fail-id-2',
                 isExpert: true,
                 third: false,
-                criterions: {
+                criteria: {
                     K1: 0,
                     K2: 0,
                     K3: 0,
@@ -541,7 +541,7 @@ var failExampleWithOutThird = {
                 id: 'fail-id-3',
                 isExpert: false,
                 third: false,
-                criterions: {
+                criteria: {
                     K1: 0,
                     K2: 0,
                     K3: 0,
@@ -826,7 +826,7 @@ var failExampleWithOutThird = {
 //                     id: 'fail-id-1',
 //                     isExpert: true,
 //                     third: false,
-//                     criterions: {
+//                     criteria: {
 //                         K1: 2,
 //                         K2: 1,
 //                         K3: 3,
@@ -875,7 +875,7 @@ var failExampleWithOutThird = {
 //                     id: 'fail-id-2',
 //                     isExpert: true,
 //                     third: false,
-//                     criterions: {
+//                     criteria: {
 //                         K1: 2,
 //                         K2: 1,
 //                         K3: 3,
@@ -936,7 +936,7 @@ var failExampleWithOutThird = {
 //                     id: 'fail-id-3',
 //                     isExpert: false,
 //                     third: false,
-//                     criterions: {
+//                     criteria: {
 //                         K1: 2,
 //                         K2: 1,
 //                         K3: 3,

@@ -12,7 +12,7 @@ export type EnterGlobalObject = {
                 id: string
                 isExpert: boolean
                 third: boolean
-                criterions: {
+                criteria: {
                     [key: string]: number
                 }
                 selections:
@@ -52,7 +52,7 @@ export type ParticipateInPsrObj = {
     id: string
     isExpert: boolean
     third: boolean
-    criterions: {
+    criteria: {
         [key: string]: number
     }
     selections:

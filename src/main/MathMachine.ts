@@ -58,10 +58,10 @@ export class MathMachine {
     }
 
     goPsrGo() {
-        var arr: Array<number[]>  =[];
-        for(let g = 0; g < this.jaccardMatrix.length + 1; g++){
-            arr[g]=[];
-            for(var v=0; v<this.jaccardMatrix[0].length + 1;v++){
+        var arr: Array<number[]> = [];
+        for (let g = 0; g < this.jaccardMatrix.length + 1; g++) {
+            arr[g] = [];
+            for (var v = 0; v < this.jaccardMatrix[0].length + 1; v++) {
                 //@ts-ignore
                 arr[g][v] = 0
             }
@@ -161,7 +161,6 @@ export class MathMachine {
                 }
 
 
-
                 // console.log(Qm);
             }
 
@@ -181,9 +180,6 @@ export class MathMachine {
 
         // return result;
     }
-
-
-
 
 
 }
