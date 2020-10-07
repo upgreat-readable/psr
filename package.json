@@ -1,6 +1,6 @@
 {
-  "name": "@upgreat-readable/readable_io.psr",
-  "version": "1.0.7",
+  "name": "@upgreat-readable/psr",
+  "version": "1.0.0",
   "description": "readable psr package",
   "repository": {
     "type": "git",
