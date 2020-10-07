@@ -1,10 +1,10 @@
 {
-  "name": "@webpractik/readable_io.psr",
+  "name": "@upgreat-readable/readable_io.psr",
   "version": "1.0.7",
   "description": "readable psr package",
   "repository": {
     "type": "git",
-    "url": "https://github.com/webpractik/readable_io.psr.git"
+    "url": "https://github.com/upgreat-readable/psr.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
