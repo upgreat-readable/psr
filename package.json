@@ -1,29 +1,78 @@
 {
-  "name": "@upgreat-readable/psr",
-  "version": "1.0.0",
-  "description": "readable psr package",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/upgreat-readable/psr.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
-  "author": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon build/getErrors.js",
-    "build": "node build/getErrors.js"
-  },
-  "dependencies": {
-    "@types/lodash": "^4.14.157",
-    "@types/node": "^14.0.13",
-    "fs": "0.0.1-security",
-    "http": "0.0.1-security",
-    "lodash": "^4.17.19",
-    "nodemon": "^2.0.4",
-    "path": "^0.12.7",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.5"
-  }
+    "name": "@upgreat-readable/psr",
+    "version": "1.0.0",
+    "description": "readable psr package",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/upgreat-readable/psr.git"
+    },
+    "author": "",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon build/getErrors.js",
+        "get-errors": "node build/getErrors.js",
+        "build": "tsc",
+        "pretty": "prettier --write .",
+        "commit": "git-cz",
+        "lint:code": "eslint \"./**/*.{ts,tsx}\"",
+        "lint:styles": "stylelint \"./**/*.css\"",
+        "release": "standard-version"
+    },
+    "dependencies": {
+        "@types/lodash": "^4.14.157",
+        "fs": "0.0.1-security",
+        "lodash": "^4.17.19",
+        "path": "^0.12.7",
+        "@types/node": "^14.11.5",
+        "typescript": "next"
+    },
+    "devDependencies": {
+        "request": "^2.88.2",
+        "request-promise": "^4.2.5",
+        "http": "0.0.1-security",
+        "nodemon": "^2.0.4",
+        "@commitlint/cli": "^11.0.0",
+        "@commitlint/config-conventional": "^11.0.0",
+        "babel-eslint": "^10.1.0",
+        "commitizen": "^4.2.1",
+        "cz-conventional-changelog": "^3.3.0",
+        "eslint": "^7.10.0",
+        "eslint-config-airbnb-base": "^14.2.0",
+        "eslint-config-prettier": "^6.12.0",
+        "eslint-import-resolver-node": "^0.3.4",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-import-helpers": "^1.1.0",
+        "husky": "^4.3.0",
+        "lint-staged": "^10.4.0",
+        "prettier": "^2.1.2",
+        "standard-version": "^9.0.0",
+        "stylelint": "^13.7.2",
+        "stylelint-config-recess-order": "^2.1.0",
+        "stylelint-config-recommended": "^3.0.0",
+        "stylelint-order": "^4.1.0",
+        "@tsconfig/node14": "^1.0.0"
+    },
+    "commitlint": {
+        "extends": [
+            "@commitlint/config-conventional"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "cz-conventional-changelog"
+        }
+    },
+    "lint-staged": {
+        "*.{tsx,ts,js,jsx,scss,css,js,json,md}": [
+            "prettier --write"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts"
 }

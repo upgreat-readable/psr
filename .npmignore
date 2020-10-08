@@ -1,0 +1,13 @@
+/.idea
+node_modules/
+lib/
+src/
+tsconfig.json
+.travis.yml
+yarn.lock
+package-lock.json
+**/__tests__/*
+.prettierrc.json
+.prettierignore
+.eslintrc
+.eslintignore
