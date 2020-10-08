@@ -1,35 +1,41 @@
-import {ParticipateInPsrObj, MetricEnum, ReturnObject, IterationPsrResult, MetricObj} from "../types/MainPsrTypes";
+import {
+    ParticipateInPsrObj,
+    MetricEnum,
+    ReturnObject,
+    IterationPsrResult,
+    MetricObj,
+} from '../types/MainPsrTypes';
 
 export interface IMetricCalculator {
-    _X: ParticipateInPsrObj
-    mX1: number
-    mX2: number
-    mX3: number
-    mX4: number
-    mX5: number
-    mX6: number
-    mX7: number
+    _X: ParticipateInPsrObj;
+    mX1: number;
+    mX2: number;
+    mX3: number;
+    mX4: number;
+    mX5: number;
+    mX6: number;
+    mX7: number;
 
-    _Y: ParticipateInPsrObj
+    _Y: ParticipateInPsrObj;
 
-    weight: MetricObj
+    weight: MetricObj;
 
     // setWeight(): void
 
-    dash(): IterationPsrResult
+    dash(): IterationPsrResult;
 
     //
-    setM1(): void
+    setM1(): void;
     //
-    setM2(): void
+    setM2(): void;
     //
-    setM3(): void
+    setM3(): void;
     //
-    setM4(): void
+    setM4(): void;
     //
-    setM5(): void
+    setM5(): void;
     //
-    setM6(): void
+    setM6(): void;
     //
-    setM7(): void
+    setM7(): void;
 }

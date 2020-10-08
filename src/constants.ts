@@ -6,4 +6,4 @@ export const K_MAX: any = {
     hist: 12,
     eng: 14,
     ['eng-free']: 24,
-}
+};

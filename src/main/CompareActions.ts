@@ -1,13 +1,12 @@
-import {Selections} from "../types/MainPsrTypes";
+import { Selections } from '../types/MainPsrTypes';
 
 export class CompareActions {
+    static x: Selections;
+    static y: Selections;
 
-    static x: Selections
-    static y: Selections
+    static mistakes: any;
 
-    static mistakes: any
-
-    static result = {saI: 0, cosI: 0}
+    static result = { saI: 0, cosI: 0 };
 
     // static staticSortWithCodes(x: Selections, y: Selections) {
     //     let result = []

@@ -1,16 +1,15 @@
-import {EnterGlobalObject, IterationPsrResult, ReturnObject} from "./types/MainPsrTypes";
-import {MetricCalculator} from "./main/MetricCalculator";
+import { EnterGlobalObject, IterationPsrResult, ReturnObject } from './types/MainPsrTypes';
+import { MetricCalculator } from './main/MetricCalculator';
 
 /**
  * Основной сервис-класс, обслуживающий MetricCalculator и реализующий итоговые подсчёты СТАР/СТЭР и ОТАР для присланных разметок эссе.
  */
 export class MetricService {
-
     /**
      * Объект, который отдаст класс после расчётов.
      * @private
      */
-    private _compileAnswer: ReturnObject = {} as ReturnObject
+    private _compileAnswer: ReturnObject = {} as ReturnObject;
 
     /**
      * EntryPoint, производящий вычисления
@@ -18,7 +17,7 @@ export class MetricService {
      */
     calculate(entryMarkupObject: EnterGlobalObject) {
         //@ts-ignore
-        this._compileAnswer = {markups: []}
+        this._compileAnswer = { markups: [] };
 
         /**
          * Запускаем цикл для присланных разметок - 1я итерация
@@ -30,8 +29,8 @@ export class MetricService {
                 matching: [],
                 STAR: 0,
                 STER: 0,
-                OTAR: 0
-            })
+                OTAR: 0,
+            });
 
             /**
              * Запускаем цикл для присланных разметок - 2я итерация - перебираем все разметки для 1й выбранной
@@ -40,37 +39,54 @@ export class MetricService {
                 /* исключаем сравнение разметки с самой собой и исключаем из Y разметки алгоритмов */
                 if (i !== j && entryMarkupObject.essay.markups[j].isExpert) {
                     let metric = new MetricCalculator(
-                        entryMarkupObject.essay.markups[i], entryMarkupObject.essay.markups[j],
-                        entryMarkupObject.essay.meta, entryMarkupObject.essay.text
-                    ).dash()
+                        entryMarkupObject.essay.markups[i],
+                        entryMarkupObject.essay.markups[j],
+                        entryMarkupObject.essay.meta,
+                        entryMarkupObject.essay.text
+                    ).dash();
                     /* запушим результат в итоговых массив */
-                    this.fillAnswer(entryMarkupObject.essay.markups[i].id, metric)
+                    this.fillAnswer(entryMarkupObject.essay.markups[i].id, metric);
                 }
             }
 
             /* после вычисления метрик расчитаем стар/стэр, в зависимости от типа разметки */
             try {
-                this.calcAccuracy(entryMarkupObject.essay.markups[i].id, entryMarkupObject.essay.markups[i].isExpert)
+                this.calcAccuracy(
+                    entryMarkupObject.essay.markups[i].id,
+                    entryMarkupObject.essay.markups[i].isExpert
+                );
             } catch (e) {
-                throw new Error('Во время расчёта СТАР/СТЭР произошла ошибка \n'
-                    + 'разметка - ' + entryMarkupObject.essay.markups[i].id + '\n'
-                    + 'эссе - ' + entryMarkupObject.essay.id
-                    + e.stack)
+                throw new Error(
+                    'Во время расчёта СТАР/СТЭР произошла ошибка \n' +
+                        'разметка - ' +
+                        entryMarkupObject.essay.markups[i].id +
+                        '\n' +
+                        'эссе - ' +
+                        entryMarkupObject.essay.id +
+                        e.stack
+                );
             }
 
             /* далее, расчитаем отар и закончим итерацию для конкретной разметки */
             try {
-                this.calcFinalOtar(entryMarkupObject.essay.markups[i].id, entryMarkupObject.essay.markups[i].isExpert)
+                this.calcFinalOtar(
+                    entryMarkupObject.essay.markups[i].id,
+                    entryMarkupObject.essay.markups[i].isExpert
+                );
             } catch (e) {
-                throw new Error('Во время расчёта ОТАР произошла ошибка \n'
-                    + 'разметка - ' + entryMarkupObject.essay.markups[i].id + '\n'
-                    + 'эссе - ' + entryMarkupObject.essay.id
-                    + e.stack)
+                throw new Error(
+                    'Во время расчёта ОТАР произошла ошибка \n' +
+                        'разметка - ' +
+                        entryMarkupObject.essay.markups[i].id +
+                        '\n' +
+                        'эссе - ' +
+                        entryMarkupObject.essay.id +
+                        e.stack
+                );
             }
-
         }
 
-        return this._compileAnswer
+        return this._compileAnswer;
     }
 
     /**
@@ -81,72 +97,71 @@ export class MetricService {
     fillAnswer(mainMarkupId: string, psrConcreteResult: IterationPsrResult) {
         for (let i in this._compileAnswer.markups) {
             if (this._compileAnswer.markups[i].id === mainMarkupId) {
-                this._compileAnswer.markups[i].matching.push(psrConcreteResult)
+                this._compileAnswer.markups[i].matching.push(psrConcreteResult);
             }
         }
     }
 
     calcAccuracy(mainMarkupId: string, expertMarker: boolean) {
-        let numenator = 0
-        let denominator = 0
+        let numenator = 0;
+        let denominator = 0;
         for (let i in this._compileAnswer.markups) {
-
             if (this._compileAnswer.markups[i].id === mainMarkupId) {
                 /* для каждого элемента сравнения суммируем mTotal */
                 for (let j in this._compileAnswer.markups[i].matching) {
                     /*@todo после получения ответа от Константина, нужно будет либо удалить коммент, либо исправить реализацию*/
                     /* если результат сравнения был расчитан относительно разметки 3м экспертом - его вес будет равен 2 */
                     if (this._compileAnswer.markups[i].matching[j].third) {
-                        numenator = numenator + this._compileAnswer.markups[i].matching[j].metrics.MTotal * 2
-                        denominator = denominator + 2
+                        numenator =
+                            numenator +
+                            this._compileAnswer.markups[i].matching[j].metrics.MTotal * 2;
+                        denominator = denominator + 2;
                     } else {
-                        numenator = numenator + this._compileAnswer.markups[i].matching[j].metrics.MTotal
-                        denominator = denominator + 1
+                        numenator =
+                            numenator + this._compileAnswer.markups[i].matching[j].metrics.MTotal;
+                        denominator = denominator + 1;
                     }
                 }
 
                 if (expertMarker) {
-                    this._compileAnswer.markups[i].STER = numenator / denominator
+                    this._compileAnswer.markups[i].STER = numenator / denominator;
                 } else {
-                    this._compileAnswer.markups[i].STAR = numenator / denominator
+                    this._compileAnswer.markups[i].STAR = numenator / denominator;
                 }
             }
         }
     }
 
-
     calcFinalOtar(mainMarkupId: string, expertMarker: boolean) {
-        let averageSter = 0
-        let star = 0
-        let averageSterDenominator = 0
+        let averageSter = 0;
+        let star = 0;
+        let averageSterDenominator = 0;
         // console.log(JSON.stringify(this._compileAnswer.markups, null ,2));
         for (let i in this._compileAnswer.markups) {
             // if (this._compileAnswer.markups[i].id === mainMarkupId) {
 
             if (this._compileAnswer.markups[i].STER !== 0) {
-
-                averageSter += this._compileAnswer.markups[i].STER
-                averageSterDenominator++
+                averageSter += this._compileAnswer.markups[i].STER;
+                averageSterDenominator++;
             }
 
             if (this._compileAnswer.markups[i].STAR !== 0) {
-                star = this._compileAnswer.markups[i].STAR
+                star = this._compileAnswer.markups[i].STAR;
             }
             // }
         }
 
-        let ster = averageSter / averageSterDenominator
-
+        let ster = averageSter / averageSterDenominator;
 
         for (let i in this._compileAnswer.markups) {
             if (this._compileAnswer.markups[i].STAR !== 0) {
-                let tempOtar = (star / ster) * 100
+                let tempOtar = (star / ster) * 100;
 
                 if (!Number.isInteger(tempOtar)) {
-                    tempOtar = Math.round(tempOtar)
+                    tempOtar = Math.round(tempOtar);
                 }
 
-                this._compileAnswer.markups[i].OTAR = tempOtar
+                this._compileAnswer.markups[i].OTAR = tempOtar;
             }
         }
     }
