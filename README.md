@@ -5,7 +5,7 @@
 ## Usage
 
 ```ts
-import { MetricService } from '@upgreat-readable/psr';
+import MetricService from '@upgreat-readable/psr';
 
 // prepare
 const readyToPsrEntity: EnterGlobalObject = {};
