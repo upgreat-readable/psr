@@ -1,5 +1,6 @@
 import { EnterGlobalObject, IterationPsrResult, ReturnObject } from './types/MainPsrTypes';
 import { MetricCalculator } from './main/MetricCalculator';
+import { Validator } from './main/Validator';
 
 /**
  * Основной сервис-класс, обслуживающий MetricCalculator и реализующий итоговые подсчёты СТАР/СТЭР и ОТАР для присланных разметок эссе.
@@ -16,6 +17,7 @@ export class MetricService {
      * @param entryMarkupObject
      */
     calculate(entryMarkupObject: EnterGlobalObject) {
+        Validator.validate(entryMarkupObject);
         //@ts-ignore
         this._compileAnswer = { markups: [] };
 
@@ -102,25 +104,16 @@ export class MetricService {
         }
     }
 
-    calcAccuracy(mainMarkupId: string, expertMarker: boolean) {
+    calcAccuracy(mainMarkupId: string, expertMarker: boolean | undefined) {
         let numenator = 0;
         let denominator = 0;
         for (let i in this._compileAnswer.markups) {
             if (this._compileAnswer.markups[i].id === mainMarkupId) {
                 /* для каждого элемента сравнения суммируем mTotal */
                 for (let j in this._compileAnswer.markups[i].matching) {
-                    /*@todo после получения ответа от Константина, нужно будет либо удалить коммент, либо исправить реализацию*/
-                    /* если результат сравнения был расчитан относительно разметки 3м экспертом - его вес будет равен 2 */
-                    if (this._compileAnswer.markups[i].matching[j].third) {
-                        numenator =
-                            numenator +
-                            this._compileAnswer.markups[i].matching[j].metrics.MTotal * 2;
-                        denominator = denominator + 2;
-                    } else {
-                        numenator =
-                            numenator + this._compileAnswer.markups[i].matching[j].metrics.MTotal;
-                        denominator = denominator + 1;
-                    }
+                    numenator =
+                        numenator + this._compileAnswer.markups[i].matching[j].metrics.MTotal;
+                    denominator = denominator + 1;
                 }
 
                 if (expertMarker) {
@@ -132,14 +125,11 @@ export class MetricService {
         }
     }
 
-    calcFinalOtar(mainMarkupId: string, expertMarker: boolean) {
+    calcFinalOtar(mainMarkupId: string, expertMarker: boolean | undefined) {
         let averageSter = 0;
         let star = 0;
         let averageSterDenominator = 0;
-        // console.log(JSON.stringify(this._compileAnswer.markups, null ,2));
         for (let i in this._compileAnswer.markups) {
-            // if (this._compileAnswer.markups[i].id === mainMarkupId) {
-
             if (this._compileAnswer.markups[i].STER !== 0) {
                 averageSter += this._compileAnswer.markups[i].STER;
                 averageSterDenominator++;
@@ -148,7 +138,6 @@ export class MetricService {
             if (this._compileAnswer.markups[i].STAR !== 0) {
                 star = this._compileAnswer.markups[i].STAR;
             }
-            // }
         }
 
         let ster = averageSter / averageSterDenominator;

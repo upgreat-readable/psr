@@ -9,8 +9,8 @@ export type EnterGlobalObject = {
         text: string;
         markups: {
             id: string;
-            isExpert: boolean;
-            third: boolean;
+            isExpert?: boolean;
+            third?: boolean;
             criteria: {
                 [key: string]: number;
             };
@@ -48,8 +48,8 @@ export type Selections = {
 
 export type ParticipateInPsrObj = {
     id: string;
-    isExpert: boolean;
-    third: boolean;
+    isExpert?: boolean;
+    third?: boolean;
     criteria: {
         [key: string]: number;
     };

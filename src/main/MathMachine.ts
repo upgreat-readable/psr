@@ -1,17 +1,46 @@
-import { LotsOf } from '../types/MainPsrTypes';
+import { LotsOf, Selections } from '../types/MainPsrTypes';
 
 export class MathMachine {
+    workWithSelection: boolean;
+    determFactor: 'type' | 'correction' | 'explanation';
     lotsOfX: LotsOf;
     lotsOfY: LotsOf;
 
     jaccardMatrix: Array<number[]> = [];
     lossMatrix: Array<number[]> = [];
 
-    constructor(x: LotsOf, y: LotsOf) {
-        this.lotsOfX = x;
-        this.lotsOfY = y;
+    matchedFragmentsPercent: number = 0;
+
+    constructor(
+        x: LotsOf | Selections,
+        y: LotsOf | Selections,
+        workWithSelecton: boolean = false,
+        determFactor: 'type' | 'correction' | 'explanation' = 'type'
+    ) {
+        this.workWithSelection = workWithSelecton;
+        this.determFactor = determFactor;
+        if (this.workWithSelection) {
+            //@ts-ignore
+            this.lotsOfX = this.transformSelectionsToMathFormat(x);
+            //@ts-ignore
+            this.lotsOfY = this.transformSelectionsToMathFormat(y);
+        } else {
+            //@ts-ignore
+            this.lotsOfX = x;
+            //@ts-ignore
+            this.lotsOfY = y;
+        }
+
         this.lotsOfX.forEach(x => this.jaccardMatrix.push([]));
         this.lotsOfX.forEach(x => this.lossMatrix.push([]));
+    }
+
+    complexSearchMatchedFragments(): number {
+        this.calcJaccardMatrix();
+        this.calcLossMatrix();
+
+        this.goPsrGo();
+        return this.matchedFragmentsPercent;
     }
 
     calcJaccardMatrix() {
@@ -31,6 +60,10 @@ export class MathMachine {
         }
     }
 
+    getJaccardMatrix() {
+        return this.jaccardMatrix;
+    }
+
     calcLossMatrix() {
         for (let i in this.jaccardMatrix) {
             for (let j in this.jaccardMatrix[i]) {
@@ -41,6 +74,10 @@ export class MathMachine {
                     (this.lotsOfX[i].determFactor !== this.lotsOfY[j].determFactor ? 1 : 0);
             }
         }
+    }
+
+    getLossMatrix() {
+        return this.lossMatrix;
     }
 
     calcCrossNDivergence(xBegin: number, xEnd: number, yBegin: number, yEnd: number) {
@@ -122,16 +159,9 @@ export class MathMachine {
 
         let i = 0;
         for (let p in connLine) {
-            if (i === 0) {
-                // xSmejh = +connLine[p].row
-                // ySmejh = +connLine[p].col
-            }
-
             //перебрать паросочетания
             if ((xSmejh !== +connLine[p].row && ySmejh !== +connLine[p].col) || i === 0) {
                 index = mLine.push(connLine[p]);
-                // console.log('cur object - ' + connLine[p]);
-
                 //посчитаем неучтенные вершины в долях графа по x и по y
                 for (let k in mLine) {
                     xPrep.push(mLine[k].row);
@@ -143,14 +173,11 @@ export class MathMachine {
                 //-----------//
 
                 //считаем L(i,k)
-                // console.log(mLine);
                 sumToQ = 0;
                 for (let k in mLine) {
-                    // console.log(mLine[k]);
                     xEmp = this.lossMatrix.length - x0;
                     yEmp = this.lossMatrix[0].length - y0;
                     sumToQ += this.lossMatrix[mLine[k].row][mLine[k].col];
-                    // console.log(mLine[k].row + '-------- ' + mLine[k].col);
                 }
                 Q = sumToQ + xEmp + yEmp;
 
@@ -160,8 +187,6 @@ export class MathMachine {
                 } else {
                     delete mLine.index;
                 }
-
-                // console.log(Qm);
             }
 
             xSmejh = +connLine[p].row;
@@ -175,9 +200,26 @@ export class MathMachine {
         for (let t in mLineTruth) {
             count.push(mLineTruth[t].row);
         }
-        let countUniq = new Set(count).size;
-        return countUniq / this.lossMatrix[0].length;
 
-        // return result;
+        let countUniq = new Set(count).size;
+        this.matchedFragmentsPercent = countUniq / this.lossMatrix[0].length;
+    }
+
+    getMatchedFragmentsPercent() {
+        return this.matchedFragmentsPercent;
+    }
+
+    transformSelectionsToMathFormat(selections: Selections) {
+        let result = [];
+
+        for (let i in selections) {
+            result.push({
+                start: selections[i].startSelection,
+                end: selections[i].endSelection,
+                determFactor: selections[i][this.determFactor],
+            });
+        }
+
+        return result;
     }
 }

@@ -6,7 +6,6 @@ import {
     MetricObj,
 } from '../types/MainPsrTypes';
 import { K_MAX } from '../constants';
-import { CompareActions } from './CompareActions';
 import { MathMachine } from './MathMachine';
 
 export class MetricCalculator implements IMetricCalculator {
@@ -68,7 +67,7 @@ export class MetricCalculator implements IMetricCalculator {
     //основной метод расчёта метрик
     dash(): IterationPsrResult {
         this.iterationPsrResult.markupId = this._Y.id;
-        this.iterationPsrResult.third = this._Y.third;
+        this.iterationPsrResult.third = this._Y.third ? this._Y.third : false;
         this.setM1();
         this.setM2();
         this.setM3();
@@ -103,41 +102,19 @@ export class MetricCalculator implements IMetricCalculator {
         } else {
             this.iterationPsrResult.metrics.M1 = this.mX1;
         }
-
-        // console.log('---m1 ' + this.mX1);
     }
 
     setM2(): void {
-        let xPrepArray = [];
-        let yPrepArray = [];
-        for (let i in this._X.selections) {
-            //@ts-ignore
-            xPrepArray.push({
-                start: this._X.selections[i].startSelection,
-                end: this._X.selections[i].endSelection,
-                determFactor: this._X.selections[i].type,
-            });
-        }
-
-        for (let j in this._Y.selections) {
-            //@ts-ignore
-            yPrepArray.push({
-                start: this._Y.selections[j].startSelection,
-                end: this._Y.selections[j].endSelection,
-                determFactor: this._Y.selections[j].type,
-            });
-        }
-        // console.log(this._X);
-
-        let m = new MathMachine(xPrepArray, yPrepArray);
-        m.calcJaccardMatrix();
-        m.calcLossMatrix();
-        let res1 = m.goPsrGo();
-
-        let m2 = new MathMachine(yPrepArray, xPrepArray);
-        m2.calcJaccardMatrix();
-        m2.calcLossMatrix();
-        let res2 = m2.goPsrGo();
+        let res1 = new MathMachine(
+            this._X.selections,
+            this._Y.selections,
+            true
+        ).complexSearchMatchedFragments();
+        let res2 = new MathMachine(
+            this._Y.selections,
+            this._X.selections,
+            true
+        ).complexSearchMatchedFragments();
 
         this.mX2 = Math.round((2 / (1 / res1 + 1 / res2)) * 100);
 
@@ -146,127 +123,60 @@ export class MetricCalculator implements IMetricCalculator {
         } else {
             this.iterationPsrResult.metrics.M2 = this.mX2;
         }
-
-        // console.log('---m2 ' + this.mX2);
     }
 
     setM3(): void {
-        let xPrepArray = [];
-        let yPrepArray = [];
-        for (let i in this._X.selections) {
-            //@ts-ignore
-            xPrepArray.push({
-                start: this._X.selections[i].startSelection,
-                end: this._X.selections[i].endSelection,
-                determFactor: this._X.selections[i].type,
-            });
-        }
-
-        for (let j in this._Y.selections) {
-            //@ts-ignore
-            yPrepArray.push({
-                start: this._Y.selections[j].startSelection,
-                end: this._Y.selections[j].endSelection,
-                determFactor: this._Y.selections[j].type,
-            });
-        }
-
-        let m = new MathMachine(xPrepArray, yPrepArray);
-        m.calcJaccardMatrix();
-        m.calcLossMatrix();
-        this.mX3 = m.goPsrGo() * 100;
+        this.mX3 =
+            new MathMachine(
+                this._X.selections,
+                this._Y.selections,
+                true
+            ).complexSearchMatchedFragments() * 100;
 
         if (!Number.isInteger(this.mX3)) {
             this.iterationPsrResult.metrics.M3 = Math.round(this.mX3);
         } else {
             this.iterationPsrResult.metrics.M3 = this.mX3;
         }
-
-        // console.log('---m3 ' + this.mX3);
     }
 
-    /*@todo парафразы должны быть занесены в константы (либо получены по запросу от catalog_errors) и быть поняты, как эталон для комментирования. https://w6p.ru/YWE1Y2R.png*/
     setM4(): void {
-        let xPrepArray = [];
-        let yPrepArray = [];
-        for (let i in this._X.selections) {
-            //@ts-ignore
-            xPrepArray.push({
-                start: this._X.selections[i].startSelection,
-                end: this._X.selections[i].endSelection,
-                determFactor: this._X.selections[i].correction,
-            });
-        }
-
-        for (let j in this._Y.selections) {
-            //@ts-ignore
-            yPrepArray.push({
-                start: this._Y.selections[j].startSelection,
-                end: this._Y.selections[j].endSelection,
-                determFactor: this._Y.selections[j].correction,
-            });
-        }
-
-        let m = new MathMachine(xPrepArray, yPrepArray);
-        m.calcJaccardMatrix();
-        m.calcLossMatrix();
-
-        this.mX4 = m.goPsrGo() * 100;
+        this.mX4 =
+            new MathMachine(
+                this._X.selections,
+                this._Y.selections,
+                true,
+                'correction'
+            ).complexSearchMatchedFragments() * 100;
 
         if (!Number.isInteger(this.mX4)) {
             this.iterationPsrResult.metrics.M4 = Math.round(this.mX4);
         } else {
             this.iterationPsrResult.metrics.M4 = this.mX4;
         }
-
-        // console.log('---m4 ' + this.mX4);
     }
 
-    /**@todo мера жаккара. описано в техрегламенте. фактически, критерий не расчитываем до тех пор, пока не будет разъяснен механизм сопоставления фрагментов**/
     setM5(): void {
-        let xPrepArray = [];
-        let yPrepArray = [];
-        for (let i in this._X.selections) {
-            //@ts-ignore
-            xPrepArray.push({
-                start: this._X.selections[i].startSelection,
-                end: this._X.selections[i].endSelection,
-                determFactor: this._X.selections[i].correction,
-            });
-        }
-
-        for (let j in this._Y.selections) {
-            //@ts-ignore
-            yPrepArray.push({
-                start: this._Y.selections[j].startSelection,
-                end: this._Y.selections[j].endSelection,
-                determFactor: this._Y.selections[j].correction,
-            });
-        }
-
-        let m = new MathMachine(xPrepArray, yPrepArray);
-        m.calcJaccardMatrix();
+        let mathObj = new MathMachine(this._X.selections, this._Y.selections, true, 'correction');
+        mathObj.calcJaccardMatrix();
+        let jaccardMatrix = mathObj.getJaccardMatrix();
 
         let jackSum = 0;
         let slagaemoe = 0;
 
-        for (let k in m.jaccardMatrix) {
-            for (let u in m.jaccardMatrix[k]) {
-                if (m.jaccardMatrix[k][u] !== 1) {
-                    if (m.jaccardMatrix[k][u] === 0) {
+        for (let k in jaccardMatrix) {
+            for (let u in jaccardMatrix[k]) {
+                if (jaccardMatrix[k][u] !== 1) {
+                    if (jaccardMatrix[k][u] === 0) {
                         slagaemoe = 1;
                     } else {
-                        slagaemoe = m.jaccardMatrix[k][u];
+                        slagaemoe = jaccardMatrix[k][u];
                     }
                     jackSum += slagaemoe;
                 }
             }
         }
 
-        // console.log('matrica     ' +  m.jaccardMatrix );
-        // console.log('summa po matrice     ' + jackSum );
-
-        // let proizJack = m.jaccardMatrix.length * m.jaccardMatrix[0].length
         let proizJack = this._Y.selections.length;
 
         this.mX5 = (jackSum * 100) / proizJack;
@@ -280,56 +190,31 @@ export class MetricCalculator implements IMetricCalculator {
         } else {
             this.iterationPsrResult.metrics.M5 = this.mX5;
         }
-
-        // console.log('---m5 ' + this.mX5);
     }
 
     setM6(): void {
-        let xPrepArray = [];
-        let yPrepArray = [];
-        for (let i in this._X.selections) {
-            //@ts-ignore
-            xPrepArray.push({
-                start: this._X.selections[i].startSelection,
-                end: this._X.selections[i].endSelection,
-                determFactor: this._X.selections[i].explanation,
-            });
-        }
+        this.mX6 =
+            new MathMachine(
+                this._X.selections,
+                this._Y.selections,
+                true,
+                'explanation'
+            ).complexSearchMatchedFragments() * 100;
 
-        for (let j in this._Y.selections) {
-            //@ts-ignore
-            yPrepArray.push({
-                start: this._Y.selections[j].startSelection,
-                end: this._Y.selections[j].endSelection,
-                determFactor: this._Y.selections[j].explanation,
-            });
-        }
-
-        let m = new MathMachine(xPrepArray, yPrepArray);
-        m.calcJaccardMatrix();
-        m.calcLossMatrix();
-        this.mX6 = m.goPsrGo() * 100;
         if (!Number.isInteger(this.mX6)) {
             this.iterationPsrResult.metrics.M6 = Math.round(this.mX6);
         } else {
             this.iterationPsrResult.metrics.M6 = this.mX6;
         }
-
-        // console.log('---m6 ' + this.mX6);
     }
 
-    /*@todo уточнить по поводу этого параметра
-     *   занулён, т.к пояснения не были получены*/
     setM7() {
         this.mX7 = 0;
-
         if (!Number.isInteger(this.mX7)) {
             this.iterationPsrResult.metrics.M7 = Math.round(this.mX7);
         } else {
             this.iterationPsrResult.metrics.M7 = this.mX7;
         }
-
-        // console.log('---m7 ' + this.mX7);
     }
 
     setMTotal() {
@@ -337,12 +222,9 @@ export class MetricCalculator implements IMetricCalculator {
         for (let i in this.iterationPsrResult.metrics) {
             //@ts-ignore
             if (this.weight[i] !== 0) {
-                // console.log('key -    ' + i);
                 denominationFinal++;
             }
         }
-
-        // console.log('vsego metrici - ' + denominationFinal);
 
         this.mTotal =
             Object.values(this.iterationPsrResult.metrics).reduce((a, b) => a + b, 0) /

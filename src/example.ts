@@ -26,7 +26,6 @@ let failExampleWithOutThird = {
             {
                 id: 'fail-id-1',
                 isExpert: true,
-                third: false,
                 criteria: {
                     K1: 0,
                     K2: 0,
@@ -290,7 +289,6 @@ let failExampleWithOutThird = {
             {
                 id: 'fail-id-2',
                 isExpert: true,
-                third: false,
                 criteria: {
                     K1: 0,
                     K2: 0,
@@ -542,7 +540,6 @@ let failExampleWithOutThird = {
             {
                 id: 'fail-id-3',
                 isExpert: false,
-                third: false,
                 criteria: {
                     K1: 0,
                     K2: 0,
