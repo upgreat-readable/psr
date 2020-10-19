@@ -69,12 +69,16 @@ export class MetricCalculator implements IMetricCalculator {
         this.iterationPsrResult.markupId = this._Y.id;
         this.iterationPsrResult.third = this._Y.third ? this._Y.third : false;
         this.setM1();
-        this.setM2();
-        this.setM3();
-        this.setM4();
-        this.setM5();
-        this.setM6();
-        this.setM7();
+
+        if (!this.areThereEmptySelections()) {
+            this.setM2();
+            this.setM3();
+            this.setM4();
+            this.setM5();
+            this.setM6();
+            this.setM7();
+        }
+
         this.setMTotal();
         return this.iterationPsrResult;
     }
@@ -104,19 +108,23 @@ export class MetricCalculator implements IMetricCalculator {
         }
     }
 
-    setM2(): void {
-        let res1 = new MathMachine(
-            this._X.selections,
-            this._Y.selections,
-            true
-        ).complexSearchMatchedFragments();
-        let res2 = new MathMachine(
-            this._Y.selections,
-            this._X.selections,
-            true
-        ).complexSearchMatchedFragments();
+    setM2(preValue?: number): void {
+        if (typeof preValue === 'number') {
+            this.mX2 = preValue;
+        } else {
+            let res1 = new MathMachine(
+                this._X.selections,
+                this._Y.selections,
+                true
+            ).complexSearchMatchedFragments();
+            let res2 = new MathMachine(
+                this._Y.selections,
+                this._X.selections,
+                true
+            ).complexSearchMatchedFragments();
 
-        this.mX2 = Math.round((2 / (1 / res1 + 1 / res2)) * 100);
+            this.mX2 = Math.round((2 / (1 / res1 + 1 / res2)) * 100);
+        }
 
         if (!Number.isInteger(this.mX2)) {
             this.iterationPsrResult.metrics.M2 = Math.round(this.mX2);
@@ -125,13 +133,17 @@ export class MetricCalculator implements IMetricCalculator {
         }
     }
 
-    setM3(): void {
-        this.mX3 =
-            new MathMachine(
-                this._X.selections,
-                this._Y.selections,
-                true
-            ).complexSearchMatchedFragments() * 100;
+    setM3(preValue?: number): void {
+        if (typeof preValue === 'number') {
+            this.mX3 = preValue;
+        } else {
+            this.mX3 =
+                new MathMachine(
+                    this._X.selections,
+                    this._Y.selections,
+                    true
+                ).complexSearchMatchedFragments() * 100;
+        }
 
         if (!Number.isInteger(this.mX3)) {
             this.iterationPsrResult.metrics.M3 = Math.round(this.mX3);
@@ -140,14 +152,18 @@ export class MetricCalculator implements IMetricCalculator {
         }
     }
 
-    setM4(): void {
-        this.mX4 =
-            new MathMachine(
-                this._X.selections,
-                this._Y.selections,
-                true,
-                'correction'
-            ).complexSearchMatchedFragments() * 100;
+    setM4(preValue?: number): void {
+        if (typeof preValue === 'number') {
+            this.mX4 = preValue;
+        } else {
+            this.mX4 =
+                new MathMachine(
+                    this._X.selections,
+                    this._Y.selections,
+                    true,
+                    'correction'
+                ).complexSearchMatchedFragments() * 100;
+        }
 
         if (!Number.isInteger(this.mX4)) {
             this.iterationPsrResult.metrics.M4 = Math.round(this.mX4);
@@ -156,33 +172,42 @@ export class MetricCalculator implements IMetricCalculator {
         }
     }
 
-    setM5(): void {
-        let mathObj = new MathMachine(this._X.selections, this._Y.selections, true, 'correction');
-        mathObj.calcJaccardMatrix();
-        let jaccardMatrix = mathObj.getJaccardMatrix();
+    setM5(preValue?: number): void {
+        if (typeof preValue === 'number') {
+            this.mX5 = preValue;
+        } else {
+            let mathObj = new MathMachine(
+                this._X.selections,
+                this._Y.selections,
+                true,
+                'correction'
+            );
+            mathObj.calcJaccardMatrix();
+            let jaccardMatrix = mathObj.getJaccardMatrix();
 
-        let jackSum = 0;
-        let slagaemoe = 0;
+            let jackSum = 0;
+            let slagaemoe = 0;
 
-        for (let k in jaccardMatrix) {
-            for (let u in jaccardMatrix[k]) {
-                if (jaccardMatrix[k][u] !== 1) {
-                    if (jaccardMatrix[k][u] === 0) {
-                        slagaemoe = 1;
-                    } else {
-                        slagaemoe = jaccardMatrix[k][u];
+            for (let k in jaccardMatrix) {
+                for (let u in jaccardMatrix[k]) {
+                    if (jaccardMatrix[k][u] !== 1) {
+                        if (jaccardMatrix[k][u] === 0) {
+                            slagaemoe = 1;
+                        } else {
+                            slagaemoe = jaccardMatrix[k][u];
+                        }
+                        jackSum += slagaemoe;
                     }
-                    jackSum += slagaemoe;
                 }
             }
-        }
 
-        let proizJack = this._Y.selections.length;
+            let proizJack = this._Y.selections.length;
 
-        this.mX5 = (jackSum * 100) / proizJack;
+            this.mX5 = (jackSum * 100) / proizJack;
 
-        if (this.mX5 > 100) {
-            this.mX5 = 100;
+            if (this.mX5 > 100) {
+                this.mX5 = 100;
+            }
         }
 
         if (!Number.isInteger(this.mX5)) {
@@ -192,14 +217,18 @@ export class MetricCalculator implements IMetricCalculator {
         }
     }
 
-    setM6(): void {
-        this.mX6 =
-            new MathMachine(
-                this._X.selections,
-                this._Y.selections,
-                true,
-                'explanation'
-            ).complexSearchMatchedFragments() * 100;
+    setM6(preValue?: number): void {
+        if (typeof preValue === 'number') {
+            this.mX6 = preValue;
+        } else {
+            this.mX6 =
+                new MathMachine(
+                    this._X.selections,
+                    this._Y.selections,
+                    true,
+                    'explanation'
+                ).complexSearchMatchedFragments() * 100;
+        }
 
         if (!Number.isInteger(this.mX6)) {
             this.iterationPsrResult.metrics.M6 = Math.round(this.mX6);
@@ -235,5 +264,30 @@ export class MetricCalculator implements IMetricCalculator {
         } else {
             this.iterationPsrResult.metrics.MTotal = this.mTotal;
         }
+    }
+
+    areThereEmptySelections(): boolean {
+        if (this._X.selections.length === 0 && this._Y.selections.length === 0) {
+            this.setM2(100);
+            this.setM3(100);
+            this.setM4(100);
+            this.setM5(100);
+            this.setM6(100);
+
+            return true;
+        } else if (
+            (this._X.selections.length === 0 && this._Y.selections.length !== 0) ||
+            (this._Y.selections.length === 0 && this._X.selections.length !== 0)
+        ) {
+            this.setM2(0);
+            this.setM3(0);
+            this.setM4(0);
+            this.setM5(0);
+            this.setM6(0);
+
+            return true;
+        }
+
+        return false;
     }
 }
