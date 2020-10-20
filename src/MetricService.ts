@@ -32,6 +32,7 @@ export class MetricService {
                 STAR: 0,
                 STER: 0,
                 OTAR: 0,
+                isExp: entryMarkupObject.essay.markups[i].isExpert,
             });
 
             /**
@@ -88,6 +89,9 @@ export class MetricService {
             }
         }
 
+        this._compileAnswer.STER_AVG = this.calcFinalSter();
+        this._compileAnswer.essayId = entryMarkupObject.essay.id;
+
         return this._compileAnswer;
     }
 
@@ -102,6 +106,23 @@ export class MetricService {
                 this._compileAnswer.markups[i].matching.push(psrConcreteResult);
             }
         }
+    }
+
+    calcFinalSter() {
+        let averageSter = 0;
+        let averageSterDenominator = 0;
+        for (let i in this._compileAnswer.markups) {
+            if (this._compileAnswer.markups[i].STER !== 0) {
+                averageSter += this._compileAnswer.markups[i].STER;
+                averageSterDenominator++;
+            }
+        }
+
+        if (averageSterDenominator === 0) {
+            averageSterDenominator = 1;
+        }
+
+        return Math.round(averageSter / averageSterDenominator);
     }
 
     calcAccuracy(mainMarkupId: string, expertMarker: boolean | undefined) {

@@ -88,11 +88,14 @@ export type ReturnObject = {
                     MTotal: number;
                 };
             }[];
+            isExp: boolean | undefined;
             STAR: number;
             STER: number;
             OTAR: number;
         }
     ];
+    STER_AVG: number;
+    essayId: string;
 };
 
 export type IterationPsrResult = {
@@ -108,8 +111,6 @@ export type IterationPsrResult = {
         M7: number;
         MTotal: number;
     };
-    STAR: number;
-    STER: number;
 };
 
 export type MetaInPsr = {

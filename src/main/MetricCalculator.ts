@@ -48,8 +48,6 @@ export class MetricCalculator implements IMetricCalculator {
             M6: 0,
             M7: 0,
         },
-        STAR: 0,
-        STER: 0,
     } as IterationPsrResult;
 
     constructor(
