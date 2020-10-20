@@ -2,7 +2,7 @@ import { LotsOf, Selections } from '../types/MainPsrTypes';
 
 export class MathMachine {
     workWithSelection: boolean;
-    determFactor: 'type' | 'correction' | 'explanation';
+    determFactor: 'type' | 'correction' | 'explanation' | 'subtype';
     lotsOfX: LotsOf;
     lotsOfY: LotsOf;
 
@@ -15,7 +15,7 @@ export class MathMachine {
         x: LotsOf | Selections,
         y: LotsOf | Selections,
         workWithSelecton: boolean = false,
-        determFactor: 'type' | 'correction' | 'explanation' = 'type'
+        determFactor: 'type' | 'correction' | 'explanation' | 'subtype' = 'type'
     ) {
         this.workWithSelection = workWithSelecton;
         this.determFactor = determFactor;
@@ -202,7 +202,7 @@ export class MathMachine {
         }
 
         let countUniq = new Set(count).size;
-        this.matchedFragmentsPercent = countUniq / this.lossMatrix[0].length;
+        this.matchedFragmentsPercent = countUniq / this.lossMatrix.length;
     }
 
     getMatchedFragmentsPercent() {

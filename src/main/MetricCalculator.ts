@@ -219,13 +219,32 @@ export class MetricCalculator implements IMetricCalculator {
         if (typeof preValue === 'number') {
             this.mX6 = preValue;
         } else {
-            this.mX6 =
-                new MathMachine(
-                    this._X.selections,
-                    this._Y.selections,
-                    true,
-                    'explanation'
-                ).complexSearchMatchedFragments() * 100;
+            let xWithCorrection = [];
+            let yWithCorrection = [];
+            for (let i in this._X.selections) {
+                if (this._X.selections[i].correction !== '') {
+                    xWithCorrection.push(this._X.selections[i]);
+                }
+            }
+            for (let j in this._Y.selections) {
+                if (this._Y.selections[j].correction !== '') {
+                    yWithCorrection.push(this._Y.selections[j]);
+                }
+            }
+
+            if (xWithCorrection.length === 0 && yWithCorrection.length === 0) {
+                this.mX6 = 100;
+            } else if (xWithCorrection.length === 0 || yWithCorrection.length === 0) {
+                this.mX6 = 0;
+            } else {
+                this.mX6 =
+                    new MathMachine(
+                        xWithCorrection,
+                        yWithCorrection,
+                        true,
+                        'correction'
+                    ).complexSearchMatchedFragments() * 100;
+            }
         }
 
         if (!Number.isInteger(this.mX6)) {
