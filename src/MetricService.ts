@@ -138,9 +138,9 @@ export class MetricService {
                 }
 
                 if (expertMarker) {
-                    this._compileAnswer.markups[i].STER = numenator / denominator;
+                    this._compileAnswer.markups[i].STER = Math.round(numenator / denominator);
                 } else {
-                    this._compileAnswer.markups[i].STAR = numenator / denominator;
+                    this._compileAnswer.markups[i].STAR = Math.round(numenator / denominator);
                 }
             }
         }

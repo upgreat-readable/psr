@@ -2900,7 +2900,220 @@ let zMB = {
                         tag: '',
                         type: 'ЛМНЕНИЕ',
                         group: 'meaning',
+                        comment: 'Г.упр',
+                        subtype: '',
+                        correction: 'manage',
+                        explanation: '',
+                        endSelection: 1236,
+                        startSelection: 1011,
+                    },
+                    {
+                        id: 349,
+                        tag: '',
+                        type: 'ВЫВОД',
+                        group: 'meaning',
                         comment: '',
+                        subtype: '',
+                        correction: '',
+                        explanation: '',
+                        endSelection: 1500,
+                        startSelection: 1313,
+                    },
+                ],
+                criteria: { K1: 2, K2: 0, K3: 0, K4: -1, K5: 1, K6: 1, K7: 0 },
+                metrics: { M1: 0, M2: 0, M3: 0, M4: 0, M5: 0, M6: 0, M7: 0 },
+                isExpert: true,
+            },
+            {
+                id: 'eaasdasdsad8ef41b-d70f-49cc-8972-f8d4d11a9d72',
+                selections: [
+                    {
+                        id: 210,
+                        tag: '',
+                        type: 'ПРОБЛЕМА',
+                        group: 'meaning',
+                        comment: '',
+                        subtype: '',
+                        correction: '',
+                        explanation: '',
+                        endSelection: 331,
+                        startSelection: 0,
+                    },
+                    {
+                        id: 53,
+                        tag: '',
+                        type: 'А.ГРАММ',
+                        group: 'error',
+                        comment: '',
+                        subtype: '',
+                        correction: 'have declared',
+                        explanation: '',
+                        endSelection: 172,
+                        startSelection: 160,
+                    },
+                    {
+                        id: 365,
+                        tag: '',
+                        type: 'А.ПРОБЛ',
+                        group: 'error',
+                        comment: '',
+                        subtype: '',
+                        correction: '',
+                        explanation: '',
+                        endSelection: 325,
+                        startSelection: 0,
+                    },
+                    {
+                        id: 794,
+                        tag: '',
+                        type: 'А.ГРАММ',
+                        group: 'error',
+                        comment: '',
+                        subtype: 'видовр',
+                        correction: 'have stuck',
+                        explanation: '',
+                        endSelection: 202,
+                        startSelection: 197,
+                    },
+                    {
+                        id: 849,
+                        tag: '',
+                        type: 'А.ГРАММ',
+                        group: 'error',
+                        comment: '',
+                        subtype: '',
+                        correction: 'have',
+                        explanation: '',
+                        endSelection: 225,
+                        startSelection: 222,
+                    },
+                    {
+                        id: 525,
+                        tag: '',
+                        type: 'А.УРОВ',
+                        group: 'error',
+                        comment: '',
+                        subtype: 'некорр',
+                        correction:
+                            'But even from this situation there are some benefits to be gained.',
+                        explanation: '',
+                        endSelection: 313,
+                        startSelection: 246,
+                    },
+                    {
+                        id: 114,
+                        tag: '',
+                        type: 'А.ЛЕКС',
+                        group: 'error',
+                        comment: '',
+                        subtype: 'конт',
+                        correction: 'manage',
+                        explanation: '',
+                        endSelection: 510,
+                        startSelection: 503,
+                    },
+                    {
+                        id: 615,
+                        tag: '',
+                        type: 'А.ЛОГИКА',
+                        group: 'error',
+                        comment: '',
+                        subtype: '',
+                        correction: 'time managment helps',
+                        explanation: '',
+                        endSelection: 582,
+                        startSelection: 557,
+                    },
+                    {
+                        id: 252,
+                        tag: '',
+                        type: 'А.ГРАММ',
+                        group: 'error',
+                        comment: '',
+                        subtype: 'проп',
+                        correction: 'That is why it is so important ',
+                        explanation: '',
+                        endSelection: 676,
+                        startSelection: 649,
+                    },
+                    {
+                        id: 442,
+                        tag: '',
+                        type: 'А.УРОВ',
+                        group: 'error',
+                        comment: '',
+                        subtype: '',
+                        correction: 'learn more/learn something else ',
+                        explanation: '',
+                        endSelection: 743,
+                        startSelection: 723,
+                    },
+                    {
+                        id: 783,
+                        tag: '',
+                        type: 'ЛМНЕНИЕ',
+                        group: 'meaning',
+                        comment: '',
+                        subtype: '',
+                        correction: '',
+                        explanation: '',
+                        endSelection: 764,
+                        startSelection: 332,
+                    },
+                    {
+                        id: 31,
+                        tag: '',
+                        type: 'А.АСПМ',
+                        group: 'error',
+                        comment: '',
+                        subtype: '',
+                        correction: '',
+                        explanation: '',
+                        endSelection: 332,
+                        startSelection: 332,
+                    },
+                    {
+                        id: 784,
+                        tag: '',
+                        type: 'А.ЛОГИКА',
+                        group: 'error',
+                        comment: '',
+                        subtype: '',
+                        correction: '',
+                        explanation: '',
+                        endSelection: 1004,
+                        startSelection: 765,
+                    },
+                    {
+                        id: 636,
+                        tag: '',
+                        type: 'ЛМНЕНИЕ',
+                        group: 'meaning',
+                        comment: '',
+                        subtype: '',
+                        correction: '',
+                        explanation: '',
+                        endSelection: 998,
+                        startSelection: 765,
+                    },
+                    {
+                        id: 862,
+                        tag: '',
+                        type: 'А.ЛОГИКА',
+                        group: 'error',
+                        comment: '',
+                        subtype: '',
+                        correction: '',
+                        explanation: '',
+                        endSelection: 1312,
+                        startSelection: 1005,
+                    },
+                    {
+                        id: 66,
+                        tag: '',
+                        type: 'ЛМНЕНИЕ',
+                        group: 'meaning',
+                        comment: 'Г.упр',
                         subtype: '',
                         correction: 'manage',
                         explanation: '',
@@ -2940,21 +3153,32 @@ let zMB = {
                         startSelection: 0,
                     },
                     {
-                        id: 358,
+                        id: 66,
                         tag: '',
                         type: 'ЛМНЕНИЕ',
                         group: 'meaning',
-                        comment: '',
+                        comment: 'Г.упр',
                         subtype: '',
-                        correction: '',
+                        correction: 'manage',
                         explanation: '',
-                        endSelection: 1312,
-                        startSelection: 332,
+                        endSelection: 1236,
+                        startSelection: 1011,
+                    },
+                    {
+                        id: 252,
+                        tag: '',
+                        type: 'А.ГРАММ',
+                        group: 'error',
+                        comment: '',
+                        subtype: 'проп',
+                        correction: 'That is why it is so important ',
+                        explanation: '',
+                        endSelection: 200,
+                        startSelection: 100,
                     },
                 ],
                 criteria: { K1: 2, K2: 0, K3: 0, K4: 1, K5: 1, K6: 3, K7: 0 },
                 metrics: { M1: 0, M2: 0, M3: 0, M4: 0, M5: 0, M6: 0, M7: 0 },
-                isExpert: true,
             },
             // {
             //     id: 'e312312312a8ef41b-d70f-49cc-8972-f8d4d11a9d72',
@@ -3166,248 +3390,3 @@ let zMB = {
 // //@ts-ignore
 let p = new MetricService().calculate(zMB);
 console.log(JSON.stringify(p, null, 2));
-//
-// // const z = (min: number, max: number) => Array.apply(null, {length: max + 1 - min}).map((item, key) => key + min)
-//
-// // var foo = [];
-// //
-// // function z(min: number, max: number) {
-// //     let arrCoords = [];
-// //     for (var i = min; i <= max; i++) {
-// //         arrCoords.push(i);
-// //     }
-// //
-// //     return arrCoords
-// // }
-// //
-// //
-// //
-// // let y = z(51, 55);
-// // console.log(y);
-// // let rus1 = [{start: 60, end: 77, determFactor: 'ПРОБЛЕМА'}, {start: 248, end: 251, determFactor: 'Р.мест'}, {start: 277, end: 285, determFactor: 'Г.упр'},{start: 307, end: 311, determFactor: 'Р.мест'}, {start: 398, end: 506, determFactor: 'ПОЯСНЕНИЕ'}, {start: 507, end: 619, determFactor: 'ПРИМЕР'}, {start: 620, end: 627, determFactor: 'Р.лишн'}, {start: 622, end: 627, determFactor: 'СВЯЗЬ'}, {start: 651, end: 728, determFactor: 'ПОЯСНЕНИЕ'}, {start: 729, end: 940, determFactor: 'ПРИМЕР'}, {start: 757, end: 765, determFactor: 'Р.повтор'}, {start: 994, end: 1226, determFactor: 'ПОЗИЦИЯ'}, {start: 1162, end: 1171, determFactor: 'Г.сказ'}, {start: 1181, end: 1188, determFactor: 'Р.знач'}, {start: 1287, end: 1460, determFactor: 'ОТНОШЕНИЕ'}, {start: 1735, end: 1790, determFactor: 'Л.причслед'}, {start: 1895, end: 1922, determFactor: 'Г.упр'}, {start: 2059, end: 2074, determFactor: 'Г.эллипс'}, {start: 2428, end: 2445, determFactor: 'Г.видовр'}, {start: 2558, end: 2585, determFactor: 'Г.упр'}]
-// //
-// // let rus2 = [{start: 60, end: 77, determFactor: 'ПРОБЛЕМА'}, {start: 248, end: 251, determFactor: 'Р.мест'}, {start: 277, end: 285, determFactor: 'Г.упр'},{start: 307, end: 311, determFactor: 'Р.мест'}, {start: 398, end: 506, determFactor: 'ПОЯСНЕНИЕ'}, {start: 507, end: 619, determFactor: 'ПРИМЕР'}, {start: 620, end: 627, determFactor: 'Р.лишн'}, {start: 622, end: 627, determFactor: 'СВЯЗЬ'}, {start: 651, end: 728, determFactor: 'ПОЯСНЕНИЕ'}, {start: 729, end: 940, determFactor: 'ПРИМЕР'}, {start: 757, end: 765, determFactor: 'Р.повтор'}, {start: 994, end: 1226, determFactor: 'ПОЗИЦИЯ'}, {start: 1162, end: 1171, determFactor: 'Г.сказ'}, {start: 1181, end: 1188, determFactor: 'Р.знач'}, {start: 1287, end: 1460, determFactor: 'ОТНОШЕНИЕ'}, {start: 1735, end: 1790, determFactor: 'Л.причслед'}, {start: 1895, end: 1922, determFactor: 'Г.упр'}, {start: 2059, end: 2074, determFactor: 'Г.эллипс'}, {start: 2428, end: 2445, determFactor: 'Г.видовр'}, {start: 2558, end: 2585, determFactor: 'Г.упр'}, {start: 0, end: 14, determFactor: 'Э.агресс'}, {start: 146, end: 155, determFactor: 'ИСП'}]
-// //
-// // let o1 = [{start: 1, end: 15, determFactor: 'A'}, {start: 20, end: 27, determFactor: 'B'}, {start: 30, end: 45, determFactor: 'C'}]
-// // let o2 = [{start: 1, end: 10, determFactor: 'A'}, {start: 20, end: 25, determFactor: 'B'}, {start: 33, end: 40, determFactor: 'C'}, {start: 40, end: 45, determFactor: 'D'}]
-// //
-// //
-// //
-// //
-// //
-// //
-// //
-// // // let m = new MathMachine(
-// // //     [{start: 1, end: 15, determFactor: 'A'}, {start: 20, end: 27, determFactor: 'B'}, {start: 30, end: 45, determFactor: 'C'}],
-// // //     [{start: 1, end: 10, determFactor: 'A'}, {start: 20, end: 25, determFactor: 'B'}, {start: 33, end: 40, determFactor: 'C'}, {start: 40, end: 45, determFactor: 'D'}]);
-// //
-// // let m = new MathMachine(
-// //     rus1,
-// //     rus2);
-// // m.calcJaccardMatrix()
-// // m.calcLossMatrix()
-// // console.log(m.jaccardMatrix);
-// // console.log(m.lossMatrix);
-// //
-// // var arr: Array<number[]>  =[];
-// // for(let g = 0; g < m.jaccardMatrix.length + 1; g++){
-// //     arr[g]=[];
-// //     for(var v=0; v<m.jaccardMatrix[0].length + 1;v++){
-// //         //@ts-ignore
-// //         arr[g][v] = 0
-// //     }
-// // }
-// //
-// // let M = arr
-// // let Mmin = arr
-// //
-// // //Взять вместо М - матрицу жаккара для более точного расчёта
-// // let Qm = M.length + M[0].length
-// // let connComponents = arr
-// //
-// // let connLine = []
-// // let mLine: any = []
-// // let mLineTruth: any = []
-// //
-// //
-// // let Q = 0
-// // let Qold = 0
-// // let sumToQ = 0
-// //
-// // let x0 = 0
-// // let y0 = 0
-// //
-// // let xPrep = []
-// // let yPrep = []
-// //
-// // let xEmp = 0
-// // let yEmp = 0
-// //
-// // let xSmejh = 0
-// // let ySmejh = 0
-// //
-// // let index = 0
-// // //пре-заполняем M элементами из Loss, которые равны 0
-// // for (let z in m.lossMatrix) {
-// //     for (let x in m.lossMatrix[z]) {
-// //         if (m.lossMatrix[z][x] === 0) {
-// //             mLineTruth.push({row: z, col: x})
-// //             M[z][x] = m.lossMatrix[z][x]
-// //         }
-// //     }
-// // }
-// //
-// // //Определяем компоненты связности
-// // for (let z in m.jaccardMatrix) {
-// //     for (let x in m.jaccardMatrix[z]) {
-// //         if (m.jaccardMatrix[z][x] !== 1) {
-// //             connLine.push({row: z, col: x})
-// //
-// //             connComponents[z][x] = m.jaccardMatrix[z][x]
-// //         }
-// //     }
-// // }
-// //
-// //
-// // let i = 0
-// // for (let p in connLine) {
-// //     if (i === 0) {
-// //          // xSmejh = +connLine[p].row
-// //          // ySmejh = +connLine[p].col
-// //     }
-// //
-// //         //перебрать паросочетания
-// //         if (xSmejh !== +connLine[p].row && ySmejh !== +connLine[p].col || i === 0) {
-// //             index = mLine.push(connLine[p])
-// //             console.log('cur object - ' + connLine[p]);
-// //
-// //             //посчитаем неучтенные вершины в долях графа по x и по y
-// //             for (let k in mLine) {
-// //                 xPrep.push(mLine[k].row)
-// //                 yPrep.push(mLine[k].col)
-// //             }
-// //
-// //             x0 = new Set(xPrep).size;
-// //             y0 = new Set(yPrep).size;
-// //             //-----------//
-// //
-// //             //считаем L(i,k)
-// //             console.log(mLine);
-// //             sumToQ = 0
-// //             for (let k in mLine) {
-// //                 // console.log(mLine[k]);
-// //                 xEmp = m.lossMatrix.length - x0
-// //                 yEmp = m.lossMatrix[0].length - y0
-// //                 sumToQ += m.lossMatrix[mLine[k].row][mLine[k].col]
-// //                 console.log(mLine[k].row + '-------- ' + mLine[k].col);
-// //
-// //             }
-// //             Q = sumToQ + xEmp + yEmp
-// //
-// //             if (Q < Qm) {
-// //                 Qm = Q
-// //                 mLineTruth.push(connLine[p])
-// //             } else {
-// //                 delete mLine.index
-// //             }
-// //
-// //
-// //
-// //             console.log(Qm);
-// //         }
-// //
-// //         xSmejh = +connLine[p].row
-// //         ySmejh = +connLine[p].col
-// //
-// //     i++
-// // }
-// //
-// // //посчитаем долю совпавших
-// // let count = []
-// // for (let t in mLineTruth) {
-// //     count.push(mLineTruth[t].row)
-// // }
-// // let countUniq = new Set(count).size;
-// // let result = countUniq / m.lossMatrix[0].length
-// //
-// //
-// //
-// //
-// // console.log(mLineTruth);
-// // console.log(result);
-// export const blobSelections = {
-//     'rus': {
-//         id: 111,
-//         startSelection: 10,
-//         endSelection: 20,
-//         type: 'П.проблема',
-//         comment: '',
-//         explanation: '',
-//         correction: '',
-//         tag: '',
-//         group: 'meaning',
-//         subtype: '',
-//     },
-//     'lit': {
-//         id: 111,
-//         startSelection: 10,
-//         endSelection: 20,
-//         type: 'С.опора',
-//         comment: '',
-//         explanation: '',
-//         correction: '',
-//         tag: '',
-//         group: 'meaning',
-//         subtype: '',
-//     },
-//     'social': {
-//         id: 111,
-//         startSelection: 10,
-//         endSelection: 20,
-//         type: 'о.смысл',
-//         comment: '',
-//         explanation: '',
-//         correction: '',
-//         tag: '',
-//         group: 'error',
-//         subtype: '',
-//     },
-//     'rus-free': {
-//         id: 111,
-//         startSelection: 10,
-//         endSelection: 20,
-//         type: 'Г.слов',
-//         comment: '',
-//         explanation: '',
-//         correction: '',
-//         tag: '',
-//         group: 'error',
-//         subtype: '',
-//     },
-//     'hist': {
-//         id: 111,
-//         startSelection: 10,
-//         endSelection: 20,
-//         type: 'И.личность',
-//         comment: '',
-//         explanation: '',
-//         correction: '',
-//         tag: '',
-//         group: 'error',
-//         subtype: '',
-//     },
-//     'eng': {
-//         id: 111,
-//         startSelection: 10,
-//         endSelection: 20,
-//         type: 'А.стиль',
-//         comment: '',
-//         explanation: '',
-//         correction: '',
-//         tag: '',
-//         group: 'error',
-//         subtype: '',
-//     },
-// };
-
-// console.log(blobSelections['rus']);

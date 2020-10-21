@@ -32,7 +32,7 @@ export class MetricCalculator implements IMetricCalculator {
         M4: 1,
         M5: 1,
         M6: 1,
-        M7: 1,
+        M7: 0,
     };
 
     originalText: string;
@@ -154,13 +154,33 @@ export class MetricCalculator implements IMetricCalculator {
         if (typeof preValue === 'number') {
             this.mX4 = preValue;
         } else {
-            this.mX4 =
-                new MathMachine(
-                    this._X.selections,
-                    this._Y.selections,
-                    true,
-                    'correction'
-                ).complexSearchMatchedFragments() * 100;
+            let xWithSubtype = [];
+            let yWithSubtype = [];
+            for (let i in this._X.selections) {
+                if (this._X.selections[i].subtype !== '') {
+                    xWithSubtype.push(this._X.selections[i]);
+                }
+            }
+            for (let j in this._Y.selections) {
+                if (this._Y.selections[j].subtype !== '') {
+                    yWithSubtype.push(this._Y.selections[j]);
+                }
+            }
+
+            if (xWithSubtype.length === 0 && yWithSubtype.length === 0) {
+                /*Неопределённость 0/0 ни в каком разумном умолчании не может быть 1*/
+                this.mX6 = 0;
+            } else if (xWithSubtype.length === 0 || yWithSubtype.length === 0) {
+                this.mX6 = 0;
+            } else {
+                this.mX4 =
+                    new MathMachine(
+                        xWithSubtype,
+                        yWithSubtype,
+                        true,
+                        'subtype'
+                    ).complexSearchMatchedFragments() * 100;
+            }
         }
 
         if (!Number.isInteger(this.mX4)) {
@@ -233,7 +253,8 @@ export class MetricCalculator implements IMetricCalculator {
             }
 
             if (xWithCorrection.length === 0 && yWithCorrection.length === 0) {
-                this.mX6 = 100;
+                /*Неопределённость 0/0 ни в каком разумном умолчании не может быть 1*/
+                this.mX6 = 0;
             } else if (xWithCorrection.length === 0 || yWithCorrection.length === 0) {
                 this.mX6 = 0;
             } else {
