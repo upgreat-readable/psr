@@ -2,6 +2,8 @@
 
 [![NPM](https://nodei.co/npm/@upgreat-readable/psr.png?compact=true)](https://npmjs.org/package/@upgreat-readable/psr)
 
+Программа сравнения решений. Пакет расчёта метрик, СТЭР, СТАР и ОТАР для участников [конкурса ПРО//ЧТЕНИЕ](https://ai.upgreat.one/).
+
 ## Usage
 
 ```ts
