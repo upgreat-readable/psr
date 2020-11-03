@@ -20,6 +20,7 @@ export class MetricCalculator implements IMetricCalculator {
     mX5: number = 0;
     mX6: number = 0;
     mX7: number = 0;
+    F1: number = 0;
 
     mTotal: number = 0;
     //эталонная разметка
@@ -97,12 +98,12 @@ export class MetricCalculator implements IMetricCalculator {
             throw new Error('Вычисленная сумма критериев больше максимального значения');
         }
 
-        this.mX1 = (1 - Math.abs(K1Sum - K2Sum) / K_MAX[this.meta.subject]) * 100;
+        this.mX1 = 1 - Math.abs(K1Sum - K2Sum) / K_MAX[this.meta.subject];
 
         if (!Number.isInteger(this.mX1)) {
-            this.iterationPsrResult.metrics.M1 = Math.round(this.mX1);
+            this.iterationPsrResult.metrics.M1 = Math.round(this.mX1) * 100;
         } else {
-            this.iterationPsrResult.metrics.M1 = this.mX1;
+            this.iterationPsrResult.metrics.M1 = this.mX1 * 100;
         }
     }
 
@@ -113,21 +114,28 @@ export class MetricCalculator implements IMetricCalculator {
             let res1 = new MathMachine(
                 this._X.selections,
                 this._Y.selections,
-                true
+                true,
+                'type'
             ).complexSearchMatchedFragments();
             let res2 = new MathMachine(
                 this._Y.selections,
                 this._X.selections,
-                true
+                true,
+                'type'
             ).complexSearchMatchedFragments();
 
-            this.mX2 = Math.round((2 / (1 / res1 + 1 / res2)) * 100);
+            // this.F1 = (2 / (1 / res1 + 1 / res2));
+            this.mX2 = 2 / (1 / res1 + 1 / res2);
+        }
+
+        if (this.mX2 > 1) {
+            this.mX2 = 1;
         }
 
         if (!Number.isInteger(this.mX2)) {
-            this.iterationPsrResult.metrics.M2 = Math.round(this.mX2);
+            this.iterationPsrResult.metrics.M2 = +(this.mX2 * 100).toFixed(2);
         } else {
-            this.iterationPsrResult.metrics.M2 = this.mX2;
+            this.iterationPsrResult.metrics.M2 = this.mX2 * 100;
         }
     }
 
@@ -135,18 +143,22 @@ export class MetricCalculator implements IMetricCalculator {
         if (typeof preValue === 'number') {
             this.mX3 = preValue;
         } else {
-            this.mX3 =
-                new MathMachine(
-                    this._X.selections,
-                    this._Y.selections,
-                    true
-                ).complexSearchMatchedFragments() * 100;
+            this.mX3 = new MathMachine(
+                this._X.selections,
+                this._Y.selections,
+                true,
+                'type'
+            ).complexSearchMatchedFragments();
+        }
+
+        if (this.mX3 > 1) {
+            this.mX3 = 1;
         }
 
         if (!Number.isInteger(this.mX3)) {
-            this.iterationPsrResult.metrics.M3 = Math.round(this.mX3);
+            this.iterationPsrResult.metrics.M3 = +(this.mX3 * 100).toFixed(2);
         } else {
-            this.iterationPsrResult.metrics.M3 = this.mX3;
+            this.iterationPsrResult.metrics.M3 = this.mX3 * 100;
         }
     }
 
@@ -169,24 +181,27 @@ export class MetricCalculator implements IMetricCalculator {
 
             if (xWithSubtype.length === 0 && yWithSubtype.length === 0) {
                 /*Неопределённость 0/0 ни в каком разумном умолчании не может быть 1*/
-                this.mX6 = 0;
+                this.mX4 = 0;
             } else if (xWithSubtype.length === 0 || yWithSubtype.length === 0) {
-                this.mX6 = 0;
+                this.mX4 = 0;
             } else {
-                this.mX4 =
-                    new MathMachine(
-                        xWithSubtype,
-                        yWithSubtype,
-                        true,
-                        'subtype'
-                    ).complexSearchMatchedFragments() * 100;
+                this.mX4 = new MathMachine(
+                    xWithSubtype,
+                    yWithSubtype,
+                    true,
+                    'subtype'
+                ).complexSearchMatchedFragments();
             }
         }
 
+        if (this.mX4 > 1) {
+            this.mX4 = 1;
+        }
+
         if (!Number.isInteger(this.mX4)) {
-            this.iterationPsrResult.metrics.M4 = Math.round(this.mX4);
+            this.iterationPsrResult.metrics.M4 = +(this.mX4 * 100).toFixed(2);
         } else {
-            this.iterationPsrResult.metrics.M4 = this.mX4;
+            this.iterationPsrResult.metrics.M4 = this.mX4 * 100;
         }
     }
 
@@ -206,6 +221,8 @@ export class MetricCalculator implements IMetricCalculator {
             let jackSum = 0;
             let slagaemoe = 0;
 
+            let delitel = 0;
+
             for (let k in jaccardMatrix) {
                 for (let u in jaccardMatrix[k]) {
                     if (jaccardMatrix[k][u] !== 1) {
@@ -215,23 +232,25 @@ export class MetricCalculator implements IMetricCalculator {
                             slagaemoe = jaccardMatrix[k][u];
                         }
                         jackSum += slagaemoe;
+                        delitel++;
+                    } else {
+                        delitel++;
                     }
                 }
             }
 
             let proizJack = this._Y.selections.length;
+            this.mX5 = jackSum / proizJack;
 
-            this.mX5 = (jackSum * 100) / proizJack;
-
-            if (this.mX5 > 100) {
-                this.mX5 = 100;
+            if (this.mX5 > 1) {
+                this.mX5 = 1;
             }
         }
 
         if (!Number.isInteger(this.mX5)) {
-            this.iterationPsrResult.metrics.M5 = Math.round(this.mX5);
+            this.iterationPsrResult.metrics.M5 = +(this.mX5 * 100).toFixed(2);
         } else {
-            this.iterationPsrResult.metrics.M5 = this.mX5;
+            this.iterationPsrResult.metrics.M5 = this.mX5 * 100;
         }
     }
 
@@ -258,20 +277,23 @@ export class MetricCalculator implements IMetricCalculator {
             } else if (xWithCorrection.length === 0 || yWithCorrection.length === 0) {
                 this.mX6 = 0;
             } else {
-                this.mX6 =
-                    new MathMachine(
-                        xWithCorrection,
-                        yWithCorrection,
-                        true,
-                        'correction'
-                    ).complexSearchMatchedFragments() * 100;
+                this.mX6 = new MathMachine(
+                    xWithCorrection,
+                    yWithCorrection,
+                    true,
+                    'correction'
+                ).complexSearchMatchedFragments();
             }
         }
 
+        if (this.mX6 > 1) {
+            this.mX6 = 1;
+        }
+
         if (!Number.isInteger(this.mX6)) {
-            this.iterationPsrResult.metrics.M6 = Math.round(this.mX6);
+            this.iterationPsrResult.metrics.M6 = +(this.mX6 * 100).toFixed(2);
         } else {
-            this.iterationPsrResult.metrics.M6 = this.mX6;
+            this.iterationPsrResult.metrics.M6 = this.mX6 * 100;
         }
     }
 
@@ -293,14 +315,22 @@ export class MetricCalculator implements IMetricCalculator {
             }
         }
 
-        this.mTotal =
-            Object.values(this.iterationPsrResult.metrics).reduce((a, b) => a + b, 0) /
-            denominationFinal;
+        let sum =
+            this.mX1 * this.weight.M1 +
+            this.mX2 *
+                (this.weight.M2 +
+                    this.weight.M3 * this.mX3 +
+                    this.weight.M4 * this.mX4 +
+                    this.weight.M5 * this.mX5 +
+                    this.weight.M6 * this.mX6) +
+            this.mX7 * this.weight.M7;
+
+        this.mTotal = sum / denominationFinal;
 
         if (!Number.isInteger(this.mTotal)) {
-            this.iterationPsrResult.metrics.MTotal = Math.round(this.mTotal);
+            this.iterationPsrResult.metrics.MTotal = +(this.mTotal * 100).toFixed(2);
         } else {
-            this.iterationPsrResult.metrics.MTotal = this.mTotal;
+            this.iterationPsrResult.metrics.MTotal = this.mTotal * 100;
         }
     }
 

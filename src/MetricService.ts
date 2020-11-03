@@ -122,7 +122,7 @@ export class MetricService {
             averageSterDenominator = 1;
         }
 
-        return Math.round(averageSter / averageSterDenominator);
+        return +(averageSter / averageSterDenominator).toFixed(2);
     }
 
     calcAccuracy(mainMarkupId: string, expertMarker: boolean | undefined) {
@@ -138,9 +138,9 @@ export class MetricService {
                 }
 
                 if (expertMarker) {
-                    this._compileAnswer.markups[i].STER = Math.round(numenator / denominator);
+                    this._compileAnswer.markups[i].STER = +(numenator / denominator).toFixed(2);
                 } else {
-                    this._compileAnswer.markups[i].STAR = Math.round(numenator / denominator);
+                    this._compileAnswer.markups[i].STAR = +(numenator / denominator).toFixed(2);
                 }
             }
         }
@@ -168,7 +168,7 @@ export class MetricService {
                 let tempOtar = (star / ster) * 100;
 
                 if (!Number.isInteger(tempOtar)) {
-                    tempOtar = Math.round(tempOtar);
+                    tempOtar = +tempOtar.toFixed(2);
                 }
 
                 this._compileAnswer.markups[i].OTAR = tempOtar;

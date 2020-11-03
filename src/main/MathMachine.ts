@@ -2,7 +2,7 @@ import { LotsOf, Selections } from '../types/MainPsrTypes';
 
 export class MathMachine {
     workWithSelection: boolean;
-    determFactor: 'type' | 'correction' | 'explanation' | 'subtype';
+    determFactor: 'type' | 'correction' | 'explanation' | 'subtype' = 'type';
     lotsOfX: LotsOf;
     lotsOfY: LotsOf;
 
@@ -15,7 +15,7 @@ export class MathMachine {
         x: LotsOf | Selections,
         y: LotsOf | Selections,
         workWithSelecton: boolean = false,
-        determFactor: 'type' | 'correction' | 'explanation' | 'subtype' = 'type'
+        determFactor: 'type' | 'correction' | 'explanation' | 'subtype'
     ) {
         this.workWithSelection = workWithSelecton;
         this.determFactor = determFactor;
@@ -118,6 +118,7 @@ export class MathMachine {
         let connLine = [];
         let mLine: any = [];
         let mLineTruth: any = [];
+        let mLineTruth2: any = [];
 
         let Q = 0;
         let Qold = 0;
@@ -183,7 +184,7 @@ export class MathMachine {
 
                 if (Q < Qm) {
                     Qm = Q;
-                    mLineTruth.push(connLine[p]);
+                    mLineTruth2.push(connLine[p]);
                 } else {
                     delete mLine.index;
                 }
@@ -197,12 +198,12 @@ export class MathMachine {
 
         //посчитаем долю совпавших
         let count = [];
-        for (let t in mLineTruth) {
-            count.push(mLineTruth[t].row);
+        for (let t in mLineTruth2) {
+            count.push(mLineTruth2[t].row);
         }
 
         let countUniq = new Set(count).size;
-        this.matchedFragmentsPercent = countUniq / this.lossMatrix.length;
+        this.matchedFragmentsPercent = countUniq / this.lossMatrix[0].length;
     }
 
     getMatchedFragmentsPercent() {
