@@ -6,6 +6,7 @@ import {
     MetricObj,
 } from '../types/MainPsrTypes';
 import { K_MAX } from '../constants';
+import { params } from '../regulator';
 import { MathMachine } from './MathMachine';
 
 export class MetricCalculator implements IMetricCalculator {
@@ -310,20 +311,20 @@ export class MetricCalculator implements IMetricCalculator {
         let denominationFinal = 0;
         for (let i in this.iterationPsrResult.metrics) {
             //@ts-ignore
-            if (this.weight[i] !== 0) {
+            if (params.weight[i] !== 0) {
                 denominationFinal++;
             }
         }
 
         let sum =
-            this.mX1 * this.weight.M1 +
+            this.mX1 * params.weight.M1 +
             this.mX2 *
-                (this.weight.M2 +
-                    this.weight.M3 * this.mX3 +
-                    this.weight.M4 * this.mX4 +
-                    this.weight.M5 * this.mX5 +
-                    this.weight.M6 * this.mX6) +
-            this.mX7 * this.weight.M7;
+                (params.weight.M2 +
+                    params.weight.M3 * this.mX3 +
+                    params.weight.M4 * this.mX4 +
+                    params.weight.M5 * this.mX5 +
+                    params.weight.M6 * this.mX6) +
+            this.mX7 * params.weight.M7;
 
         this.mTotal = sum / denominationFinal;
 
