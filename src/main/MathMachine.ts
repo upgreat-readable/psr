@@ -137,12 +137,22 @@ export class MathMachine {
         let ySmejh = 0;
 
         let index = 0;
+
+        //@ts-ignore
+        let xblock = [];
+        //@ts-ignore
+        let yblock = [];
         //пре-заполняем M элементами из Loss, которые равны 0
         for (let z in this.lossMatrix) {
             for (let x in this.lossMatrix[z]) {
                 if (this.lossMatrix[z][x] === 0) {
-                    mLineTruth.push({ row: z, col: x });
-                    M[z][x] = this.lossMatrix[z][x];
+                    //@ts-ignore
+                    if (!xblock.includes(z) && !yblock.includes(x)) {
+                        mLineTruth.push({ row: z, col: x });
+                        M[z][x] = this.lossMatrix[z][x];
+                        xblock.push(z);
+                        yblock.push(x);
+                    }
                 }
             }
         }
@@ -150,9 +160,8 @@ export class MathMachine {
         //Определяем компоненты связности
         for (let z in this.jaccardMatrix) {
             for (let x in this.jaccardMatrix[z]) {
-                if (this.jaccardMatrix[z][x] !== 1) {
+                if (this.jaccardMatrix[z][x] !== 1 && !xblock.includes(z) && !yblock.includes(x)) {
                     connLine.push({ row: z, col: x });
-
                     connComponents[z][x] = this.jaccardMatrix[z][x];
                 }
             }
@@ -195,14 +204,14 @@ export class MathMachine {
 
             i++;
         }
-
+        //прибавим полностью совпавшие фрагменты
         //посчитаем долю совпавших
         let count = [];
         for (let t in mLineTruth2) {
             count.push(mLineTruth2[t].row);
         }
 
-        let countUniq = new Set(count).size;
+        let countUniq = new Set(count).size + mLineTruth.length;
         this.matchedFragmentsPercent = countUniq / this.lossMatrix[0].length;
     }
 
