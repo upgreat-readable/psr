@@ -101,8 +101,12 @@ export class MetricCalculator implements IMetricCalculator {
 
         this.mX1 = 1 - Math.abs(K1Sum - K2Sum) / K_MAX[this.meta.subject];
 
+        if (this.mX1 > 1) {
+            this.mX1 = 1;
+        }
+
         if (!Number.isInteger(this.mX1)) {
-            this.iterationPsrResult.metrics.M1 = Math.round(this.mX1) * 100;
+            this.iterationPsrResult.metrics.M1 = +(this.mX1 * 100).toFixed(2);
         } else {
             this.iterationPsrResult.metrics.M1 = this.mX1 * 100;
         }
@@ -157,9 +161,9 @@ export class MetricCalculator implements IMetricCalculator {
         }
 
         if (!Number.isInteger(this.mX3)) {
-            this.iterationPsrResult.metrics.M3 = +(this.mX3 * 100).toFixed(2);
+            this.iterationPsrResult.metrics.M3 = +(this.mX2 * this.mX3 * 100).toFixed(2);
         } else {
-            this.iterationPsrResult.metrics.M3 = this.mX3 * 100;
+            this.iterationPsrResult.metrics.M3 = this.mX2 * this.mX3 * 100;
         }
     }
 
@@ -200,9 +204,9 @@ export class MetricCalculator implements IMetricCalculator {
         }
 
         if (!Number.isInteger(this.mX4)) {
-            this.iterationPsrResult.metrics.M4 = +(this.mX4 * 100).toFixed(2);
+            this.iterationPsrResult.metrics.M4 = +(this.mX2 * this.mX4 * 100).toFixed(2);
         } else {
-            this.iterationPsrResult.metrics.M4 = this.mX4 * 100;
+            this.iterationPsrResult.metrics.M4 = this.mX2 * this.mX4 * 100;
         }
     }
 
@@ -249,9 +253,9 @@ export class MetricCalculator implements IMetricCalculator {
         }
 
         if (!Number.isInteger(this.mX5)) {
-            this.iterationPsrResult.metrics.M5 = +(this.mX5 * 100).toFixed(2);
+            this.iterationPsrResult.metrics.M5 = +(this.mX2 * this.mX5 * 100).toFixed(2);
         } else {
-            this.iterationPsrResult.metrics.M5 = this.mX5 * 100;
+            this.iterationPsrResult.metrics.M5 = this.mX2 * this.mX5 * 100;
         }
     }
 
@@ -292,9 +296,9 @@ export class MetricCalculator implements IMetricCalculator {
         }
 
         if (!Number.isInteger(this.mX6)) {
-            this.iterationPsrResult.metrics.M6 = +(this.mX6 * 100).toFixed(2);
+            this.iterationPsrResult.metrics.M6 = +(this.mX2 * this.mX6 * 100).toFixed(2);
         } else {
-            this.iterationPsrResult.metrics.M6 = this.mX6 * 100;
+            this.iterationPsrResult.metrics.M6 = this.mX2 * this.mX6 * 100;
         }
     }
 
