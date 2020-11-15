@@ -6,10 +6,10 @@ import {
     MetricObj,
 } from '../types/MainPsrTypes';
 import { K_MAX } from '../constants';
-import { params } from '../regulator';
-import { MathMachine } from './MathMachine';
+import { params } from './nominationParams';
+import { MathMachine } from '../main/MathMachine';
 
-export class MetricCalculator implements IMetricCalculator {
+export class NominationsCalculator implements IMetricCalculator {
     private meta: MetaInPsr;
     //вычисляемая разметка
     _X: ParticipateInPsrObj;
@@ -28,7 +28,7 @@ export class MetricCalculator implements IMetricCalculator {
     _Y: ParticipateInPsrObj;
 
     weight: MetricObj = {
-        M1: 1,
+        M1: 0,
         M2: 1,
         M3: 1,
         M4: 1,
@@ -68,8 +68,8 @@ export class MetricCalculator implements IMetricCalculator {
     dash(): IterationPsrResult {
         this.iterationPsrResult.markupId = this._Y.id;
         this.iterationPsrResult.third = this._Y.third ? this._Y.third : false;
-        this.setM1();
-
+        this.setM1(0);
+        // console.log(this.iterationPsrResult.markupId);
         if (!this.areThereEmptySelections()) {
             this.setM2();
             this.setM3();
@@ -83,23 +83,27 @@ export class MetricCalculator implements IMetricCalculator {
         return this.iterationPsrResult;
     }
 
-    setM1(): void {
-        if (!this._X.criteria || !this._Y.criteria) {
-            throw new Error('В разметках не заполнены критерии.');
+    setM1(preValue?: number): void {
+        if (typeof preValue === 'number') {
+            this.mX1 = preValue;
+        } else {
+            if (!this._X.criteria || !this._Y.criteria) {
+                throw new Error('В разметках не заполнены критерии.');
+            }
+
+            let K1Sum = Object.values(this._X.criteria).reduce((a, b) => a + b, 0);
+            let K2Sum = Object.values(this._Y.criteria).reduce((a, b) => a + b, 0);
+
+            if (!K_MAX.hasOwnProperty(this.meta.subject)) {
+                throw new Error('Получен несуществующий код предмета.');
+            }
+
+            if (K_MAX[this.meta.subject] < K1Sum || K_MAX[this.meta.subject] < K2Sum) {
+                throw new Error('Вычисленная сумма критериев больше максимального значения');
+            }
+
+            this.mX1 = 1 - Math.abs(K1Sum - K2Sum) / K_MAX[this.meta.subject];
         }
-
-        let K1Sum = Object.values(this._X.criteria).reduce((a, b) => a + b, 0);
-        let K2Sum = Object.values(this._Y.criteria).reduce((a, b) => a + b, 0);
-
-        if (!K_MAX.hasOwnProperty(this.meta.subject)) {
-            throw new Error('Получен несуществующий код предмета.');
-        }
-
-        if (K_MAX[this.meta.subject] < K1Sum || K_MAX[this.meta.subject] < K2Sum) {
-            throw new Error('Вычисленная сумма критериев больше максимального значения');
-        }
-
-        this.mX1 = 1 - Math.abs(K1Sum - K2Sum) / K_MAX[this.meta.subject];
 
         if (this.mX1 > 1) {
             this.mX1 = 1;
@@ -247,6 +251,7 @@ export class MetricCalculator implements IMetricCalculator {
             let proizJack = this._Y.selections.length;
             this.mX5 = jackSum / proizJack;
 
+            // console.log('m2' + this.mX2);
             if (this.mX5 > 1) {
                 this.mX5 = 1;
             }
