@@ -36,9 +36,14 @@ export class NominationsService {
                         i
                     ].selections.filter(this.filterRus);
                     break;
+                case 'lit':
+                    entryMarkupObject.essay.markups[i].selections = entryMarkupObject.essay.markups[
+                        i
+                    ].selections.filter(this.filterLit);
+                    break;
                 default:
                     throw new Error(
-                        'В номинации не может участвовать предмет, отличный от eng/rus. В данной ошибке был - ' +
+                        'В номинации не может участвовать предмет, отличный от eng/rus/lit. В данной ошибке был - ' +
                             entryMarkupObject.essay.meta.subject
                     );
             }
@@ -101,6 +106,10 @@ export class NominationsService {
         return !!(
             obj.type.toLocaleLowerCase().match(/^р\./) || obj.type.toLocaleLowerCase().match(/^г\./)
         );
+    }
+
+    filterLit(obj: any) {
+        return !!obj.type.toLocaleLowerCase().match(/^р\./);
     }
 
     /**
