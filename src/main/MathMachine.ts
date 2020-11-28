@@ -226,7 +226,7 @@ export class MathMachine {
             result.push({
                 start: selections[i].startSelection,
                 end: selections[i].endSelection,
-                determFactor: selections[i][this.determFactor],
+                determFactor: selections[i][this.determFactor].toLocaleLowerCase(),
             });
         }
 

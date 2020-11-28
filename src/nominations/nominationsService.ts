@@ -99,7 +99,10 @@ export class NominationsService {
     }
 
     filterEngs(obj: any) {
-        return settleEng.includes(obj.type);
+        if (settleEng.includes(obj.type.toLocaleLowerCase())) {
+            console.log(obj.type.toLocaleLowerCase());
+        }
+        return settleEng.includes(obj.type.toLocaleLowerCase());
     }
 
     filterRus(obj: any) {
