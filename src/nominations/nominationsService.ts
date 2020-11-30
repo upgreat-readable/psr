@@ -48,6 +48,11 @@ export class NominationsService {
                     );
             }
         }
+
+        entryMarkupObject.essay.markups = entryMarkupObject.essay.markups.filter(
+            this.nonEmptyFilter
+        );
+
         /**
          * Запускаем цикл для присланных разметок - 1я итерация
          */
@@ -99,9 +104,6 @@ export class NominationsService {
     }
 
     filterEngs(obj: any) {
-        if (settleEng.includes(obj.type.toLocaleLowerCase())) {
-            console.log(obj.type.toLocaleLowerCase());
-        }
         return settleEng.includes(obj.type.toLocaleLowerCase());
     }
 
@@ -115,6 +117,12 @@ export class NominationsService {
         return !!obj.type.toLocaleLowerCase().match(/^р\./);
     }
 
+    nonEmptyFilter(obj: any) {
+        if (obj.isExpert) {
+            return obj.selections.length !== 0;
+        }
+        return true;
+    }
     /**
      * Пушит результат в итоговый массив
      * @param mainMarkupId
