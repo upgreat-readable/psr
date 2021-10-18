@@ -8,8 +8,12 @@ import {
 import { K_MAX } from '../constants';
 import { params } from '../regulator';
 import { MathMachine } from './MathMachine';
+import { MetricCalc, MetricInterfaceCalc } from './service/metric.interface.calc';
+import { MetricMainCalc } from './service/metric.main.calc';
+import { MetricSupposeCalc } from './service/metric.suppose.calc';
 
 export class MetricCalculator implements IMetricCalculator {
+    firmware: MetricCalc;
     private meta: MetaInPsr;
     //вычисляемая разметка
     _X: ParticipateInPsrObj;
@@ -56,12 +60,18 @@ export class MetricCalculator implements IMetricCalculator {
         calcTerm: ParticipateInPsrObj,
         ethalonTerm: ParticipateInPsrObj,
         commonMeta: MetaInPsr,
-        originalText: string
+        originalText: string,
+        mode: string = 'main'
     ) {
         this._X = calcTerm;
         this._Y = ethalonTerm;
         this.meta = commonMeta;
         this.originalText = originalText;
+        if (mode == 'main') {
+            this.firmware = new MetricMainCalc();
+        } else {
+            this.firmware = new MetricSupposeCalc();
+        }
     }
 
     //основной метод расчёта метрик
@@ -84,22 +94,8 @@ export class MetricCalculator implements IMetricCalculator {
     }
 
     setM1(): void {
-        if (!this._X.criteria || !this._Y.criteria) {
-            throw new Error('В разметках не заполнены критерии.');
-        }
-
-        let K1Sum = Object.values(this._X.criteria).reduce((a, b) => a + b, 0);
-        let K2Sum = Object.values(this._Y.criteria).reduce((a, b) => a + b, 0);
-
-        if (!K_MAX.hasOwnProperty(this.meta.subject)) {
-            throw new Error('Получен несуществующий код предмета.');
-        }
-
-        if (K_MAX[this.meta.subject] < K1Sum || K_MAX[this.meta.subject] < K2Sum) {
-            throw new Error('Вычисленная сумма критериев больше максимального значения');
-        }
-
-        this.mX1 = 1 - Math.abs(K1Sum - K2Sum) / K_MAX[this.meta.subject];
+        this.firmware.setM1(this._X.criteria, this._Y.criteria, this.meta.subject);
+        this.mX1 = this.firmware.m1;
 
         if (this.mX1 > 1) {
             this.mX1 = 1;
@@ -116,21 +112,8 @@ export class MetricCalculator implements IMetricCalculator {
         if (typeof preValue === 'number') {
             this.mX2 = preValue;
         } else {
-            let res1 = new MathMachine(
-                this._X.selections,
-                this._Y.selections,
-                true,
-                'type'
-            ).complexSearchMatchedFragments();
-            let res2 = new MathMachine(
-                this._Y.selections,
-                this._X.selections,
-                true,
-                'type'
-            ).complexSearchMatchedFragments();
-
-            // this.F1 = (2 / (1 / res1 + 1 / res2));
-            this.mX2 = 2 / (1 / res1 + 1 / res2);
+            this.firmware.setM2(this._X.selections, this._Y.selections);
+            this.mX2 = this.firmware.m2;
         }
 
         if (this.mX2 > 1) {
@@ -148,22 +131,18 @@ export class MetricCalculator implements IMetricCalculator {
         if (typeof preValue === 'number') {
             this.mX3 = preValue;
         } else {
-            this.mX3 = new MathMachine(
-                this._X.selections,
-                this._Y.selections,
-                true,
-                'type'
-            ).complexSearchMatchedFragments();
-        }
+            this.firmware.setM3(this._X.selections, this._Y.selections);
+            this.mX3 = this.firmware.m3;
 
-        if (this.mX3 > 1) {
-            this.mX3 = 1;
-        }
+            if (this.mX3 > 1) {
+                this.mX3 = 1;
+            }
 
-        if (!Number.isInteger(this.mX3)) {
-            this.iterationPsrResult.metrics.M3 = +(this.mX2 * this.mX3 * 100).toFixed(2);
-        } else {
-            this.iterationPsrResult.metrics.M3 = this.mX2 * this.mX3 * 100;
+            if (!Number.isInteger(this.mX3)) {
+                this.iterationPsrResult.metrics.M3 = +(this.mX3 * 100).toFixed(2);
+            } else {
+                this.iterationPsrResult.metrics.M3 = this.mX3 * 100;
+            }
         }
     }
 
@@ -190,12 +169,8 @@ export class MetricCalculator implements IMetricCalculator {
             } else if (xWithSubtype.length === 0 || yWithSubtype.length === 0) {
                 this.mX4 = 0;
             } else {
-                this.mX4 = new MathMachine(
-                    xWithSubtype,
-                    yWithSubtype,
-                    true,
-                    'subtype'
-                ).complexSearchMatchedFragments();
+                this.firmware.setM4(this._X.selections, this._Y.selections);
+                this.mX4 = this.firmware.m4;
             }
         }
 
@@ -204,9 +179,9 @@ export class MetricCalculator implements IMetricCalculator {
         }
 
         if (!Number.isInteger(this.mX4)) {
-            this.iterationPsrResult.metrics.M4 = +(this.mX2 * this.mX4 * 100).toFixed(2);
+            this.iterationPsrResult.metrics.M4 = +(this.mX4 * 100).toFixed(2);
         } else {
-            this.iterationPsrResult.metrics.M4 = this.mX2 * this.mX4 * 100;
+            this.iterationPsrResult.metrics.M4 = this.mX4 * 100;
         }
     }
 
@@ -214,38 +189,8 @@ export class MetricCalculator implements IMetricCalculator {
         if (typeof preValue === 'number') {
             this.mX5 = preValue;
         } else {
-            let mathObj = new MathMachine(
-                this._X.selections,
-                this._Y.selections,
-                true,
-                'correction'
-            );
-            mathObj.calcJaccardMatrix();
-            let jaccardMatrix = mathObj.getJaccardMatrix();
-
-            let jackSum = 0;
-            let slagaemoe = 0;
-
-            let delitel = 0;
-
-            for (let k in jaccardMatrix) {
-                for (let u in jaccardMatrix[k]) {
-                    if (jaccardMatrix[k][u] !== 1) {
-                        if (jaccardMatrix[k][u] === 0) {
-                            slagaemoe = 1;
-                        } else {
-                            slagaemoe = jaccardMatrix[k][u];
-                        }
-                        jackSum += slagaemoe;
-                        delitel++;
-                    } else {
-                        delitel++;
-                    }
-                }
-            }
-
-            let proizJack = this._Y.selections.length;
-            this.mX5 = jackSum / proizJack;
+            this.firmware.setM5(this._X.selections, this._Y.selections, this.originalText);
+            this.mX5 = this.firmware.m5;
 
             if (this.mX5 > 1) {
                 this.mX5 = 1;
@@ -253,9 +198,9 @@ export class MetricCalculator implements IMetricCalculator {
         }
 
         if (!Number.isInteger(this.mX5)) {
-            this.iterationPsrResult.metrics.M5 = +(this.mX2 * this.mX5 * 100).toFixed(2);
+            this.iterationPsrResult.metrics.M5 = +(this.mX5 * 100).toFixed(2);
         } else {
-            this.iterationPsrResult.metrics.M5 = this.mX2 * this.mX5 * 100;
+            this.iterationPsrResult.metrics.M5 = this.mX5 * 100;
         }
     }
 
@@ -282,12 +227,8 @@ export class MetricCalculator implements IMetricCalculator {
             } else if (xWithCorrection.length === 0 || yWithCorrection.length === 0) {
                 this.mX6 = 0;
             } else {
-                this.mX6 = new MathMachine(
-                    xWithCorrection,
-                    yWithCorrection,
-                    true,
-                    'correction'
-                ).complexSearchMatchedFragments();
+                this.firmware.setM6(this._X.selections, this._Y.selections);
+                this.mX6 = this.firmware.m6;
             }
         }
 
@@ -295,10 +236,10 @@ export class MetricCalculator implements IMetricCalculator {
             this.mX6 = 1;
         }
 
-        if (!Number.isInteger(this.mX6)) {
-            this.iterationPsrResult.metrics.M6 = +(this.mX2 * this.mX6 * 100).toFixed(2);
+        if (!Number.isInteger(this.mX4)) {
+            this.iterationPsrResult.metrics.M6 = +(this.mX6 * 100).toFixed(2);
         } else {
-            this.iterationPsrResult.metrics.M6 = this.mX2 * this.mX6 * 100;
+            this.iterationPsrResult.metrics.M6 = this.mX6 * 100;
         }
     }
 
@@ -321,17 +262,15 @@ export class MetricCalculator implements IMetricCalculator {
         }
 
         let sum =
-            this.mX1 * params.weight.M1 +
-            this.mX2 *
-                (params.weight.M2 +
-                    params.weight.M3 * this.mX3 +
-                    params.weight.M4 * this.mX4 +
-                    params.weight.M5 * this.mX5 +
-                    params.weight.M6 * this.mX6) +
-            this.mX7 * params.weight.M7;
+            params.weight.M1 * this.mX1 +
+            params.weight.M2 * this.mX2 +
+            params.weight.M3 * this.mX3 +
+            params.weight.M4 * this.mX4 +
+            params.weight.M5 * this.mX5 +
+            params.weight.M6 * this.mX6 +
+            params.weight.M7 * this.mX7;
 
         this.mTotal = sum / denominationFinal;
-
         if (!Number.isInteger(this.mTotal)) {
             this.iterationPsrResult.metrics.MTotal = +(this.mTotal * 100).toFixed(2);
         } else {

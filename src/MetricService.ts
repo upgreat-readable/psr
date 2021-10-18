@@ -41,11 +41,15 @@ export class MetricService {
             for (let j in entryMarkupObject.essay.markups) {
                 /* исключаем сравнение разметки с самой собой и исключаем из Y разметки алгоритмов */
                 if (i !== j && entryMarkupObject.essay.markups[j].isExpert) {
+                    // console.log(entryMarkupObject.essay.markups[i].id + ' 1я');
+                    // console.log(entryMarkupObject.essay.markups[j].id + ' 2я');
+                    // console.log(entryMarkupObject.essay.id);
                     let metric = new MetricCalculator(
                         entryMarkupObject.essay.markups[i],
                         entryMarkupObject.essay.markups[j],
                         entryMarkupObject.essay.meta,
-                        entryMarkupObject.essay.text
+                        entryMarkupObject.essay.text,
+                        'suppose'
                     ).dash();
                     /* запушим результат в итоговых массив */
                     this.fillAnswer(entryMarkupObject.essay.markups[i].id, metric);
@@ -58,7 +62,7 @@ export class MetricService {
                     entryMarkupObject.essay.markups[i].id,
                     entryMarkupObject.essay.markups[i].isExpert
                 );
-            } catch (e) {
+            } catch (e: any) {
                 throw new Error(
                     'Во время расчёта СТАР/СТЭР произошла ошибка \n' +
                         'разметка - ' +
@@ -76,7 +80,7 @@ export class MetricService {
                     entryMarkupObject.essay.markups[i].id,
                     entryMarkupObject.essay.markups[i].isExpert
                 );
-            } catch (e) {
+            } catch (e: any) {
                 throw new Error(
                     'Во время расчёта ОТАР произошла ошибка \n' +
                         'разметка - ' +

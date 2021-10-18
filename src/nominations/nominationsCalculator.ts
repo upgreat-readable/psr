@@ -124,12 +124,14 @@ export class NominationsCalculator implements IMetricCalculator {
                 this._X.selections,
                 this._Y.selections,
                 true,
+                'type',
                 'type'
             ).complexSearchMatchedFragments();
             let res2 = new MathMachine(
                 this._Y.selections,
                 this._X.selections,
                 true,
+                'type',
                 'type'
             ).complexSearchMatchedFragments();
 
@@ -156,6 +158,7 @@ export class NominationsCalculator implements IMetricCalculator {
                 this._X.selections,
                 this._Y.selections,
                 true,
+                'type',
                 'type'
             ).complexSearchMatchedFragments();
         }
@@ -198,6 +201,7 @@ export class NominationsCalculator implements IMetricCalculator {
                     xWithSubtype,
                     yWithSubtype,
                     true,
+                    'subtype',
                     'subtype'
                 ).complexSearchMatchedFragments();
             }
@@ -222,6 +226,7 @@ export class NominationsCalculator implements IMetricCalculator {
                 this._X.selections,
                 this._Y.selections,
                 true,
+                'correction',
                 'correction'
             );
             mathObj.calcJaccardMatrix();
@@ -291,6 +296,7 @@ export class NominationsCalculator implements IMetricCalculator {
                     xWithCorrection,
                     yWithCorrection,
                     true,
+                    'correction',
                     'correction'
                 ).complexSearchMatchedFragments();
             }
