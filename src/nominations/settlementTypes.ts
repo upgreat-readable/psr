@@ -15,5 +15,41 @@ export const settleRus = [
     'р.двусм',
     'р.шаблон',
 ];
-
 export const settleEng = ['а.лекс', 'а.запас', 'а.грамм', 'а.уров'];
+
+export const settleRusLogic = [
+    'л.неоднор',
+    'л.причслед',
+    'л.скачок',
+    'л.перест',
+    'л.подмена',
+    'л.несопост',
+    'л.повтор',
+    'л.зачин',
+    'л.основн',
+    'л.конц',
+    'л.абзац',
+];
+export const settleLitLogic = ['с.послед', 'с.неразв'];
+export const settleSocLogic = ['о.рассужд', 'о.вывод'];
+export const settleHistLogic = ['и.слдейств', 'и.причин', 'и.следств', 'и.излож'];
+
+export const settleRusStructure = [
+    'проблема',
+    'пример',
+    'пояснение',
+    'связь',
+    'позиция',
+    'отношение',
+];
+export const settleLitStructure = ['аргумент', 'понятие'];
+export const settleSocStructure = [
+    'идея',
+    'понятие',
+    'теория',
+    'логика',
+    'пример.общ',
+    'пример.лич',
+    'пример.ист',
+];
+export const settleHistStructure = ['событие', 'сяп', 'роль', 'причина', 'следствие', 'оценка'];

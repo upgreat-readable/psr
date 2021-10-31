@@ -19,4 +19,5 @@ export type nominationReturnObject = {
         STAR: number;
     };
     essayId: string;
-};
+    type: string;
+}[];

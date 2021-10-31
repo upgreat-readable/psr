@@ -6,7 +6,7 @@ export const params: any = {
         M3: 1,
         M4: 1,
         M5: 1,
-        M6: 1,
+        M6: 0,
         M7: 0,
     },
 };

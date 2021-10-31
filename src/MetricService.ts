@@ -175,6 +175,10 @@ export class MetricService {
                     tempOtar = +tempOtar.toFixed(2);
                 }
 
+                if (ster == 0) {
+                    this._compileAnswer.markups[i].OTAR = 0;
+                }
+
                 this._compileAnswer.markups[i].OTAR = tempOtar;
             }
         }
