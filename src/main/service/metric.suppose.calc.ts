@@ -161,11 +161,16 @@ export class MetricSupposeCalc extends MetricCalc {
             const divergenceWordsCount = this.countWords(
                 text.substring(minDivergence, maxDivergence)
             );
-
-            relationSumm += crossWordsCount / divergenceWordsCount;
+            // console.log(divergenceWordsCount)
+            if (divergenceWordsCount === 0 || crossWordsCount === 0) {
+                relationSumm += 0;
+            } else {
+                relationSumm += crossWordsCount / divergenceWordsCount;
+            }
         }
 
         const d = matchingWithSubType.getMatchedDetailSelections();
+        // console.log(relationSumm)
 
         // this.m5 =  (+this.m2 * +relationSumm) / d.length;
         this.m5 = +relationSumm / d.length;
