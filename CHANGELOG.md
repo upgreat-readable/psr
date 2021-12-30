@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/upgreat-readable/psr/compare/v1.4.0...v1.5.0) (2021-12-30)
+
+### Features
+
+-   **psr metric:** include m7 for part of essay ([a6bf4fe](https://github.com/upgreat-readable/psr/commit/a6bf4fe1618747da7b958a24d7302f86511eab1a))
+
 ### [1.4.2](https://github.com/upgreat-readable/psr/compare/v1.4.1...v1.4.2) (2021-11-02)
 
 ### [1.4.1](https://github.com/upgreat-readable/psr/compare/v1.4.0...v1.4.1) (2021-11-02)
