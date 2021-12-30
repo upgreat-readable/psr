@@ -11,6 +11,9 @@ import { MathMachine } from './MathMachine';
 import { MetricCalc, MetricInterfaceCalc } from './service/metric.interface.calc';
 import { MetricMainCalc } from './service/metric.main.calc';
 import { MetricSupposeCalc } from './service/metric.suppose.calc';
+import paricipantMSevens from './mSevenStat/eng_final_m7_AVG.json';
+import expertMSevens from './mSevenStat/exper_m7_markup_100.json';
+import excludedDoubles from './mSevenStat/excludedDoubles.json';
 
 export class MetricCalculator implements IMetricCalculator {
     firmware: MetricCalc;
@@ -42,6 +45,7 @@ export class MetricCalculator implements IMetricCalculator {
     };
 
     originalText: string;
+    essayUuid: string;
 
     private iterationPsrResult: IterationPsrResult = {
         markupId: '',
@@ -61,12 +65,14 @@ export class MetricCalculator implements IMetricCalculator {
         ethalonTerm: ParticipateInPsrObj,
         commonMeta: MetaInPsr,
         originalText: string,
-        mode: string = 'main'
+        mode: string = 'main',
+        essayUuid: string
     ) {
         this._X = calcTerm;
         this._Y = ethalonTerm;
         this.meta = commonMeta;
         this.originalText = originalText;
+        this.essayUuid = essayUuid;
         if (mode == 'main') {
             this.firmware = new MetricMainCalc();
         } else {
@@ -244,12 +250,31 @@ export class MetricCalculator implements IMetricCalculator {
     }
 
     setM7() {
-        this.mX7 = 0;
-        if (!Number.isInteger(this.mX7)) {
-            this.iterationPsrResult.metrics.M7 = Math.round(this.mX7);
-        } else {
-            this.iterationPsrResult.metrics.M7 = this.mX7;
+        /* Определяем вес М7 как 1, только для тех 46 эссе */
+        params.weight.M7 = 0;
+        if (excludedDoubles.includes(this.essayUuid)) {
+            params.weight.M7 = 1;
         }
+
+        /* Эссе расчитываем М7 либо как 100, если у экспертов было пояснение, либо как ср.значение */
+        let m7 = 0;
+        if (this._X.isExpert) {
+            for (const x of expertMSevens) {
+                if (x.mk_uuid == this._X.id) {
+                    m7 = x.mark;
+                }
+            }
+        } else {
+            for (const y of paricipantMSevens) {
+                if (y.mk_uuid == this._X.id) {
+                    m7 = y.mark;
+                }
+            }
+        }
+
+        this.mX7 = +m7.toFixed(2) / 100;
+
+        this.iterationPsrResult.metrics.M7 = this.mX7 * 100;
     }
 
     setMTotal() {
@@ -260,7 +285,9 @@ export class MetricCalculator implements IMetricCalculator {
                 denominationFinal++;
             }
         }
+        const gammaM7Coeff = 500 / 46; /* N(500) / n (48) eng*/
 
+        console.log(params.weight.M7);
         let sum =
             params.weight.M1 * this.mX1 +
             params.weight.M2 * this.mX2 +
@@ -268,7 +295,7 @@ export class MetricCalculator implements IMetricCalculator {
             params.weight.M4 * this.mX4 +
             params.weight.M5 * this.mX5 +
             params.weight.M6 * this.mX6 +
-            params.weight.M7 * this.mX7;
+            params.weight.M7 * (500 / 46) * this.mX7;
 
         this.mTotal = sum / denominationFinal;
         if (!Number.isInteger(this.mTotal)) {

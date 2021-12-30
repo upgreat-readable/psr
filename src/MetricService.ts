@@ -49,7 +49,8 @@ export class MetricService {
                         entryMarkupObject.essay.markups[j],
                         entryMarkupObject.essay.meta,
                         entryMarkupObject.essay.text,
-                        'suppose'
+                        'suppose',
+                        entryMarkupObject.essay.id
                     ).dash();
                     /* запушим результат в итоговых массив */
                     this.fillAnswer(entryMarkupObject.essay.markups[i].id, metric);
