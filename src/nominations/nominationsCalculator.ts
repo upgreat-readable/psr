@@ -33,7 +33,7 @@ export class NominationsCalculator implements IMetricCalculator {
 
     weight: MetricObj = {
         M1: 0,
-        M2: 1,
+        M2: 2,
         M3: 1,
         M4: 1,
         M5: 1,

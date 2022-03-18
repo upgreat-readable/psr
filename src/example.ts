@@ -31,7 +31,7 @@ import * as buffer from 'buffer';
 
 // const diffTypesCloseSelections = fs.readFileSync('presentation/eng-658-0000809.json');
 
-// const diffTypesCloseSelections = fs.readFileSync('presentation/eng-731-0052671.json');
+const diffTypesCloseSelections = fs.readFileSync('presentation/eng-731-0052671.json');
 // const diffTypesCloseSelections = fs.readFileSync('presentation/rus-658-0003400.json');
 // const diffTypesCloseSelections = fs.readFileSync('presentation/lit-658-0005654.json');
 // const diffTypesCloseSelections = fs.readFileSync('presentation/lit-658-0005714.json');
@@ -39,9 +39,9 @@ import * as buffer from 'buffer';
 // const diffTypesCloseSelections = fs.readFileSync('presentation/soc-658-0004743.json');
 // const diffTypesCloseSelections = fs.readFileSync('presentation/rus-658-0003267.json');
 
-// const fromFile = JSON.parse(diffTypesCloseSelections.toString());
-// let p = new MetricService().calculate(fromFile);
-// console.log(JSON.stringify(p, null, 2));
+const fromFile = JSON.parse(diffTypesCloseSelections.toString());
+let p = new MetricService().calculate(fromFile);
+console.log(JSON.stringify(p, null, 2));
 
 // export class ChangeBalanceDto {
 //     // //@ts-ignore
