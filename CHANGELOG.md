@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/upgreat-readable/psr/compare/v1.5.0...v1.6.0) (2022-03-18)
+
+### Features
+
+-   **m2 m7:** wm2 = 2, wm7 = 0 ([3602813](https://github.com/upgreat-readable/psr/commit/3602813d78e8f4b1edd2839365aebfd3ccafbda7))
+
 ## [1.5.0](https://github.com/upgreat-readable/psr/compare/v1.4.0...v1.5.0) (2021-12-30)
 
 ### Features
