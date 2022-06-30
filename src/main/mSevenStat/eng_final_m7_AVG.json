@@ -1,462 +1,2578 @@
 [
     {
-        "mk_uuid": "5bee3578-02de-45c1-b99f-135deb9cc760",
-        "mark": 60
+        "mk_uuid": "e94879b7-a032-4db5-bf30-20714af58bc2",
+        "mark": 65.5
     },
     {
-        "mk_uuid": "6ca6be0c-32a6-4b65-8573-8cd1382f3e42",
-        "mark": 0
+        "mk_uuid": "c41782a3-3f4a-4d30-a5d5-2bf85253766b",
+        "mark": 82.9
     },
     {
-        "mk_uuid": "8e7d2dac-66ff-421d-bc99-d503581e8554",
-        "mark": 41.904761904761905
+        "mk_uuid": "b4175126-8a1b-4074-9f23-9675eb84048b",
+        "mark": 60.8
     },
     {
-        "mk_uuid": "6587056e-101f-44c9-b314-9ff16fae38ef",
-        "mark": 31.428571428571427
+        "mk_uuid": "406e45ad-0ef4-44dc-8665-76d7b8bc2320",
+        "mark": 65.3
     },
     {
-        "mk_uuid": "f402d018-2130-4925-a747-ff21946f015c",
-        "mark": 23.225806451612904
+        "mk_uuid": "3d70b084-51fe-4a9e-bbc7-6358a728f254",
+        "mark": 85.6
     },
     {
-        "mk_uuid": "b877c3dc-62bd-42f4-8709-d1ef0cc1ca55",
-        "mark": 0
-    },
-    {
-        "mk_uuid": "bb846543-737a-466b-8b51-0610abe894f0",
-        "mark": 39.51219512195122
-    },
-    {
-        "mk_uuid": "e698c009-af3c-4b8e-8b4e-bf67f59ba430",
-        "mark": 45.38461538461539
-    },
-    {
-        "mk_uuid": "a5191c7d-b6cf-4c0b-80e6-83b52b5e8531",
-        "mark": 33
-    },
-    {
-        "mk_uuid": "a651f742-0980-4ec4-aa1a-b69ceeb35595",
-        "mark": 41.42857142857143
-    },
-    {
-        "mk_uuid": "f0991e54-1637-4b2f-96f0-c6b5fd71d1c5",
+        "mk_uuid": "7a411c58-da1a-46e9-ac3b-e966a83f3b3f",
         "mark": 100
     },
     {
-        "mk_uuid": "6741271a-35c6-4b8d-9ba5-77427e95c63f",
-        "mark": 36.470588235294116
+        "mk_uuid": "f63c4cf8-4728-4c48-9280-13e230cd9051",
+        "mark": 94
     },
     {
-        "mk_uuid": "ecd7f9e4-3fb4-44fc-bb63-81772985aeb2",
-        "mark": 59.28571428571429
+        "mk_uuid": "990fd636-4c86-49a2-9e82-a048ba1440c0",
+        "mark": 60.5
     },
     {
-        "mk_uuid": "1abd6249-6352-46f4-8107-7b22e2f4da0b",
-        "mark": 43.2
+        "mk_uuid": "c291f51e-72c8-49fa-98c0-d0f085ae9bae",
+        "mark": 78.3
     },
     {
-        "mk_uuid": "c217d5cc-8db6-449e-9b55-c51f5cdc8f69",
-        "mark": 84.61538461538461
-    },
-    {
-        "mk_uuid": "2bc2346b-5e5c-493f-8f23-1a15b80d74dc",
-        "mark": 0
-    },
-    {
-        "mk_uuid": "3e74a13c-c242-4b16-89c0-616270dc510b",
-        "mark": 44.66666666666667
-    },
-    {
-        "mk_uuid": "f7dcde92-74e2-4a1d-bd3a-93d0107e8627",
-        "mark": 32.57142857142857
-    },
-    {
-        "mk_uuid": "205e4e26-75b2-488c-8c06-d34ad4461cd6",
-        "mark": 43.63636363636363
-    },
-    {
-        "mk_uuid": "2f437b07-8451-4955-836e-34318c3230ea",
-        "mark": 47.5
-    },
-    {
-        "mk_uuid": "802f922c-a451-4828-8948-a23f6797e7f0",
-        "mark": 80
-    },
-    {
-        "mk_uuid": "862df4c9-b52e-4a3c-9c7b-c8e486e80f3b",
-        "mark": 50
-    },
-    {
-        "mk_uuid": "a6742038-640b-4647-a662-ee768d61fc1d",
-        "mark": 15
-    },
-    {
-        "mk_uuid": "4a65f672-ffe8-41e7-acfa-9082565d6e88",
-        "mark": 50
-    },
-    {
-        "mk_uuid": "bcc000e7-ea05-4975-922e-5159c781028f",
-        "mark": 47.5
-    },
-    {
-        "mk_uuid": "b24a4f88-c5a3-4e59-b935-003f4b622082",
-        "mark": 40
-    },
-    {
-        "mk_uuid": "ecd0af41-83e4-41bd-9e1e-6747a8f538fa",
-        "mark": 44.61538461538461
-    },
-    {
-        "mk_uuid": "34fe6f41-0345-44dd-b5b8-e591a4ed947d",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "4416ca00-54d9-4774-8188-dd2a9e54106d",
-        "mark": 86.66666666666666
-    },
-    {
-        "mk_uuid": "d17f8c10-6300-444b-a450-5922280eaf51",
-        "mark": 20
-    },
-    {
-        "mk_uuid": "74c2e0c9-c9e4-4a51-9aa1-ca8c016d803b",
-        "mark": 50.4
-    },
-    {
-        "mk_uuid": "7d190069-8827-4a5d-ac23-e685056ba5bf",
-        "mark": 43.80952380952381
-    },
-    {
-        "mk_uuid": "262084f6-6aa4-434e-8c2c-868039eb6bd6",
-        "mark": 65.45454545454545
-    },
-    {
-        "mk_uuid": "44214e9b-79ea-4ead-81c8-16e081635c4f",
-        "mark": 47.87878787878788
-    },
-    {
-        "mk_uuid": "cb2f21b4-90c2-4880-aec8-c5c6fe56844a",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "35ec4823-2bad-4090-9758-b6372bc8db86",
-        "mark": 80
-    },
-    {
-        "mk_uuid": "60f22194-e189-4288-90c5-9f9ca122e8c8",
-        "mark": 46.66666666666667
-    },
-    {
-        "mk_uuid": "52a1cf24-28ed-41ad-bd1f-7688169e2749",
-        "mark": 60
-    },
-    {
-        "mk_uuid": "7136b481-dba9-45f6-877f-99dd6d4fef9f",
-        "mark": 66.66666666666667
-    },
-    {
-        "mk_uuid": "d3cffb3a-d483-45b5-821c-e3c103134c45",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "38412d65-ff55-4fc8-84c9-d98325ce0a55",
-        "mark": 70
-    },
-    {
-        "mk_uuid": "42b626f1-9906-4d70-98d9-21ab706d060b",
-        "mark": 60
-    },
-    {
-        "mk_uuid": "0d5e80b6-b7e1-45a2-b79b-1c3086efda62",
-        "mark": 64
-    },
-    {
-        "mk_uuid": "0e71e989-fac6-4f67-9794-f4cd54befd3f",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "41b79428-00cc-4148-92ce-059791384c2c",
-        "mark": 75
-    },
-    {
-        "mk_uuid": "547515dd-d2de-4d2f-bb7f-fa4775eea517",
-        "mark": 75
-    },
-    {
-        "mk_uuid": "6849c1cc-bd66-4a38-ae28-5e0354ffbbbc",
-        "mark": 34.54545454545455
-    },
-    {
-        "mk_uuid": "36cdead5-a22a-44a2-b6b9-b1dbd8c09df2",
-        "mark": 58.33333333333333
-    },
-    {
-        "mk_uuid": "dfae5811-58a9-4a9d-87c6-ae1523324abe",
-        "mark": 62.5
-    },
-    {
-        "mk_uuid": "e9d29668-c5a3-4bf5-8eeb-5bc8b70bab98",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "18ced441-fc84-4da5-9a58-a3d1bd8eb879",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "68cc82b7-5a81-4c76-8c71-6aeb0dee9d21",
-        "mark": 51.11111111111111
-    },
-    {
-        "mk_uuid": "c2ca69e8-e10a-48d5-b017-49119a7f310b",
-        "mark": 50.90909090909091
-    },
-    {
-        "mk_uuid": "cb70677e-fe43-4f34-8bed-16332f742071",
-        "mark": 65.45454545454545
-    },
-    {
-        "mk_uuid": "7cb128f7-48ca-478d-8f4f-87c5f33457b9",
-        "mark": 51.66666666666667
-    },
-    {
-        "mk_uuid": "a49687c6-1ca1-45ff-b05e-10c1c010288d",
-        "mark": 70
-    },
-    {
-        "mk_uuid": "ca1cc0ca-ac57-4c56-8024-91121d1a4a3e",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "11694388-74fd-4d3b-a4cf-b5c3601d52e8",
-        "mark": 53.04347826086956
-    },
-    {
-        "mk_uuid": "8d46f55f-eee9-47a7-bae2-3910ef01a6f2",
-        "mark": 60
-    },
-    {
-        "mk_uuid": "d4e66909-a623-4839-8db9-2fbfad788ff9",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "7c6cc4ac-8d7a-4815-b4b0-646e138513da",
-        "mark": 66.66666666666667
-    },
-    {
-        "mk_uuid": "c7671e04-2ccc-46fb-9d1b-18070c824438",
-        "mark": 36.666666666666664
-    },
-    {
-        "mk_uuid": "f8b96221-8e09-4c35-a518-c6890d816699",
-        "mark": 52.72727272727273
-    },
-    {
-        "mk_uuid": "60c1e3f3-3585-43c9-aec7-926c27a47777",
-        "mark": 68.57142857142857
-    },
-    {
-        "mk_uuid": "99a387a1-294c-482c-a355-7677b8949927",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "9dd0e4e7-46a8-4a14-ab6f-e0e0d4bf76da",
-        "mark": 75
-    },
-    {
-        "mk_uuid": "bb36b533-f725-4e47-9ebc-a57d1a6f7ae2",
-        "mark": 37.142857142857146
-    },
-    {
-        "mk_uuid": "60ec9f86-50d7-4ca7-8764-9a74703e1bbd",
-        "mark": 33.333333333333336
-    },
-    {
-        "mk_uuid": "6f5b7bea-868b-40f0-a458-0abb71d1c425",
-        "mark": 68.42105263157895
-    },
-    {
-        "mk_uuid": "2de0fec4-80fd-4924-93fb-2d6f3b5e7ab7",
-        "mark": 52.30769230769231
-    },
-    {
-        "mk_uuid": "60347756-9393-4133-8847-d38111595089",
-        "mark": 94.28571428571429
-    },
-    {
-        "mk_uuid": "13fe65d8-e261-4e67-99db-3438d0e1bb50",
-        "mark": 87.5
-    },
-    {
-        "mk_uuid": "57d43464-ba57-4472-a8bb-ef0eafa9dfe0",
-        "mark": 47.199999999999996
-    },
-    {
-        "mk_uuid": "81f63ef7-8809-4954-93cd-9b8914e000f4",
-        "mark": 8
-    },
-    {
-        "mk_uuid": "b5f8b50c-cefd-410c-95ce-3e3455f8e3e0",
-        "mark": 40
-    },
-    {
-        "mk_uuid": "13e55ece-4b9b-4cf2-8050-90492302a15f",
-        "mark": 48.57142857142857
-    },
-    {
-        "mk_uuid": "3a9ba284-7645-453c-ba62-1a6d3ba5a500",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "d274eb2d-1817-4150-8bae-bffd6bf6511e",
-        "mark": 40
-    },
-    {
-        "mk_uuid": "20320d99-fe53-4fb3-9568-8541a67a7f04",
-        "mark": 43.44827586206897
-    },
-    {
-        "mk_uuid": "393d832c-d3dd-4e7f-8771-f0256c06c566",
-        "mark": 35.348837209302324
-    },
-    {
-        "mk_uuid": "585a8a1a-fcb8-4b6d-b605-6677095914e6",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "a675a0d0-3087-4caa-b404-01206b974ff0",
-        "mark": 30.909090909090907
-    },
-    {
-        "mk_uuid": "fd6ad96e-abbc-4844-83a9-a5c24bc118ec",
-        "mark": 50
-    },
-    {
-        "mk_uuid": "3eb87add-f6e1-41a8-9393-0dc0c48183a6",
-        "mark": 21.666666666666664
-    },
-    {
-        "mk_uuid": "5b3589e6-dd53-4349-8538-481c8b4f7d48",
-        "mark": 40
-    },
-    {
-        "mk_uuid": "fe8e963e-99df-443e-83c2-25722d113d60",
-        "mark": 70
-    },
-    {
-        "mk_uuid": "05931abf-dbd4-4e5b-9366-0cb313e87dde",
-        "mark": 33.714285714285715
-    },
-    {
-        "mk_uuid": "7aba30cc-5c60-4095-949d-c9467e68662f",
-        "mark": 63.2
-    },
-    {
-        "mk_uuid": "cfd4921b-cf54-4c69-ab6f-2f2fab0845db",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "5085aacd-bd9d-474f-926c-9d1c2be069d8",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "a1d69df5-cabc-4f3c-ac01-2b7ff081a153",
-        "mark": 6.8965517241379315
-    },
-    {
-        "mk_uuid": "fc1a7983-a949-4cca-8ba8-b145254a2e16",
-        "mark": 19.487179487179485
-    },
-    {
-        "mk_uuid": "63e5c3e9-5cf1-4fa8-bddf-c7aa2b5fa6cf",
-        "mark": 0
-    },
-    {
-        "mk_uuid": "9ba41ef1-271b-4a45-a64d-b8c36904f79d",
-        "mark": 28.571428571428573
-    },
-    {
-        "mk_uuid": "9ee61487-796c-4ae8-ab7d-ce0ae432df69",
-        "mark": 26.666666666666664
-    },
-    {
-        "mk_uuid": "058383e9-87f1-4f70-b972-d69f181a4c33",
-        "mark": 61.37931034482759
-    },
-    {
-        "mk_uuid": "aa3a1f43-7efb-4cf5-a1c8-4418a353c157",
-        "mark": 51.891891891891895
-    },
-    {
-        "mk_uuid": "4a67ee93-128e-4ffc-bd7e-d1ac6a798cf5",
-        "mark": 37.77777777777778
-    },
-    {
-        "mk_uuid": "9bab57a1-d288-4c74-8f24-c150ca4d0fbc",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "ae58a6ad-a7a6-4984-b2d0-6f0163371aec",
-        "mark": 72.5
-    },
-    {
-        "mk_uuid": "4e50ac39-7627-431b-8a30-94c666117e00",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "935480e2-b9c2-466f-bbb6-fbf99f5e7551",
-        "mark": 53.33333333333333
-    },
-    {
-        "mk_uuid": "0a0f36be-dd9f-41cd-8489-2a49bfb65b92",
-        "mark": 50
-    },
-    {
-        "mk_uuid": "8242d692-11cf-42a2-a696-cc8f6f48943f",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "db413dc1-02f3-4426-8f9d-5003e8d5559e",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "97c58531-389a-4372-a6d1-1de5a0b04e09",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "cdaaae80-7e81-46a2-9a9a-875fd741043d",
-        "mark": 63.33333333333333
-    },
-    {
-        "mk_uuid": "e03456b1-de3f-4c12-9304-310bfba61b12",
-        "mark": 100
-    },
-    {
-        "mk_uuid": "589a791c-1ffb-4dd0-8f08-bf4c779b632f",
-        "mark": 58.88888888888889
-    },
-    {
-        "mk_uuid": "7ef9ec4d-71c8-4479-a872-6ee8b19277d4",
+        "mk_uuid": "2b2ee05e-8192-498a-b180-c104c7fb82e7",
         "mark": 90
     },
     {
-        "mk_uuid": "8eaf33b4-9fa0-4079-bf8b-f299f4d7080d",
-        "mark": 78.94736842105263
+        "mk_uuid": "d0a1349b-beed-42a3-8980-6281bc755540",
+        "mark": 77.7
     },
     {
-        "mk_uuid": "adab1ccb-2005-45c9-a615-e0f3df849539",
-        "mark": 58.064516129032256
-    },
-    {
-        "mk_uuid": "32fdb533-0a61-45d4-b6a4-fbc6bb6128ca",
-        "mark": 96.66666666666666
-    },
-    {
-        "mk_uuid": "b31c80a3-af59-43ae-bbb5-3cc7ce9718d6",
+        "mk_uuid": "95285672-d7ed-497d-9035-5ba6740f0699",
         "mark": 34
     },
     {
-        "mk_uuid": "f16eea83-2e5b-418b-ae93-20491257d237",
-        "mark": 70.58823529411765
+        "mk_uuid": "f0a98a2f-daa2-4960-ac8e-d7fa182cdb40",
+        "mark": 64.9
+    },
+    {
+        "mk_uuid": "6ad0fa38-f6e6-4d73-aaab-8e7e62e0af7d",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "d22a6c3d-bb16-4a3f-97c7-a8b980fe56ed",
+        "mark": 91.7
+    },
+    {
+        "mk_uuid": "3476bc3a-349d-47a9-bf35-8ca27a35f67f",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "02435025-6dfd-4046-9c83-596967d2177b",
+        "mark": 86.8
+    },
+    {
+        "mk_uuid": "c8c4b422-049e-4ab2-bf08-6f79ffa45cb4",
+        "mark": 73.6
+    },
+    {
+        "mk_uuid": "bf0ed833-ab9e-498a-b96c-8af1349c34e7",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "aac0a6ac-4fa4-4a4b-98e9-2c29244799e2",
+        "mark": 74.9
+    },
+    {
+        "mk_uuid": "c8d58aa1-31b6-4e2f-92a2-f01403e78d40",
+        "mark": 90.7
+    },
+    {
+        "mk_uuid": "718e43d5-1de2-4c9a-bed3-7eb7733332df",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "dc64b77f-60c7-46fb-9a67-2b6ad61247c0",
+        "mark": 87
+    },
+    {
+        "mk_uuid": "fa5f1a59-88f5-4126-bc08-ed5fad4e11a5",
+        "mark": 63.3
+    },
+    {
+        "mk_uuid": "c0d13780-b893-490a-b126-21de135d3f7b",
+        "mark": 74
+    },
+    {
+        "mk_uuid": "424c9fcd-1bb4-466a-ac32-ebfb7f47e98d",
+        "mark": 58.7
+    },
+    {
+        "mk_uuid": "ca0e5331-da74-4331-bb22-df2f1101091f",
+        "mark": 51.6
+    },
+    {
+        "mk_uuid": "f0f7851d-7b26-4967-a269-f2d69fd0ab3d",
+        "mark": 56
+    },
+    {
+        "mk_uuid": "30580ebc-1d60-4b32-b342-225e0ee176da",
+        "mark": 79.7
+    },
+    {
+        "mk_uuid": "fea09a0c-adcc-44e3-a78a-4a53f4f3ebcc",
+        "mark": 60.8
+    },
+    {
+        "mk_uuid": "aa0a4f4d-a525-4fa9-acfa-1967b870dd78",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "3186551a-b491-4aca-9f84-8ce68c8df11d",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "38c081df-1a53-4fea-9fac-569a0827aba1",
+        "mark": 62
+    },
+    {
+        "mk_uuid": "50c280e1-b81a-42ca-926e-15d8c27fafa4",
+        "mark": 70
+    },
+    {
+        "mk_uuid": "b93fe805-297d-4a4d-82ba-294db687094a",
+        "mark": 85.1
+    },
+    {
+        "mk_uuid": "0c89dc46-b5ff-41b9-b6d9-477ff9543073",
+        "mark": 82.5
+    },
+    {
+        "mk_uuid": "387e3734-3a2c-4d35-84a9-26ddf4c9266f",
+        "mark": 61.1
+    },
+    {
+        "mk_uuid": "d262a560-2e05-4304-99c9-d858a226d46d",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "fed289e8-6569-4268-81ed-8a1e3dfffbdb",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "f364ca6b-23a3-4c88-b82f-3d124aa8fde6",
+        "mark": 79.8
+    },
+    {
+        "mk_uuid": "e21cd405-7055-4806-aa1c-3324831dc84b",
+        "mark": 60.4
+    },
+    {
+        "mk_uuid": "862b111a-43df-4c96-b0aa-0594c9f80ab5",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "7825e216-70a9-48f9-a0a9-784d53ffd7dc",
+        "mark": 83.2
+    },
+    {
+        "mk_uuid": "4b1a1fd2-a874-4c37-bc3c-e783a475b7bb",
+        "mark": 84
+    },
+    {
+        "mk_uuid": "d7d5f722-4c6b-4e02-ad9d-c05387ea22f6",
+        "mark": 58.3
+    },
+    {
+        "mk_uuid": "c15495ce-a065-4c49-886b-562114b995e6",
+        "mark": 92
+    },
+    {
+        "mk_uuid": "b9a0b39e-2a5e-4829-8d00-285f33241b53",
+        "mark": 63
+    },
+    {
+        "mk_uuid": "fca2d268-b915-4ec9-bb14-90d9b78094dc",
+        "mark": 78.3
+    },
+    {
+        "mk_uuid": "946221c1-f638-44cf-be1b-e14092a49b7a",
+        "mark": 65.3
+    },
+    {
+        "mk_uuid": "2ea8a586-5027-41bb-9d2e-b16a2df0aab2",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "13b9656d-405f-4322-8558-2302f6943fef",
+        "mark": 97.6
+    },
+    {
+        "mk_uuid": "afdd69c4-fc48-4c5a-9ff5-f697369962d9",
+        "mark": 53.7
+    },
+    {
+        "mk_uuid": "51e45289-e719-4cc9-92e4-e13b45e5382f",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "268c96cd-fe29-4dec-becc-08757f9c6975",
+        "mark": 92.3
+    },
+    {
+        "mk_uuid": "331457f7-b908-42a2-9716-5e5306e61d26",
+        "mark": 32.7
+    },
+    {
+        "mk_uuid": "74f102c2-6843-449e-9a94-b10a690111d3",
+        "mark": 70
+    },
+    {
+        "mk_uuid": "49f795e9-f87b-4234-8c4f-82c7c17666eb",
+        "mark": 44
+    },
+    {
+        "mk_uuid": "7fa3faab-cd14-463f-a444-568f0dd49671",
+        "mark": 62.4
+    },
+    {
+        "mk_uuid": "ebd16847-4e72-402e-8082-d2ec3438fa5e",
+        "mark": 63.8
+    },
+    {
+        "mk_uuid": "47479899-8390-4628-8a41-46c6001afc07",
+        "mark": 65.5
+    },
+    {
+        "mk_uuid": "327fabe7-4ea4-4fe9-9d66-88ea812e313e",
+        "mark": 87
+    },
+    {
+        "mk_uuid": "cef96ecd-adb8-4d30-a486-7346b153d50c",
+        "mark": 45.5
+    },
+    {
+        "mk_uuid": "284a4e9c-d8d1-483e-8b1b-447662ee16c9",
+        "mark": 91.4
+    },
+    {
+        "mk_uuid": "fe75cd44-2bb7-4e4c-90e9-b5ad44b23e1e",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "f42c49fa-33ce-477f-a871-039308e6b511",
+        "mark": 97.6
+    },
+    {
+        "mk_uuid": "b5d12f4e-9e29-4063-a71f-95e1a2f37db4",
+        "mark": 64
+    },
+    {
+        "mk_uuid": "9257477e-6ca8-4df5-a027-55ca3f8f4d93",
+        "mark": 83.3
+    },
+    {
+        "mk_uuid": "f8e1c8ec-890d-4f3c-965b-f8aebb6f4b6b",
+        "mark": 66
+    },
+    {
+        "mk_uuid": "df08fbef-615a-4789-9e07-46bbc904ee76",
+        "mark": 84
+    },
+    {
+        "mk_uuid": "0ae30609-b361-4742-8aab-cd022d2a1b3c",
+        "mark": 69
+    },
+    {
+        "mk_uuid": "b7d007c8-98be-4bde-a301-33d13fb54dd2",
+        "mark": 60.8
+    },
+    {
+        "mk_uuid": "e37f8526-71ed-45a7-b61b-31f916035fd2",
+        "mark": 98
+    },
+    {
+        "mk_uuid": "7b63bdba-0cab-4d12-b814-4dc0f7ab2d3e",
+        "mark": 84.3
+    },
+    {
+        "mk_uuid": "b42095f8-e228-43dd-bafd-b8eb20ced31f",
+        "mark": 55
+    },
+    {
+        "mk_uuid": "f42fa992-4d6a-4886-b22f-817698ca8fa7",
+        "mark": 82.9
+    },
+    {
+        "mk_uuid": "89a8adbd-5637-413d-9396-a9a9de235eb2",
+        "mark": 76.4
+    },
+    {
+        "mk_uuid": "f4fc280d-d35f-46ac-8f70-2db658336cc6",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "040d38d1-c647-49aa-9f30-4e3ae9659314",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "7fd5af09-7d62-4eef-983a-59b89116f9af",
+        "mark": 39.7
+    },
+    {
+        "mk_uuid": "a494046a-d7c5-4d66-9ed6-fcea0ad09faf",
+        "mark": 37.5
+    },
+    {
+        "mk_uuid": "8a24fab8-61f8-4b91-8a1b-19f9a67832c3",
+        "mark": 52.7
+    },
+    {
+        "mk_uuid": "59538667-efd3-476c-84f7-d5709f3b27e6",
+        "mark": 61.2
+    },
+    {
+        "mk_uuid": "9a69ace5-00d3-4d63-afa6-271f7e7be06c",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "22ab08a7-ae26-4a40-9f67-add6813cee7b",
+        "mark": 95.5
+    },
+    {
+        "mk_uuid": "61725788-9864-4881-bde0-5e0b5e51b2d7",
+        "mark": 56
+    },
+    {
+        "mk_uuid": "982811d0-86e9-4954-bdc7-72695bae1169",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "1d0f3c63-87a8-4962-8105-fb08510f23c9",
+        "mark": 74
+    },
+    {
+        "mk_uuid": "ff03e326-a87c-4ccb-ada9-bf5745390909",
+        "mark": 40
+    },
+    {
+        "mk_uuid": "1f13c240-effa-476e-b939-91f2c5d3a9bb",
+        "mark": 74.9
+    },
+    {
+        "mk_uuid": "c4351e7c-bf98-416e-9e59-3cb6779dc285",
+        "mark": 27
+    },
+    {
+        "mk_uuid": "342a4a65-705d-40d3-b604-fa43423f70ba",
+        "mark": 50
+    },
+    {
+        "mk_uuid": "6e42a7f6-fa69-4d0e-b86a-6df238b75a20",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "f35eb4d5-aeeb-4bbf-99cf-54189bafb73d",
+        "mark": 89.8
+    },
+    {
+        "mk_uuid": "b0f44443-599c-40a2-b383-d83ba6038111",
+        "mark": 70.7
+    },
+    {
+        "mk_uuid": "2051d293-aeb6-469b-b212-b8c5677072c3",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "7c1d08e0-b93d-4278-83e9-cdfb2fa54538",
+        "mark": 89.6
+    },
+    {
+        "mk_uuid": "3ae49dce-a3cc-4efc-b903-45e6211f8976",
+        "mark": 74
+    },
+    {
+        "mk_uuid": "55dc3ba1-d99b-4730-afe9-c31869121b27",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "fd68b01b-b21a-450f-815a-33a38ed3c3ec",
+        "mark": 92.9
+    },
+    {
+        "mk_uuid": "4d7d2c7d-465a-4719-b022-1ab98ecd17c5",
+        "mark": 62
+    },
+    {
+        "mk_uuid": "fbcc70e2-dc60-406a-ae7b-21676e1003ab",
+        "mark": 71.3
+    },
+    {
+        "mk_uuid": "cac2784b-f0d2-45ee-ba79-4a2102d2e5d9",
+        "mark": 74
+    },
+    {
+        "mk_uuid": "3ca597c0-836e-45ca-8b6b-5a656a37241f",
+        "mark": 62.5
+    },
+    {
+        "mk_uuid": "71eb2e6b-4644-461b-8f0b-9e4ad865628a",
+        "mark": 74
+    },
+    {
+        "mk_uuid": "311f9e79-a8cd-40e2-b723-e8c0fbb9438e",
+        "mark": 52
+    },
+    {
+        "mk_uuid": "f7264630-a13c-4b95-91ba-7779976d6a80",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "f6d44f49-91dd-4ee3-b318-37360c44d02e",
+        "mark": 72
+    },
+    {
+        "mk_uuid": "86d4524b-dda7-4d14-be52-c44bc24b6c66",
+        "mark": 34.5
+    },
+    {
+        "mk_uuid": "0def4082-5f04-4e12-b194-eba7470a3c4c",
+        "mark": 77.5
+    },
+    {
+        "mk_uuid": "c0289237-9997-4a17-ab0c-82889f2788fc",
+        "mark": 45.3
+    },
+    {
+        "mk_uuid": "ff6f4b7e-a424-41da-ada2-bffab2544ad3",
+        "mark": 67.3
+    },
+    {
+        "mk_uuid": "87b7df6d-4f9b-44eb-964e-4a546d4d4cee",
+        "mark": 57
+    },
+    {
+        "mk_uuid": "95880e38-aef2-4f73-9719-722287346a58",
+        "mark": 65
+    },
+    {
+        "mk_uuid": "2cb847c8-2f19-43a2-a0ae-39732256e8c3",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "e1bd73fe-549a-4d63-83bd-9fd4d75dd7ba",
+        "mark": 92.4
+    },
+    {
+        "mk_uuid": "0481a346-83ad-436a-973c-1117671c864a",
+        "mark": 99
+    },
+    {
+        "mk_uuid": "0a008cc6-3f6c-4c96-ac31-00aa6831b344",
+        "mark": 84.4
+    },
+    {
+        "mk_uuid": "a8193d36-9cb7-45ff-8474-70728238ef29",
+        "mark": 58.3
+    },
+    {
+        "mk_uuid": "ca8d7475-3f28-4edc-9141-7eacecb2b3d4",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "97844174-1746-45c4-91f0-72722a69a6a0",
+        "mark": 93.6
+    },
+    {
+        "mk_uuid": "7763604c-9a4b-46bc-961c-637b3055c7f8",
+        "mark": 74.9
+    },
+    {
+        "mk_uuid": "0b8f20c2-d3d3-42f5-b1eb-bc13df46ac26",
+        "mark": 61.7
+    },
+    {
+        "mk_uuid": "0258e9a8-5820-4315-90c7-00a0b29b4b76",
+        "mark": 76.2
+    },
+    {
+        "mk_uuid": "0fe9e8a3-faf1-486b-93d8-07a465998e9c",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "b2793445-9281-4fe7-9b73-148a19ee1744",
+        "mark": 82.7
+    },
+    {
+        "mk_uuid": "f4e98df1-f1bb-404d-9be8-72ba34ab244e",
+        "mark": 98
+    },
+    {
+        "mk_uuid": "f063c8d3-1524-4875-a41b-0df0b9989895",
+        "mark": 93.7
+    },
+    {
+        "mk_uuid": "92452fd2-3dd0-46d6-add1-b81597f01dbf",
+        "mark": 54
+    },
+    {
+        "mk_uuid": "ee6ba489-4329-4378-8ba2-aa25bfd69b84",
+        "mark": 34
+    },
+    {
+        "mk_uuid": "5c038565-ebcf-4dfb-86fe-698fd95c0f5c",
+        "mark": 91
+    },
+    {
+        "mk_uuid": "d9f8a83d-d183-40c2-953e-7bda4bd0b302",
+        "mark": 50.2
+    },
+    {
+        "mk_uuid": "31513c82-25d1-4ac5-9722-ab2784d2f85d",
+        "mark": 72.2
+    },
+    {
+        "mk_uuid": "617b9051-3eb6-4233-ba0b-03a58913efa1",
+        "mark": 56
+    },
+    {
+        "mk_uuid": "d917efc6-b18a-4134-92ee-fb811f843766",
+        "mark": 40.9
+    },
+    {
+        "mk_uuid": "7ecddc57-5555-4e09-805e-8048d7f41a8b",
+        "mark": 39.5
+    },
+    {
+        "mk_uuid": "0b33013e-e3be-4488-8629-7ab478edcaf6",
+        "mark": 53.3
+    },
+    {
+        "mk_uuid": "d6e4b19d-e5a4-49bf-9218-af6d3c4ac877",
+        "mark": 50.8
+    },
+    {
+        "mk_uuid": "e299c5a4-705a-4e7d-82b3-992ba5f68190",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "dd65ad14-9fc6-48e4-9af9-61b92d2a9f55",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "1d7005ce-c910-4de5-8231-6143c6ff0eb7",
+        "mark": 80.4
+    },
+    {
+        "mk_uuid": "6c75177a-fa0e-4273-980a-2bd241d1db58",
+        "mark": 60.9
+    },
+    {
+        "mk_uuid": "4461ccd2-1299-4589-a656-a9b625b1b137",
+        "mark": 74
+    },
+    {
+        "mk_uuid": "7274846b-9f65-41d7-8509-5184fbcb31f1",
+        "mark": 68.3
+    },
+    {
+        "mk_uuid": "f54721c8-9272-4fc8-a98e-3128fce49602",
+        "mark": 61
+    },
+    {
+        "mk_uuid": "f4d4ec8e-83a0-4902-a694-65655ee5922c",
+        "mark": 89.3
+    },
+    {
+        "mk_uuid": "1660fbcb-2b8b-42ee-b7eb-efed88d9a132",
+        "mark": 71.6
+    },
+    {
+        "mk_uuid": "01149ae0-4ad0-4851-8f8f-c5672d09844e",
+        "mark": 75.7
+    },
+    {
+        "mk_uuid": "cb8f5121-b701-424a-a8cf-6a91535fc38d",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "be4b320a-5cd8-4af9-b895-38300bfb5ac9",
+        "mark": 70
+    },
+    {
+        "mk_uuid": "94a88c23-ed0e-4d38-95b8-bbdab01374db",
+        "mark": 56.3
+    },
+    {
+        "mk_uuid": "b87a6859-f8e6-429f-a07e-f63b69f7fd0b",
+        "mark": 45.7
+    },
+    {
+        "mk_uuid": "1d8b2226-e53a-44c6-9d9a-0195ef030531",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "0947c6ac-5910-42fe-91f0-bb14f262a4a4",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "4b1734c3-3929-41e5-aca6-29df30537de7",
+        "mark": 73.2
+    },
+    {
+        "mk_uuid": "79383c50-a4f4-4615-982c-434a2de9cc6c",
+        "mark": 37
+    },
+    {
+        "mk_uuid": "6206efed-2ca1-4462-b75c-e799c246bba6",
+        "mark": 86.7
+    },
+    {
+        "mk_uuid": "f9ce9bcd-62ba-4370-86cd-5380cb765f18",
+        "mark": 56.7
+    },
+    {
+        "mk_uuid": "599be371-0ec4-43cf-929a-e5bcb2dd9b62",
+        "mark": 60
+    },
+    {
+        "mk_uuid": "dcfece8b-1c41-479d-8dc9-fae71c4c5869",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "0dc81775-4083-4367-9ad5-6b428638f43f",
+        "mark": 92
+    },
+    {
+        "mk_uuid": "18c0c3c9-107c-4031-96ff-85207c874de9",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "a0e25a1d-1877-4db1-b0e7-18ac907dfd9c",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "ad4e46e5-2300-4ee6-9346-21bece3d4b9b",
+        "mark": 75.2
+    },
+    {
+        "mk_uuid": "d7e24cc5-a78f-44fc-9638-dca91daafdb5",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "8cf7e7e2-0292-4f96-bc46-c4552afd43c5",
+        "mark": 83.4
+    },
+    {
+        "mk_uuid": "5140f4fe-cc1f-41ff-8b03-8efa7d3a2acb",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "a01a9c0c-7f96-4126-a2af-9ce19d4bd38f",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "f45c3d92-65f3-4d4a-88a2-f834376a27c5",
+        "mark": 92.4
+    },
+    {
+        "mk_uuid": "756d7fe0-cffa-4775-ac62-e2403bb522f3",
+        "mark": 65
+    },
+    {
+        "mk_uuid": "35d70988-b0a4-4081-88b7-d0bc8463dc7b",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "ba64cf6c-307b-4054-b0a1-cf840f2d5bd4",
+        "mark": 97
+    },
+    {
+        "mk_uuid": "084b029d-93d9-485d-858a-c94a637f214e",
+        "mark": 58.3
+    },
+    {
+        "mk_uuid": "5b44b9d2-95e9-4204-b520-c8591b54c229",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "d80a240f-d70f-41b2-b12e-25cbbc00233d",
+        "mark": 91.3
+    },
+    {
+        "mk_uuid": "6fa01ed8-0542-47c7-a9e8-dc652c3f1a84",
+        "mark": 63.4
+    },
+    {
+        "mk_uuid": "7030f146-8255-4ebf-93a1-7877128bbe93",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "1e0f86ad-e33a-4a94-81ef-25dbf5bd56bf",
+        "mark": 82.5
+    },
+    {
+        "mk_uuid": "aaeca3d1-597d-45a5-8b81-e249c7e2f697",
+        "mark": 47.5
+    },
+    {
+        "mk_uuid": "c6317cb3-54de-4e64-9b66-30f3dd2101f9",
+        "mark": 62.7
+    },
+    {
+        "mk_uuid": "d56de32f-4234-4309-8def-ecf83470e5ec",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "0997745a-028a-4195-80eb-a0ef2f2957d7",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "aeb137c6-c01f-4337-9343-9af9c78052ac",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "ba839239-fe5b-4d4d-96c7-4cbc744ad6e7",
+        "mark": 64.7
+    },
+    {
+        "mk_uuid": "0d17ea44-48f1-4dd7-a16b-a38ad158a4a8",
+        "mark": 82.3
+    },
+    {
+        "mk_uuid": "f2f44a60-6a56-48ab-973f-56811cc2cd15",
+        "mark": 82
+    },
+    {
+        "mk_uuid": "07d799be-860d-4f11-bff3-1833c02a6c83",
+        "mark": 63.2
+    },
+    {
+        "mk_uuid": "2e6fc977-e6fc-40ec-8f14-296c6448a067",
+        "mark": 71
+    },
+    {
+        "mk_uuid": "783f33c9-66db-4894-9740-383b10c41075",
+        "mark": 54
+    },
+    {
+        "mk_uuid": "1a9c51be-f4f2-4f59-b208-ca67aa0c29de",
+        "mark": 45.7
+    },
+    {
+        "mk_uuid": "1230ecbb-ddd8-46cd-8769-a003116492e2",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "15f87495-8a37-4c15-8a7e-d5258233dda8",
+        "mark": 67.3
+    },
+    {
+        "mk_uuid": "befd8198-793a-4413-b3ea-3330b00a9f77",
+        "mark": 65
+    },
+    {
+        "mk_uuid": "7052c1dd-1214-4b98-a8e3-e6b531531938",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "79c580dc-fc51-4e9e-b6db-24cde5b0d116",
+        "mark": 79.8
+    },
+    {
+        "mk_uuid": "5e705f27-4abe-4a12-b482-24fcfc457d77",
+        "mark": 47.7
+    },
+    {
+        "mk_uuid": "c2042b91-4024-491e-9db8-20c465540d80",
+        "mark": 60.8
+    },
+    {
+        "mk_uuid": "718d8d27-c23f-4072-ad83-1eea4d82d65f",
+        "mark": 51.4
+    },
+    {
+        "mk_uuid": "31d6fe98-3fc5-40a6-912a-1b87cdfa2523",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "9387a0c1-99cf-4b10-a619-496fc4ba7773",
+        "mark": 67
+    },
+    {
+        "mk_uuid": "f089ac36-1877-4a9f-91f0-322aba1d9a00",
+        "mark": 69.3
+    },
+    {
+        "mk_uuid": "310114bc-e4af-40e9-8551-2f9d89f1fcc0",
+        "mark": 44
+    },
+    {
+        "mk_uuid": "0df1ecae-e0fc-4826-beec-1332fb493a7f",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "dfafcc3f-b059-43ca-ac68-9a19b18832e2",
+        "mark": 77
+    },
+    {
+        "mk_uuid": "8a8151a0-be44-4b1c-b49b-3c2bd797714d",
+        "mark": 74
+    },
+    {
+        "mk_uuid": "a4e46791-6469-48ac-a4e5-6f92870b58d3",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "1c4ee9ac-4736-4afe-a0d0-f899d32a5feb",
+        "mark": 77.7
+    },
+    {
+        "mk_uuid": "504e6c9c-c330-48f0-9df6-041c935d35ff",
+        "mark": 71
+    },
+    {
+        "mk_uuid": "ac07a0ff-56ba-4a9e-ac69-65967e170702",
+        "mark": 47.7
+    },
+    {
+        "mk_uuid": "62a74bdb-6c12-4021-9a0c-8e77b668eb54",
+        "mark": 75.5
+    },
+    {
+        "mk_uuid": "ca48ed76-e033-4381-8c59-8c441c382ee4",
+        "mark": 87
+    },
+    {
+        "mk_uuid": "bc465908-92da-4256-9997-05199d45eaf4",
+        "mark": 55.2
+    },
+    {
+        "mk_uuid": "ef36b8dc-4494-4b62-b589-be283eac5f6f",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "322dfcb6-32c1-4e38-a36c-342735f741af",
+        "mark": 89.5
+    },
+    {
+        "mk_uuid": "7a7a270f-f911-4d07-9c72-a74029ff356a",
+        "mark": 44
+    },
+    {
+        "mk_uuid": "24e40cea-d803-4304-a8bb-9b9668eb9ab5",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "f74e0dbc-e7a7-4bf2-a61a-5f19bbf52a65",
+        "mark": 94.6
+    },
+    {
+        "mk_uuid": "d6cc2aea-9bc7-4a34-99dd-5d9f62f190a5",
+        "mark": 75.9
+    },
+    {
+        "mk_uuid": "b686ba88-fae8-428b-b476-8d688d01715e",
+        "mark": 57.5
+    },
+    {
+        "mk_uuid": "a1b4ef41-7cca-42d8-86d0-7925e848d66e",
+        "mark": 81.4
+    },
+    {
+        "mk_uuid": "508cb957-b773-4a38-8717-2b6c53a41590",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "fdb56724-4010-4f9c-b92d-0de866c7b936",
+        "mark": 86
+    },
+    {
+        "mk_uuid": "b4431795-42b8-4ae2-a659-b31b6a6038e9",
+        "mark": 68.7
+    },
+    {
+        "mk_uuid": "78654af9-f881-4106-b594-438f481b4589",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "4bb5736d-e712-47a1-ac43-397f38d0fed6",
+        "mark": 86.5
+    },
+    {
+        "mk_uuid": "2ab68f0b-687a-47f5-8d67-47ac100557f5",
+        "mark": 56.7
+    },
+    {
+        "mk_uuid": "d34a7a6e-6080-455a-bfe4-aa7d4c38e3bd",
+        "mark": 66.6
+    },
+    {
+        "mk_uuid": "d4d0f6d2-85af-4b83-8edb-2e3aad87ab8e",
+        "mark": 81
+    },
+    {
+        "mk_uuid": "704ffcdb-ab51-4b52-bee5-4b18ca29d931",
+        "mark": 62.7
+    },
+    {
+        "mk_uuid": "ce9acc62-e985-4f58-bf91-745dc23c6e8b",
+        "mark": 81.6
+    },
+    {
+        "mk_uuid": "ad01a8c0-edda-457c-8b28-132ab44b1734",
+        "mark": 56.5
+    },
+    {
+        "mk_uuid": "4f874384-c68f-4ffc-8d0d-33205d575f70",
+        "mark": 91
+    },
+    {
+        "mk_uuid": "f46aa700-5c29-4588-b314-4f3dc365d414",
+        "mark": 42
+    },
+    {
+        "mk_uuid": "a14060cf-13ea-4024-a231-97c6932cf71e",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "f33db3d2-0480-4fdb-afaa-f65cd38e34be",
+        "mark": 84
+    },
+    {
+        "mk_uuid": "a269d9bd-d888-4544-ba83-63f37844f62a",
+        "mark": 82.7
+    },
+    {
+        "mk_uuid": "4bf5f1eb-b91f-4c3b-8653-bb50f4c5adf7",
+        "mark": 81.2
+    },
+    {
+        "mk_uuid": "3c9733aa-bdc7-4a0c-b300-1e72ef93aa55",
+        "mark": 62
+    },
+    {
+        "mk_uuid": "0b406484-5767-4cc9-975b-2b3f8d2538f1",
+        "mark": 52
+    },
+    {
+        "mk_uuid": "5d4b1df0-c5f1-4887-84ad-c090f0cd94b6",
+        "mark": 59.3
+    },
+    {
+        "mk_uuid": "71f76e76-6146-47ff-9b34-a0c6c29e28d7",
+        "mark": 69.4
+    },
+    {
+        "mk_uuid": "99b7359e-5bb2-4a99-90a1-1e3f381a0179",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "c34eab79-6381-4013-b064-79b5f01f5972",
+        "mark": 77.6
+    },
+    {
+        "mk_uuid": "0de0effc-8b1d-421f-bb0a-f2c9481fead9",
+        "mark": 91.7
+    },
+    {
+        "mk_uuid": "30930918-1721-4f53-aa2b-f2f97b315584",
+        "mark": 87.3
+    },
+    {
+        "mk_uuid": "cf8af81d-80f2-4c17-a57a-cac98f4a5f21",
+        "mark": 63.6
+    },
+    {
+        "mk_uuid": "bf217384-194e-4aca-b906-d3daa752e026",
+        "mark": 73.8
+    },
+    {
+        "mk_uuid": "4c8b1fcd-0108-437e-9106-870dd5c0fd28",
+        "mark": 70.7
+    },
+    {
+        "mk_uuid": "117fc03a-3581-4dcd-bd63-6b4f28b4ceb7",
+        "mark": 48.8
+    },
+    {
+        "mk_uuid": "05ed771d-1f37-47fa-a2b4-03d1b0c47b92",
+        "mark": 28
+    },
+    {
+        "mk_uuid": "02c3ed10-d8e3-4269-9c46-e5158f0d7591",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "8f9e5bab-61ba-4d91-bb76-d277d0ca7a19",
+        "mark": 97
+    },
+    {
+        "mk_uuid": "94af17be-aa83-45c1-98df-67213de12e5b",
+        "mark": 91.2
+    },
+    {
+        "mk_uuid": "5d89ccc5-9f1c-454d-aa8e-13b4aefd1646",
+        "mark": 76.7
+    },
+    {
+        "mk_uuid": "684825d4-9061-4c33-b5c5-6d8ee5c818ad",
+        "mark": 56.8
+    },
+    {
+        "mk_uuid": "bbfdd987-78c5-4abe-8b66-844d1d4c3e5b",
+        "mark": 58
+    },
+    {
+        "mk_uuid": "7c66f199-9f8d-4c37-ac08-aea8790f4ce5",
+        "mark": 52.9
+    },
+    {
+        "mk_uuid": "588f28cd-d9e8-40e3-b38c-790065419379",
+        "mark": 60
+    },
+    {
+        "mk_uuid": "31797482-153f-47ad-a59c-60a34964c748",
+        "mark": 56.2
+    },
+    {
+        "mk_uuid": "bd52db5d-5d34-45ac-8258-28e2f22bab5f",
+        "mark": 78
+    },
+    {
+        "mk_uuid": "8bf35a4d-b148-4c61-9d74-30673b56b245",
+        "mark": 75.7
+    },
+    {
+        "mk_uuid": "1f576da0-d90c-40fc-9c81-eae9c28cf806",
+        "mark": 60
+    },
+    {
+        "mk_uuid": "5cfd92e4-1f91-4213-ae42-f9a5d7fa8653",
+        "mark": 83.7
+    },
+    {
+        "mk_uuid": "f3dad3b3-96b3-4517-98c5-7ae64beaba61",
+        "mark": 54
+    },
+    {
+        "mk_uuid": "835eaea6-3c6a-468d-9eb9-2ead37063080",
+        "mark": 69.7
+    },
+    {
+        "mk_uuid": "cea748f7-ffb1-4a79-b251-f0317295bf4c",
+        "mark": 79.2
+    },
+    {
+        "mk_uuid": "95958489-fcbf-4791-8569-a0cff7d8c045",
+        "mark": 61.7
+    },
+    {
+        "mk_uuid": "5c09ccc5-3973-4a61-bb44-ef8f00e06d80",
+        "mark": 50.8
+    },
+    {
+        "mk_uuid": "a2d0f86f-6e9e-4073-beec-d98bfe088b2d",
+        "mark": 57.1
+    },
+    {
+        "mk_uuid": "4a2eb947-b8a0-4590-9b87-f71da3832c23",
+        "mark": 78
+    },
+    {
+        "mk_uuid": "b3fa551a-2a0e-48dc-bb9b-cb4e5836bc92",
+        "mark": 56
+    },
+    {
+        "mk_uuid": "b0e49116-466f-416f-8bd1-48a6f5ed6acf",
+        "mark": 68.8
+    },
+    {
+        "mk_uuid": "1e42b91b-0d5b-4838-9667-566b42a8a461",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "eaffee4c-bd18-4d0a-a530-3829c3f2b160",
+        "mark": 60
+    },
+    {
+        "mk_uuid": "30e0d59c-f94e-46e1-8358-cb3ce32d3c77",
+        "mark": 57.3
+    },
+    {
+        "mk_uuid": "cb4049a0-43c7-45b7-b08b-795c2ae07af4",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "25992b53-d188-4b39-84f1-4a86afe80935",
+        "mark": 51
+    },
+    {
+        "mk_uuid": "bef0b51b-cd8b-4bb8-8a13-79459fa0e1f6",
+        "mark": 54
+    },
+    {
+        "mk_uuid": "6d7995fa-d942-462d-b239-0b004055b9c9",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "17d92ee9-161b-4341-85ae-a6ade4c1bbb9",
+        "mark": 97.4
+    },
+    {
+        "mk_uuid": "a320b174-8e5b-4b5c-8981-515ae3c3c7d6",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "4e3dbecb-1c35-4906-8d24-08c65a2a27e1",
+        "mark": 76.6
+    },
+    {
+        "mk_uuid": "95dc936d-b93e-4c39-a95b-26928e2baaae",
+        "mark": 62.2
+    },
+    {
+        "mk_uuid": "e3fe3b65-aff8-4e86-8cdf-236880c8a22b",
+        "mark": 63
+    },
+    {
+        "mk_uuid": "f50d828c-c8c4-4783-a9ec-5fcc854a6ca1",
+        "mark": 63.8
+    },
+    {
+        "mk_uuid": "ca32d361-9bf0-4f77-8255-2e2c2bcc311c",
+        "mark": 55.5
+    },
+    {
+        "mk_uuid": "736d72d5-a6c7-4f51-be73-acd5d8ca7334",
+        "mark": 64.3
+    },
+    {
+        "mk_uuid": "024e675a-f2b8-440e-8e18-13240bffb0c9",
+        "mark": 57.3
+    },
+    {
+        "mk_uuid": "b3da1bb8-abf8-484b-9d3b-2d2a267e61fb",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "b177e655-9130-42ce-945d-f9ca7e11737f",
+        "mark": 76
+    },
+    {
+        "mk_uuid": "7c54276a-e714-4a05-9d29-cf913094ed34",
+        "mark": 67.2
+    },
+    {
+        "mk_uuid": "a824b769-a95d-485f-b8f5-f7ce2bd83424",
+        "mark": 57.1
+    },
+    {
+        "mk_uuid": "35fee2b1-8f3e-496d-97e0-c56e9fba81fb",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "64a2a1ae-7643-47f5-9881-d5a420d79cdd",
+        "mark": 81.1
+    },
+    {
+        "mk_uuid": "86253491-f861-43c3-b6a4-a0fa20b814ce",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "4203438a-b406-498d-8b3d-4e7a8d9f1424",
+        "mark": 91.7
+    },
+    {
+        "mk_uuid": "c0ae3b31-3563-417c-949a-892b57ce26b5",
+        "mark": 60
+    },
+    {
+        "mk_uuid": "15d9a9a9-d652-4e2c-b0a2-981d96a25442",
+        "mark": 79.3
+    },
+    {
+        "mk_uuid": "60b6edfc-9e0f-4bad-99ba-415a66eefd95",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "5d6bf400-0d83-4463-9910-61b85dd172f5",
+        "mark": 95.7
+    },
+    {
+        "mk_uuid": "fdfb77ad-f3c0-4180-9a14-28d7261760ef",
+        "mark": 43.3
+    },
+    {
+        "mk_uuid": "f6fffc83-4817-40a0-8451-2b9f82758009",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "e6a29941-e296-42e2-9080-fbc15ff575d3",
+        "mark": 83.2
+    },
+    {
+        "mk_uuid": "b1010c68-83cc-46d0-9360-296655fc85ec",
+        "mark": 56.3
+    },
+    {
+        "mk_uuid": "e50c78d5-4587-4b3d-83e1-81351b1af6df",
+        "mark": 71.3
+    },
+    {
+        "mk_uuid": "867bd3df-ee16-481a-8258-ea3e22ae2c31",
+        "mark": 64.8
+    },
+    {
+        "mk_uuid": "62546907-7149-415a-933c-838b7b9cbc73",
+        "mark": 63
+    },
+    {
+        "mk_uuid": "9134f6aa-d4ea-4034-abb9-0872a0c96b54",
+        "mark": 63.3
+    },
+    {
+        "mk_uuid": "4c0dc8ef-da41-4dad-bba9-0a56390bd900",
+        "mark": 83.8
+    },
+    {
+        "mk_uuid": "320e09b7-3825-430b-aa74-df2392596990",
+        "mark": 74.3
+    },
+    {
+        "mk_uuid": "496c516f-886a-401a-91ab-ef0b21874fcc",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "d40eaa00-d837-4644-a26c-ae50aa551d5b",
+        "mark": 80.4
+    },
+    {
+        "mk_uuid": "5fe224b7-3c35-4d90-833b-731dadfea10e",
+        "mark": 85.8
+    },
+    {
+        "mk_uuid": "c55a9370-d604-4c3f-b102-ddcbab4f81de",
+        "mark": 48.5
+    },
+    {
+        "mk_uuid": "2a2e2e22-af1b-4873-aa7c-ab8b3568ecd7",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "5da24970-67bd-45ee-9afb-b3c1489b89b1",
+        "mark": 47
+    },
+    {
+        "mk_uuid": "a93ea397-dae0-44f1-84d7-4ffb36ea163e",
+        "mark": 72.4
+    },
+    {
+        "mk_uuid": "82e0a102-3cf0-4734-b901-eb1ceeee82aa",
+        "mark": 40
+    },
+    {
+        "mk_uuid": "96a418b7-cd4d-4b33-b8f4-b7f819010a84",
+        "mark": 64
+    },
+    {
+        "mk_uuid": "1dd79c71-0210-4f0b-b80e-a02c58ccbe0f",
+        "mark": 85.6
+    },
+    {
+        "mk_uuid": "b82e4a05-2992-4580-988e-669a58bda416",
+        "mark": 90.6
+    },
+    {
+        "mk_uuid": "64b5c78e-0d58-4d27-bdf2-d0f10d6d34ae",
+        "mark": 74
+    },
+    {
+        "mk_uuid": "7102a0c0-2c0c-4512-b5f0-500f92a7b572",
+        "mark": 71.8
+    },
+    {
+        "mk_uuid": "bf7ce6d0-256c-414a-921d-aba9a2c112e8",
+        "mark": 42.8
+    },
+    {
+        "mk_uuid": "d09bc743-df45-4583-94b6-558a9cc1579c",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "b3ef5fd5-e8d6-4ce7-9db4-ac9d2261ca6f",
+        "mark": 90.9
+    },
+    {
+        "mk_uuid": "d70abe52-bab3-4548-a30a-0dfb31e88db5",
+        "mark": 62.3
+    },
+    {
+        "mk_uuid": "e96999ea-ed22-49e4-b84d-724197c4980b",
+        "mark": 84
+    },
+    {
+        "mk_uuid": "61eeadad-3d2b-406e-b6dc-0746ddae34c4",
+        "mark": 87.2
+    },
+    {
+        "mk_uuid": "942e6687-0dc0-4157-9df9-e719ef8cf9ea",
+        "mark": 56.4
+    },
+    {
+        "mk_uuid": "53e6f409-39ba-4969-986d-1a0bce9444a0",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "1bca7875-74ea-4e02-b84d-9e8bd8eb292c",
+        "mark": 81.2
+    },
+    {
+        "mk_uuid": "e2a06c4c-74eb-4063-8465-eba30d9dadc5",
+        "mark": 76
+    },
+    {
+        "mk_uuid": "f2aa1bc3-4469-4fe2-ba00-91530c0b7807",
+        "mark": 92.4
+    },
+    {
+        "mk_uuid": "9d8142fb-7525-4bcf-a459-daa4854dec64",
+        "mark": 85.1
+    },
+    {
+        "mk_uuid": "479d54a1-5ec2-4acf-bac7-3fc723154711",
+        "mark": 76.9
+    },
+    {
+        "mk_uuid": "5698453f-d1ab-4119-8e15-188eb913be93",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "058ff13a-3c40-4911-aa7a-801b03182744",
+        "mark": 63.2
+    },
+    {
+        "mk_uuid": "4b0d515f-af90-484e-aed8-070443bdb859",
+        "mark": 64.2
+    },
+    {
+        "mk_uuid": "f86369a6-4022-4a92-b05b-998732334f39",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "b3a0bbdc-2f15-494c-a215-e325a633d520",
+        "mark": 87
+    },
+    {
+        "mk_uuid": "22378712-7069-406d-8eb4-7f50e5283142",
+        "mark": 75.8
+    },
+    {
+        "mk_uuid": "4a78ad58-d2ad-4c21-a37c-94ca785abaf1",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "21624c94-5697-4ca6-9a8b-7b9848753650",
+        "mark": 92.6
+    },
+    {
+        "mk_uuid": "216441f5-38aa-497d-9e31-41d262615cf2",
+        "mark": 51.3
+    },
+    {
+        "mk_uuid": "80628f63-b4d0-4b2e-8674-6ee214525cbf",
+        "mark": 74
+    },
+    {
+        "mk_uuid": "e83bc83c-e737-419b-89b8-1b6cbd1088f9",
+        "mark": 55
+    },
+    {
+        "mk_uuid": "4316d915-652a-4f8e-8831-2b765c37364b",
+        "mark": 61.5
+    },
+    {
+        "mk_uuid": "0cad3416-3572-4685-af71-019165a9b704",
+        "mark": 66.3
+    },
+    {
+        "mk_uuid": "cc1de932-53cb-476a-b22a-a3fa02ef659a",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "956e61bf-16b3-479f-a63d-b841a9072f29",
+        "mark": 89.7
+    },
+    {
+        "mk_uuid": "0713ca5a-b41e-4044-a69b-4eaaff1e6698",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "ad25bfce-82c9-4eac-be41-bcef18d36f2f",
+        "mark": 64
+    },
+    {
+        "mk_uuid": "a5604248-9acd-427e-a4a3-079d56e81024",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "fe2cb09d-8a59-471b-b7e1-c60d01e4fa66",
+        "mark": 84
+    },
+    {
+        "mk_uuid": "ba652bd8-23d0-44ba-9bc7-4e3c3f115e53",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "de0069ed-871d-4e88-81fc-2a06e6925302",
+        "mark": 90.3
+    },
+    {
+        "mk_uuid": "9d7ce883-1998-43e6-b305-55a216d333f6",
+        "mark": 57.3
+    },
+    {
+        "mk_uuid": "baa834ae-4a3f-49fa-b289-e5ac3473e47f",
+        "mark": 62
+    },
+    {
+        "mk_uuid": "d90d8632-f6bf-48ea-bbcf-d00e1afcce78",
+        "mark": 50.9
+    },
+    {
+        "mk_uuid": "e1e4b2b2-0ba7-4d0f-b11e-aec201ec0d69",
+        "mark": 67.6
+    },
+    {
+        "mk_uuid": "af7ab429-0128-48ee-bf73-661fa9166e5d",
+        "mark": 49.1
+    },
+    {
+        "mk_uuid": "a02d40c7-4bbb-4839-8ba6-8ab0a209d3e7",
+        "mark": 64.4
+    },
+    {
+        "mk_uuid": "3b553f0b-1831-40c6-9d29-91f920bd284c",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "e33ca537-0acd-43bd-9a7e-78b309666261",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "40af5d47-e08e-48a9-a4fe-ad9cfd78c809",
+        "mark": 90.3
+    },
+    {
+        "mk_uuid": "ffa924fc-d9d5-457f-b82e-9dccddbd9f65",
+        "mark": 68.8
+    },
+    {
+        "mk_uuid": "477bff5c-7ee8-4dc0-9e98-f881faa34ff1",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "352c997c-eae4-4b18-9846-51e2a8f9bf4b",
+        "mark": 89.3
+    },
+    {
+        "mk_uuid": "4129d9bb-0d32-4a6b-8209-4452873dacea",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "108b519c-2401-4262-9eec-8a3b80c5aca2",
+        "mark": 86.8
+    },
+    {
+        "mk_uuid": "ddff65ac-aec8-4730-8923-437d6ab17cba",
+        "mark": 67
+    },
+    {
+        "mk_uuid": "9f532bb6-331a-44d8-823e-ae0ff019efa4",
+        "mark": 61
+    },
+    {
+        "mk_uuid": "610065ad-e9d4-44d0-a192-26b416ecaa6f",
+        "mark": 50
+    },
+    {
+        "mk_uuid": "e6d0ce6c-7f60-4dd2-a867-f73aa2084e53",
+        "mark": 92
+    },
+    {
+        "mk_uuid": "d18edd75-0cb3-413d-8379-3f59a1ab464a",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "e0596df2-c34e-439b-9b28-5efb5e3b9cd8",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "9ee9155d-bcca-4934-ae1a-15494bebecca",
+        "mark": 46
+    },
+    {
+        "mk_uuid": "f55b213f-f7e6-4790-aaf7-972c32822204",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "a8d816b1-0073-4423-b21e-2ac441904012",
+        "mark": 93.3
+    },
+    {
+        "mk_uuid": "2c6d48f1-049e-4ad6-9c72-6154b94fe0cd",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "6515b5df-48d2-41f5-9078-9de264f5b824",
+        "mark": 92.3
+    },
+    {
+        "mk_uuid": "55c377a7-ec30-483e-9e6e-5fc82121f49f",
+        "mark": 48.4
+    },
+    {
+        "mk_uuid": "98042fdb-fe7b-41d2-ae25-02f1b20f8d91",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "7a844bd0-576c-43b0-95b9-c475cba9bf5c",
+        "mark": 92.8
+    },
+    {
+        "mk_uuid": "3c060c13-dc01-4f8a-b95a-397b8f44b8cd",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "77d9582f-4f94-4bc9-8a4b-5603c4421396",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "a895cb5d-a3cd-48d5-8e09-cf17f7616eb8",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "af24a1fd-9836-48cf-842a-ea5b2be04230",
+        "mark": 92.3
+    },
+    {
+        "mk_uuid": "c6456ec2-6c3e-43df-b4f5-1465017d1f1c",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "8344bb8e-3664-4816-bce3-633eea3edad9",
+        "mark": 93.7
+    },
+    {
+        "mk_uuid": "7b7bebb0-e440-440d-8928-a182fd286299",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "09fe820a-b71b-4c90-811c-a66607536503",
+        "mark": 43
+    },
+    {
+        "mk_uuid": "a51a3335-3c6a-484d-a581-3c53e6840883",
+        "mark": 92.4
+    },
+    {
+        "mk_uuid": "d2e6ab97-25f0-4c06-a232-af35540cb97d",
+        "mark": 70
+    },
+    {
+        "mk_uuid": "d599b333-d099-4727-a2de-0746f855b7c0",
+        "mark": 38
+    },
+    {
+        "mk_uuid": "7a058daf-f0df-4d3c-a1bd-8df875a38760",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "a6169ad5-e91b-4e83-be9e-7a5f0cf51f72",
+        "mark": 86
+    },
+    {
+        "mk_uuid": "cb673e9a-6c3d-487b-a72d-22595b00e716",
+        "mark": 64.8
+    },
+    {
+        "mk_uuid": "780a1769-358a-4e93-bea0-da7637d6236c",
+        "mark": 62.7
+    },
+    {
+        "mk_uuid": "78790960-3c14-4ba3-a625-8be99b6c7be0",
+        "mark": 84
+    },
+    {
+        "mk_uuid": "557ae7ad-02eb-4ba7-bb24-af79888a2034",
+        "mark": 86
+    },
+    {
+        "mk_uuid": "3496d2c5-06ae-4d8d-9a50-927b845cc63a",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "321fb1de-0d22-4b2a-82d2-5c3dc4ac06cb",
+        "mark": 91.7
+    },
+    {
+        "mk_uuid": "e4257565-416e-44b2-acb9-06b541794809",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "861e55d4-4091-4055-9fe0-4b77b422a069",
+        "mark": 98.5
+    },
+    {
+        "mk_uuid": "334a4ee4-8cd1-4ed0-a2eb-c479c77c16f6",
+        "mark": 54
+    },
+    {
+        "mk_uuid": "26f71a40-89d5-401b-978a-3d01e09ffbc0",
+        "mark": 54
+    },
+    {
+        "mk_uuid": "1ff9290a-ad00-4bc5-b829-f366bf5382fc",
+        "mark": 54
+    },
+    {
+        "mk_uuid": "d41b1c19-c6a6-4129-95dc-e49a264b6eac",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "4b057c07-703b-45f3-9f25-38b733ac0704",
+        "mark": 90.5
+    },
+    {
+        "mk_uuid": "e51f6107-ff43-425c-b251-55ce71b68c74",
+        "mark": 62
+    },
+    {
+        "mk_uuid": "8b534297-9d6f-4a18-8c18-01d95b398f55",
+        "mark": 76.7
+    },
+    {
+        "mk_uuid": "3f090066-964e-4926-9bfc-46e3fd32dad8",
+        "mark": 64.5
+    },
+    {
+        "mk_uuid": "4e87b84c-c5ac-4803-969f-c5e2434617d9",
+        "mark": 60.5
+    },
+    {
+        "mk_uuid": "b8911eb9-bab0-4ffe-902e-f9e1a0d522a7",
+        "mark": 59.2
+    },
+    {
+        "mk_uuid": "4499dcce-31c1-44d8-b409-d250c428b05d",
+        "mark": 92
+    },
+    {
+        "mk_uuid": "d4efbc0e-1b5e-4800-9f06-c9a5b5e26723",
+        "mark": 86
+    },
+    {
+        "mk_uuid": "eaddbc79-44e4-4eff-ac3c-791396c8375c",
+        "mark": 67.2
+    },
+    {
+        "mk_uuid": "7e257425-4128-4a07-aba8-c26f3889f694",
+        "mark": 65.3
+    },
+    {
+        "mk_uuid": "d81bf304-81a4-49ea-8734-92b5cd4baed2",
+        "mark": 34
+    },
+    {
+        "mk_uuid": "d6fe4ebb-8a54-47a5-840f-f4b0687318c1",
+        "mark": 75.5
+    },
+    {
+        "mk_uuid": "a4e172df-ef69-4f5d-a2cc-600e5d773e0b",
+        "mark": 60.3
+    },
+    {
+        "mk_uuid": "d262bcf1-0917-4028-8136-5e3ffb1b0177",
+        "mark": 58.7
+    },
+    {
+        "mk_uuid": "5aafff18-26e0-40a4-8bfe-e429bdfd326c",
+        "mark": 63.6
+    },
+    {
+        "mk_uuid": "57929278-837e-4444-a006-19d894bb0cb3",
+        "mark": 97
+    },
+    {
+        "mk_uuid": "b7753dc7-b93b-4e19-9dad-7724e5dd6ac9",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "99452b6c-6959-45e2-bf3e-75e082049fc7",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "012eaec8-8896-4a59-97fa-c488c067d981",
+        "mark": 92.4
+    },
+    {
+        "mk_uuid": "db27eb8e-58da-4085-946f-a75c85bd3199",
+        "mark": 63.2
+    },
+    {
+        "mk_uuid": "d8e48e89-0ffb-4edf-8a6f-ea503da05306",
+        "mark": 39.7
+    },
+    {
+        "mk_uuid": "2595404d-aedf-4b5e-8044-ae2d6e2221ba",
+        "mark": 67
+    },
+    {
+        "mk_uuid": "1fa3ef91-0389-4058-b155-22109bc27e55",
+        "mark": 62.4
+    },
+    {
+        "mk_uuid": "8a3516bb-1b08-4d09-bba4-a0c044335e6b",
+        "mark": 48
+    },
+    {
+        "mk_uuid": "ebc4a3b4-8368-4d28-a2ae-fa2ceab99f05",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "d730b4e0-4454-4f7f-92ac-68f37455bbd4",
+        "mark": 90
+    },
+    {
+        "mk_uuid": "ba968d65-10fa-4d8c-babe-126b1f7c9ae9",
+        "mark": 71
+    },
+    {
+        "mk_uuid": "f93c7039-95e4-4523-b258-87ec341335f4",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "a2e1858c-3f57-49e3-9176-fc9a83e8615c",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "c453b719-885f-4708-b680-ad3b9852db89",
+        "mark": 65.3
+    },
+    {
+        "mk_uuid": "25057223-41e9-4eb3-87e1-2234085ba70b",
+        "mark": 63.2
+    },
+    {
+        "mk_uuid": "d912db7f-b722-4b22-ade1-1bb315530713",
+        "mark": 96.4
+    },
+    {
+        "mk_uuid": "c738c9ae-6d06-4908-b9df-3b0a782b03ce",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "50372d88-7dc6-40b1-ac9b-38fd57b35699",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "c74c866a-84b1-437d-8ef0-e48095c445fc",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "87dbdc15-f631-453d-b0df-290ca45a9e0e",
+        "mark": 94.6
+    },
+    {
+        "mk_uuid": "4b4e149f-cc99-4aa0-9920-18758c1c25d0",
+        "mark": 56.4
+    },
+    {
+        "mk_uuid": "9ad11c35-a365-4d57-9305-58f239c968ee",
+        "mark": 43.7
+    },
+    {
+        "mk_uuid": "1c71f594-2ea3-47fc-aaf3-bb19c76ed527",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "a8882683-baca-455a-9876-8853b0e05885",
+        "mark": 91.2
+    },
+    {
+        "mk_uuid": "23cc0f11-71fa-4cc4-939d-171f4bbc0793",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "9ba56f71-079a-46ab-a9bd-cc8b9484d058",
+        "mark": 84.4
+    },
+    {
+        "mk_uuid": "d9b80576-6baa-4bb5-b4c6-802b8db8d917",
+        "mark": 47.6
+    },
+    {
+        "mk_uuid": "a12ec414-7816-4e9b-8975-99643cae6823",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "832c9140-20c7-4a1c-bde8-438ee70bb4d8",
+        "mark": 40
+    },
+    {
+        "mk_uuid": "8d500aad-54a9-4585-9584-66a206f7f861",
+        "mark": 44.5
+    },
+    {
+        "mk_uuid": "9a1d56eb-c2f2-4d61-8b2a-3905b6201229",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "d4cca1dd-1a32-4c7a-808a-1ac59cea7783",
+        "mark": 80.3
+    },
+    {
+        "mk_uuid": "1484ba49-f43d-4613-955a-d8c6b1b8c4d5",
+        "mark": 97
+    },
+    {
+        "mk_uuid": "726b1209-e0ff-4eee-9b24-19833ca2c0f4",
+        "mark": 72.4
+    },
+    {
+        "mk_uuid": "a31c74d6-077b-45c6-9202-c8c2736dee82",
+        "mark": 90.5
+    },
+    {
+        "mk_uuid": "3b5424fb-fca5-4a27-a208-460b56422401",
+        "mark": 79.2
+    },
+    {
+        "mk_uuid": "535eb799-1bf3-4657-8385-08c7f2dcf3f6",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "7592abd8-1c09-4a54-a9eb-25c47e53f115",
+        "mark": 71.7
+    },
+    {
+        "mk_uuid": "3061a8eb-43f9-4273-93ac-caf830ac749e",
+        "mark": 58.6
+    },
+    {
+        "mk_uuid": "e90b9820-de92-4592-98a0-5278139adaac",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "bc02f113-9517-4b52-93f8-4d28c813b7ea",
+        "mark": 90
+    },
+    {
+        "mk_uuid": "1125d3fd-28fe-4b35-bdc8-af2a6bf2336f",
+        "mark": 58.7
+    },
+    {
+        "mk_uuid": "a5b43bb3-c3eb-40e3-baa2-38c98b643e6a",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "f4ca8218-ef03-4ce4-813d-01f82794e756",
+        "mark": 71
+    },
+    {
+        "mk_uuid": "988b2d48-8d9f-4c7d-a198-97434102e0b2",
+        "mark": 55
+    },
+    {
+        "mk_uuid": "f27c1883-dc20-41a3-97c5-eea15267d3d9",
+        "mark": 64
+    },
+    {
+        "mk_uuid": "4ad463f8-9755-403e-97f3-37cf5a39b20a",
+        "mark": 54
+    },
+    {
+        "mk_uuid": "9cb3f161-9adb-4e92-ba39-d7d67400cbf2",
+        "mark": 84.7
+    },
+    {
+        "mk_uuid": "28e9c265-4bab-458e-91a6-333355221324",
+        "mark": 57.9
+    },
+    {
+        "mk_uuid": "fe8649e9-da8b-4f6d-9490-f7a98f720df3",
+        "mark": 77
+    },
+    {
+        "mk_uuid": "75849de7-89f9-4c8b-a385-ea03449a1676",
+        "mark": 58
+    },
+    {
+        "mk_uuid": "14e228e9-105d-4372-8806-5506fcc9b1de",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "c7c43f95-b18a-4af0-9b1a-69b79875f437",
+        "mark": 57.7
+    },
+    {
+        "mk_uuid": "1830ed3e-e4a2-4203-ac25-22f8d8f97e86",
+        "mark": 82.3
+    },
+    {
+        "mk_uuid": "8ba42256-ac20-45e1-8dda-73be4de681b1",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "b5783b76-c6a6-4504-b714-ac598e02f7cf",
+        "mark": 58
+    },
+    {
+        "mk_uuid": "781bf343-b62e-4b17-813c-c71f14822352",
+        "mark": 57.5
+    },
+    {
+        "mk_uuid": "a17db498-11b6-409c-a0f1-5c730c5a053f",
+        "mark": 57.4
+    },
+    {
+        "mk_uuid": "01135944-0279-4e60-a837-09bc6d8efc4f",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "0ad18c73-fc94-4900-85f9-690059e8ace1",
+        "mark": 81.4
+    },
+    {
+        "mk_uuid": "a73b8967-6bb9-41c1-ab58-5dbf9ed5c6d3",
+        "mark": 34
+    },
+    {
+        "mk_uuid": "1a9eb38c-58d2-4949-b873-ecae84861b28",
+        "mark": 85.1
+    },
+    {
+        "mk_uuid": "69dcfadf-7193-46a9-9247-4444cf4fb208",
+        "mark": 89.3
+    },
+    {
+        "mk_uuid": "b366d2f2-2098-4c3d-b87a-ea45c73e67ed",
+        "mark": 94.7
+    },
+    {
+        "mk_uuid": "ec7539ed-82d7-43bf-801e-d8d5672a6cd5",
+        "mark": 72
+    },
+    {
+        "mk_uuid": "0062fcef-fac3-48d8-899a-8820c00caae8",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "7165dc7a-1b6b-4ab2-a08f-c9628ca20a60",
+        "mark": 54
+    },
+    {
+        "mk_uuid": "6fb8a483-0f19-479a-a8d1-fab094f3a019",
+        "mark": 90
+    },
+    {
+        "mk_uuid": "578c7361-bcb3-4c68-87be-82ade84a313b",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "75c4e659-cec7-4b99-ad24-12a1d6ff3541",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "ece2d04d-19ef-4191-8748-f9bffcf18c6b",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "72411e15-cfcf-4eef-abf8-1f8013fa72c7",
+        "mark": 63.2
+    },
+    {
+        "mk_uuid": "42a845eb-07fa-4c1b-b6d3-908d07808e59",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "36a05eec-022a-455d-a99a-efb1e48d1f67",
+        "mark": 95
+    },
+    {
+        "mk_uuid": "b5e22fc3-0c2b-4abe-b201-62e5a8d0418e",
+        "mark": 60
+    },
+    {
+        "mk_uuid": "4911946a-7120-4f1c-929f-f74b19744f46",
+        "mark": 53.7
+    },
+    {
+        "mk_uuid": "f2a04293-419c-442c-bd17-4c8dc153fcf1",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "b2773d6e-ee20-4f7d-a427-58bfaa35ac71",
+        "mark": 57.6
+    },
+    {
+        "mk_uuid": "9b734094-964c-4199-8e38-41d4b3aed6c5",
+        "mark": 85.3
+    },
+    {
+        "mk_uuid": "b69b7933-b0d6-4193-b867-91bbfe5f7675",
+        "mark": 77
+    },
+    {
+        "mk_uuid": "3b696623-e05d-4b5d-b59c-c061289c4817",
+        "mark": 67.7
+    },
+    {
+        "mk_uuid": "dd85d5db-c172-48b3-aab0-3987ce20c894",
+        "mark": 62.7
+    },
+    {
+        "mk_uuid": "c3dd93ff-28af-4580-a4a2-d43e558de4a0",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "90c15a7c-c320-4f87-947c-11563baeecf1",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "941754cc-d176-4106-93ef-b3fe62819224",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "31e6eea6-a665-4aa5-920c-21487a2d71d8",
+        "mark": 34
+    },
+    {
+        "mk_uuid": "a2d7a793-9c0c-450e-b187-15e6f360b965",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "2b15273b-88fa-4e41-807e-9bafaa6fccf1",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "30322a00-eeda-4245-9745-f15a908a4abd",
+        "mark": 64
+    },
+    {
+        "mk_uuid": "3d6709ae-f8eb-4e5e-a2a3-bd04b1c457e4",
+        "mark": 56
+    },
+    {
+        "mk_uuid": "a900c628-1e80-48e6-8ece-827d0f6bd1f2",
+        "mark": 58
+    },
+    {
+        "mk_uuid": "a5630c83-b629-4cfc-a2bd-63802302cf98",
+        "mark": 67
+    },
+    {
+        "mk_uuid": "f70dfae9-c192-4902-aebc-2b88caa8c599",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "aa2d31c9-d85c-40a8-8627-6ecb11e09b73",
+        "mark": 86.9
+    },
+    {
+        "mk_uuid": "e56748d7-ea6c-4f37-8877-13ed45c59c88",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "8e64d790-5ee4-40d1-af97-47aa2b2ce1f6",
+        "mark": 80.4
+    },
+    {
+        "mk_uuid": "c6a46b10-9765-423c-9fdb-e4f76d90491a",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "099acc5c-d820-4a4f-a471-33740ab306cb",
+        "mark": 86
+    },
+    {
+        "mk_uuid": "ae0df319-a1e4-43c1-9ef6-5b9c29d0b54b",
+        "mark": 83.4
+    },
+    {
+        "mk_uuid": "7709777d-2cef-45f3-9034-237503a9d04d",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "cc992160-7b40-4a0e-b5f2-e00003a2f485",
+        "mark": 66
+    },
+    {
+        "mk_uuid": "2081e3b9-210c-433a-9c64-dae0a6f8d012",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "d703e4ad-954d-4474-b77f-d6f6ea6a2d41",
+        "mark": 91.8
+    },
+    {
+        "mk_uuid": "c64bcb66-04cf-48a5-8b49-9a0aa2922a06",
+        "mark": 91.3
+    },
+    {
+        "mk_uuid": "b62e0c27-8c7e-456a-99c4-4a761fb95c85",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "a5770b7e-c41e-4b97-9476-2198a3a0cfdb",
+        "mark": 79.2
+    },
+    {
+        "mk_uuid": "f4663074-78e1-4ce0-8156-4af55f7cd8a4",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "98568862-6d51-40bd-9599-326a7c0519a7",
+        "mark": 68.7
+    },
+    {
+        "mk_uuid": "7e3230ca-e39a-4cb5-95f6-51db2d730867",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "38a306cd-2d20-4809-bfab-0bc481c6e7e5",
+        "mark": 82
+    },
+    {
+        "mk_uuid": "37a4eeb5-1b97-4f4d-9a3e-89ac08bd7a70",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "3984581c-0414-4f07-921d-b870df0b7372",
+        "mark": 93.5
+    },
+    {
+        "mk_uuid": "3eb43db2-9bc4-4a80-b438-7d8a0adfcf9f",
+        "mark": 76.6
+    },
+    {
+        "mk_uuid": "57eedabc-84b8-408c-87e6-b252244ec216",
+        "mark": 98
+    },
+    {
+        "mk_uuid": "9a35c803-1e5a-4cf8-a919-6deba4b3ab9f",
+        "mark": 85.2
+    },
+    {
+        "mk_uuid": "312a67e7-fc65-4ef0-b1fe-c45c0f2f953a",
+        "mark": 67.1
+    },
+    {
+        "mk_uuid": "5bf6d167-90dd-46fc-abf6-e09d8b59fafe",
+        "mark": 97
+    },
+    {
+        "mk_uuid": "5d3c47dd-feee-4b4e-8bea-be974b7517f4",
+        "mark": 77.4
+    },
+    {
+        "mk_uuid": "4a13fabe-2ef4-4de3-b8a2-b68a288cf86d",
+        "mark": 92
+    },
+    {
+        "mk_uuid": "dd999b79-c0fd-44cd-bce9-87f2ca106d50",
+        "mark": 72.7
+    },
+    {
+        "mk_uuid": "42d9269f-049f-4217-80c9-f27df56ad791",
+        "mark": 92
+    },
+    {
+        "mk_uuid": "7c0f5c3c-54e6-475b-92fc-ea3f487da65e",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "42c42bcc-14ca-4ad4-9b5f-05c52a2df2b5",
+        "mark": 79.2
+    },
+    {
+        "mk_uuid": "47c6524b-d362-48ad-aecf-450659bef9c8",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "f8ab615a-9285-4466-bde9-36ff787bd927",
+        "mark": 80.3
+    },
+    {
+        "mk_uuid": "6ec25017-073e-4b5d-a29a-1e83d2f295ea",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "ee330cda-c111-411d-b306-46a68eb6d496",
+        "mark": 91.3
+    },
+    {
+        "mk_uuid": "39ac6a44-983c-4ed8-8cab-9ea0ef282305",
+        "mark": 67
+    },
+    {
+        "mk_uuid": "b7c4b6d5-bd65-4861-b718-c4e3a84e2c88",
+        "mark": 92.3
+    },
+    {
+        "mk_uuid": "2c9af531-7fde-4b02-8819-f06544a0161f",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "e9f05aff-b9fa-47a1-898b-4385be876db4",
+        "mark": 93.7
+    },
+    {
+        "mk_uuid": "ea844599-fd1e-4f5d-a765-9e53efede3f2",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "54a02856-a4f5-40c0-9281-eb3d39f45a6f",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "6e0bd3d7-f2d9-4418-aea5-854f97101c92",
+        "mark": 86
+    },
+    {
+        "mk_uuid": "4b1e112e-f16a-43cc-b115-a7d35004ebd2",
+        "mark": 83.7
+    },
+    {
+        "mk_uuid": "86b23f1d-b1f8-4472-b920-d94559e95869",
+        "mark": 76.2
+    },
+    {
+        "mk_uuid": "b1ba5277-a24f-456e-99d0-fb6308e3f901",
+        "mark": 92.4
+    },
+    {
+        "mk_uuid": "b9617a17-5fe6-4c2b-805b-42d80de0d83d",
+        "mark": 90.3
+    },
+    {
+        "mk_uuid": "e2e81607-3ec3-4963-95e4-fd4d8bd41cc8",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "4a0a7e87-abc3-4b24-84b4-73393e1dc69f",
+        "mark": 83.7
+    },
+    {
+        "mk_uuid": "0c6078a1-96d0-45e3-abbb-83ce2f0ec2c8",
+        "mark": 89.3
+    },
+    {
+        "mk_uuid": "846c9583-c5d6-4120-a891-9b3d8b4d43e9",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "20fb80d5-8c35-41cd-a0d2-33aac6d3d4ba",
+        "mark": 84.5
+    },
+    {
+        "mk_uuid": "7215861b-178d-478d-96f4-bb944db3bfca",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "0be3adbb-95c1-4721-a8a8-a5ae83e0adca",
+        "mark": 72.2
+    },
+    {
+        "mk_uuid": "c9c612d2-13ec-49d3-b284-067d00ef330e",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "fdc5d612-02f6-46ed-9dc2-15cf58066139",
+        "mark": 76.9
+    },
+    {
+        "mk_uuid": "ded7a34e-257f-4088-98fc-3815b472fad8",
+        "mark": 86
+    },
+    {
+        "mk_uuid": "037a8fde-e989-449d-984a-16106101c50f",
+        "mark": 68.4
+    },
+    {
+        "mk_uuid": "455e2e19-ecff-4702-97c8-7d0ca3a98108",
+        "mark": 76
+    },
+    {
+        "mk_uuid": "38e04b69-c1c7-4f0e-8f71-4c36733f0fce",
+        "mark": 67
+    },
+    {
+        "mk_uuid": "0f14d460-8c31-4b1a-8872-55d4c871cf77",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "f2e2f754-4620-49c2-ae31-1c5444a82a78",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "e2824875-1455-40de-bc37-37d2e7a54ab1",
+        "mark": 64
+    },
+    {
+        "mk_uuid": "0c7db84e-e070-46ff-a6a1-7516762f0968",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "6169b816-6425-4376-9a7d-02eb6998b07f",
+        "mark": 37
+    },
+    {
+        "mk_uuid": "9eaf25a5-d51a-4b42-a642-33ee58869229",
+        "mark": 52
+    },
+    {
+        "mk_uuid": "c0e64c70-fb86-4451-815f-0d89d5baf6bd",
+        "mark": 84
+    },
+    {
+        "mk_uuid": "97409708-ccd4-45f6-9850-a32a64c54974",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "c711825f-b6ba-4829-afe9-8d74a7ed9377",
+        "mark": 61
+    },
+    {
+        "mk_uuid": "8143409b-63e3-427f-8067-5310da2c4ddd",
+        "mark": 54
+    },
+    {
+        "mk_uuid": "eb4f0e73-acff-4fe2-b3c9-ab0b08f1892a",
+        "mark": 58
+    },
+    {
+        "mk_uuid": "6b3fa7f4-bbe6-4a55-8760-845e90918c74",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "6d7d28bb-dc60-49a0-b23a-708f28945127",
+        "mark": 74
+    },
+    {
+        "mk_uuid": "f7a032d8-62b0-4d6b-9340-aaef684ffec0",
+        "mark": 97
+    },
+    {
+        "mk_uuid": "29c69388-fd98-47a4-a767-86257aaa3269",
+        "mark": 77
+    },
+    {
+        "mk_uuid": "3457b50e-9e23-4429-bdf6-4bdba976ab41",
+        "mark": 84
+    },
+    {
+        "mk_uuid": "a88c74c1-0710-44c3-8cc8-fcae692baa11",
+        "mark": 82.7
+    },
+    {
+        "mk_uuid": "d92cf57e-f57c-4978-b48d-cbc2a0de0208",
+        "mark": 74
+    },
+    {
+        "mk_uuid": "30a33c9c-0c01-460d-8389-acfec467190f",
+        "mark": 34
+    },
+    {
+        "mk_uuid": "2b9f1a97-ff77-4dbb-875b-a4e6e8789044",
+        "mark": 47
+    },
+    {
+        "mk_uuid": "77fa1f4b-86f7-4112-80c7-96449a8da487",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "4247c768-43b1-42de-96d7-c700dd192c71",
+        "mark": 82.7
+    },
+    {
+        "mk_uuid": "e7927aa9-7efe-43d3-8d08-a1133bd35c88",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "93ea42bb-e55b-4dbd-8efe-99a6c7ea5393",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "7dd8d295-f69e-4c2e-b325-b96aa2043804",
+        "mark": 47
+    },
+    {
+        "mk_uuid": "28dfe811-1df4-4d8f-9740-3f4bb3b79f2a",
+        "mark": 53.6
+    },
+    {
+        "mk_uuid": "f0c92f4b-c578-4be4-879a-80468a8faeee",
+        "mark": 77
+    },
+    {
+        "mk_uuid": "5e6ef641-7a85-419f-9d09-00f5fbe39909",
+        "mark": 67
+    },
+    {
+        "mk_uuid": "4945817d-626f-43ea-b0b8-79c5f2ab97b1",
+        "mark": 64.3
+    },
+    {
+        "mk_uuid": "b7ebc349-84a0-41c6-89b8-e5971095fb94",
+        "mark": 77
+    },
+    {
+        "mk_uuid": "0afb7e52-39fd-418d-8272-f829642046e3",
+        "mark": 77
+    },
+    {
+        "mk_uuid": "a0d1db61-43f4-4604-9d7c-d8b0b28fd436",
+        "mark": 72.8
+    },
+    {
+        "mk_uuid": "6b4a131a-31f0-4122-9d54-8e8728584498",
+        "mark": 64.7
+    },
+    {
+        "mk_uuid": "53a130d4-7e99-4c2a-873f-c2d753a2ae2c",
+        "mark": 65.2
+    },
+    {
+        "mk_uuid": "460a336b-46d8-41fa-ae64-db6054a5cdb7",
+        "mark": 47
+    },
+    {
+        "mk_uuid": "7119ee61-3ff2-438a-9119-8a520d163898",
+        "mark": 86.8
+    },
+    {
+        "mk_uuid": "959396d0-6864-40b1-b83f-bbbb1d8d4de0",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "51a50a77-b0a2-4550-9539-dd0767aaaa65",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "6ebc7a8c-d2c8-4f4e-87cb-8fc3732ec625",
+        "mark": 82
+    },
+    {
+        "mk_uuid": "a8555580-7a51-4ec3-82c9-11ba09a157b2",
+        "mark": 51.3
+    },
+    {
+        "mk_uuid": "2135191f-ef7e-47b0-a72f-5c5d0c4d133e",
+        "mark": 72.9
+    },
+    {
+        "mk_uuid": "e5c10723-e0b7-4828-a3db-41e801dbd261",
+        "mark": 84
+    },
+    {
+        "mk_uuid": "b89c4ec4-f329-46be-9771-1263936261f0",
+        "mark": 61
+    },
+    {
+        "mk_uuid": "2e261aa7-7799-4552-a40c-2c3fb0bcfb8a",
+        "mark": 74
+    },
+    {
+        "mk_uuid": "b3f7f508-fd0c-4e35-aab7-69b32d70849c",
+        "mark": 94
+    },
+    {
+        "mk_uuid": "164011fe-9ec5-42d2-b762-021ff2fed4bc",
+        "mark": 64
+    },
+    {
+        "mk_uuid": "cc7197fa-05bd-4dc8-a05d-57ff68d01b86",
+        "mark": 70
+    },
+    {
+        "mk_uuid": "29651a3d-dee0-41d0-8ab6-f12e22f3f403",
+        "mark": 58.2
+    },
+    {
+        "mk_uuid": "66a8b914-27d1-4ed6-ab1c-9bf6942d3e03",
+        "mark": 72
+    },
+    {
+        "mk_uuid": "51739aa1-b39e-4167-80e6-0cc6207f0c9c",
+        "mark": 50.6
+    },
+    {
+        "mk_uuid": "2a44eabb-53ae-4eec-99e6-b10eaf3d33c5",
+        "mark": 59
+    },
+    {
+        "mk_uuid": "c6f1ea1b-7c21-4941-8adf-decb8baf2c25",
+        "mark": 47.3
+    },
+    {
+        "mk_uuid": "491fc93e-4591-489f-b513-1c192c51abec",
+        "mark": 58.7
+    },
+    {
+        "mk_uuid": "b49f7b65-1155-408e-99a8-2e8f2295e6c0",
+        "mark": 54.4
+    },
+    {
+        "mk_uuid": "34a95960-b512-4e01-8e77-8d6e32fdf190",
+        "mark": 64
+    },
+    {
+        "mk_uuid": "7020cf88-60f2-400b-b7df-2774e4227727",
+        "mark": 61
+    },
+    {
+        "mk_uuid": "eb9439b8-b583-4ea7-9897-5cf6f285f24c",
+        "mark": 60
+    },
+    {
+        "mk_uuid": "001fae25-49e6-4477-afc7-aaac9ae28ce3",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "36e1cc41-16b2-44ea-9d6b-9b9f1941b950",
+        "mark": 74
+    },
+    {
+        "mk_uuid": "12ebe0c7-a32b-47e6-ace8-b98b5e1e8e47",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "71deea80-9996-4178-b274-dd01b5c7529d",
+        "mark": 88
+    },
+    {
+        "mk_uuid": "e0134122-442a-4d12-b7a0-6cd8321dfcbd",
+        "mark": 80
+    },
+    {
+        "mk_uuid": "bbc7e495-55ca-4e75-a655-f67c591b088a",
+        "mark": 100
+    },
+    {
+        "mk_uuid": "4d653e64-3210-4fd9-9c4b-d74b7a9bdce9",
+        "mark": 61
+    },
+    {
+        "mk_uuid": "c59d6e91-f979-4a32-a78f-151ad02b3b7d",
+        "mark": 68
+    },
+    {
+        "mk_uuid": "ccac1e5c-5e67-4020-8675-eaada11f0ace",
+        "mark": 54
+    },
+    {
+        "mk_uuid": "78535b8d-065b-47b5-9d59-9209bc283d9d",
+        "mark": 84
+    },
+    {
+        "mk_uuid": "aee88de6-7154-474a-8f13-cc5a612581ff",
+        "mark": 88
     }
 ]

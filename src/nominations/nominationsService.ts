@@ -80,7 +80,7 @@ export class NominationsService {
                     cleanUpMkObject.essay.markups[i].isExpert,
                     indexForAnswer
                 );
-            } catch (e: any) {
+            } catch (e) {
                 throw new Error(
                     'Во время расчёта СТАР/СТЭР произошла ошибка \n' +
                         'разметка - ' +

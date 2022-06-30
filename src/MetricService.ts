@@ -63,7 +63,7 @@ export class MetricService {
                     entryMarkupObject.essay.markups[i].id,
                     entryMarkupObject.essay.markups[i].isExpert
                 );
-            } catch (e: any) {
+            } catch (e) {
                 throw new Error(
                     'Во время расчёта СТАР/СТЭР произошла ошибка \n' +
                         'разметка - ' +
@@ -81,7 +81,7 @@ export class MetricService {
                     entryMarkupObject.essay.markups[i].id,
                     entryMarkupObject.essay.markups[i].isExpert
                 );
-            } catch (e: any) {
+            } catch (e) {
                 throw new Error(
                     'Во время расчёта ОТАР произошла ошибка \n' +
                         'разметка - ' +

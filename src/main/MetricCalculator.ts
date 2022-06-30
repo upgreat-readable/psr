@@ -250,12 +250,31 @@ export class MetricCalculator implements IMetricCalculator {
     }
 
     setM7() {
-        this.mX7 = 0;
-        if (!Number.isInteger(this.mX7)) {
-            this.iterationPsrResult.metrics.M7 = Math.round(this.mX7);
-        } else {
-            this.iterationPsrResult.metrics.M7 = this.mX7;
+        /* Определяем вес М7 как 1, только для тех 46 эссе */
+        params.weight.M7 = 0;
+        if (excludedDoubles.includes(this.essayUuid)) {
+            params.weight.M7 = 1;
         }
+
+        /* Эссе расчитываем М7 либо как 100, если у экспертов было пояснение, либо как ср.значение */
+        let m7 = 0;
+        if (this._X.isExpert) {
+            for (const x of expertMSevens) {
+                if (x.mk_uuid == this._X.id) {
+                    m7 = x.mark;
+                }
+            }
+        } else {
+            for (const y of paricipantMSevens) {
+                if (y.mk_uuid == this._X.id) {
+                    m7 = y.mark;
+                }
+            }
+        }
+
+        this.mX7 = +m7.toFixed(2) / 100;
+
+        this.iterationPsrResult.metrics.M7 = this.mX7 * 100;
     }
 
     setMTotal() {
@@ -266,7 +285,7 @@ export class MetricCalculator implements IMetricCalculator {
                 denominationFinal++;
             }
         }
-        const gammaM7Coeff = 500 / 46; /* N(500) / n (48) eng*/
+        const gammaM7Coeff = 500 / 500; /* N(500) / n (48) eng*/
 
         console.log(params.weight.M7);
         let sum =
@@ -276,7 +295,7 @@ export class MetricCalculator implements IMetricCalculator {
             params.weight.M4 * this.mX4 +
             params.weight.M5 * this.mX5 +
             params.weight.M6 * this.mX6 +
-            params.weight.M7 * (500 / 46) * this.mX7;
+            params.weight.M7 * (500 / 500) * this.mX7;
 
         this.mTotal = sum / denominationFinal;
         if (!Number.isInteger(this.mTotal)) {
