@@ -328,7 +328,11 @@ export class MathMachine {
         }
 
         this.matchedFragmentsCount = countUniq;
-        this.matchedFragmentsPercent = countUniq / this.lossMatrix[0].length;
+        if (this.lossMatrix[0] !== undefined) {
+            this.matchedFragmentsPercent = countUniq / this.lossMatrix[0].length;
+        } else {
+            this.matchedFragmentsPercent = 0;
+        }
     }
 
     getMatchedFragmentsPercent() {
@@ -347,12 +351,17 @@ export class MathMachine {
         let result = [];
 
         for (let i in selections) {
-            result.push({
-                start: selections[i].startSelection,
-                end: selections[i].endSelection,
-                determFactor: selections[i][this.determFactor].toLocaleLowerCase(),
-                metricFactor: selections[i][this.metricFactor].toLocaleLowerCase(),
-            });
+            if (
+                selections[i][this.determFactor] !== undefined &&
+                selections[i][this.metricFactor] !== undefined
+            ) {
+                result.push({
+                    start: selections[i].startSelection,
+                    end: selections[i].endSelection,
+                    determFactor: selections[i][this.determFactor].toLocaleLowerCase(),
+                    metricFactor: selections[i][this.metricFactor].toLocaleLowerCase(),
+                });
+            }
         }
 
         return result;
