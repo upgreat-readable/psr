@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/upgreat-readable/psr/compare/v1.6.0...v1.9.0) (2022-07-04)
+
+### Features
+
+-   **new m7 scopes:** new m7 scopes for new stage ([75fd415](https://github.com/upgreat-readable/psr/commit/75fd4159b63fa1859d1768e8f62d88494cd40bd2))
+
 ## [1.8.0](https://github.com/upgreat-readable/psr/compare/v1.4.2...v1.8.0) (2022-06-30)
 
 ### Features
